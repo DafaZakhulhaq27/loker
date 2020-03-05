@@ -82,14 +82,14 @@
                                 </div>
                                 <div class="form-group col-lg-3 col-md-6">
                                     <label class="control-label mb-1">Kelurahan / Desa</label>
-                                    <select name="desa" id="desa" class="form-control js-example-basic-single" >
+                                    <select name="desa" id="desa" class="form-control js-example-basic-single" required>
                                          <option value="">-- Pilih Desa --</option>
                                     </select>
                                 </div>                                                                                                    
                             </div> 
                             <div class="form-group">
                                 <label class="control-label mb-1">Alamat (Wajib Diisi)</label>
-                                    <textarea name="location" id="location" rows="3"  class="form-control required"></textarea>
+                                    <textarea name="location" id="location" rows="3"  class="form-control" required></textarea>
                             </div>
                             <div class="form-group">
                             <label class="control-label mb-1">Pendidikan Terakhir (Wajib Diisi)</label>
@@ -123,12 +123,12 @@
                                 </select>
                             </div>  
                             <div class="form-group">
-                                <label class="control-label mb-1" required>Pengalama Bekerja (Wajib Diisi)</label>
-                                    <textarea name="work_exp" id="work_exp" rows="3"  class="form-control"></textarea>
+                                <label class="control-label mb-1" required>Pengalama Bekerja </label>
+                                    <textarea name="work_exp" id="work_exp" rows="3"  class="form-control" ></textarea>
                             </div>                                                                            
                             <div class="form-group">
                                 <label class="control-label mb-1" required>Kategori Pekerjaan (Wajib Diisi)</label>
-                                <select class="form-control js-example-basic-multiple" name="work_category[]" multiple="multiple" placeholder="Pili Kategori">
+                                <select class="form-control js-example-basic-multiple" name="work_category[]" multiple="multiple" placeholder="Pili Kategori" required>
 
                                     <?php
                                         $no = 0;
