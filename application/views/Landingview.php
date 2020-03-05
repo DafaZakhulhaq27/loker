@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/jquery.timepicker.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/icomoon.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/style.css">    
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/style.css">   
+     <link href="<?php echo base_url(); ?>assets/fontawesome/css/all.css" rel="stylesheet"> 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
     <style>
     .tab {
@@ -270,31 +271,32 @@
         <div class="row col-md-12" style="margin-top: 5%">
               <?php
                 foreach ($data_vacancy as $d) {
-                  echo'          
+                  ?>          
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-                                            <img src="'.base_url().'assets/admin/images/'.$d->picture.'" style="height : 200px ; width : 100% " >
+               <img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $d->picture ?>" style="height : 200px ; width : 100% " >
               </a>
 
                   <div class="text p-4 d-block " >
                     <div class="meta mb-3" style="text-align: center;">
-                      <div ><h3 class="heading"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap">'.$d->title.'</a><h3></div>
+                      <div ><h3 class="heading"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap"><?php echo $d->title ?></a><h3></div>
                     </div >
                     <div >
-                                                <p><b>Nama Perusahaan :</b> '.$d->name.'<br>
-                                                <b>Kategoi pekerjaan :</b>'.$d->name_category.'<br>
-                                                <b>Gaji :</b> '.$d->salary.'<br>
-                                                <b>Clossing Date :</b> '.$d->closing_date.'<br>
-                                                <b>Status Lowongan :</b> '.$d->status.'</p> 
+                                                <h5><?php echo $d->name ?></h5>
+                                                <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
+                                                <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
+                                                <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
+                                                <b>Clossing Date </b><?php echo $d->closing_date ?><br>
+                                                <b>Status Lowongan :</b><?php echo $d->status ?></p> 
                   </div>
-                      <div><a target="_blank" href="'.base_url().'Landing/get_vacancy_by_id/'.$d->id_vacancy.'" >Selengkapnya </a></div>                
+                      <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div>                
                   </div>
 
 
             </div>
           </div>
-                  ' ;
-                }
+                  
+              <?php   }
 
               ?>
         </div> 
