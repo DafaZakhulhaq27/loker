@@ -67,6 +67,77 @@
 }
 
 .paginat a:hover:not(.active) {background-color: #ddd;}    
+
+/*ribbon*/
+  .ribbon-wrapper {
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px
+}
+.ribbon {
+    font-size: 12px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: 'Montserrat Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: .05em;
+    line-height: 15px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    right: -11px;
+    top: 10px;
+    width: 100px;
+    height: 28px;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    background-color: #dedede;
+    background-image: -webkit-linear-gradient(top, #ffffff 45%, #dedede 100%);
+    background-image: -o-linear-gradient(top, #ffffff 45%, #dedede 100%);
+    background-image: linear-gradient(to bottom, #ffffff 45%, #dedede 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdedede', GradientType=0)
+}
+
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    border-top: 3px solid #9e9e9e;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    bottom: -3px
+}
+
+.ribbon:before {
+    left: 0
+}
+
+.ribbon:after {
+    right: 0
+}
+
+.ribbon.blue {
+    background-color: #1a8bbc;
+    background-image: -webkit-linear-gradient(top, #177aa6 45%, #1a8bbc 100%);
+    background-image: -o-linear-gradient(top, #177aa6 45%, #1a8bbc 100%);
+    background-image: linear-gradient(to bottom, #177aa6 45%, #1a8bbc 100%);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#177aa6', endColorstr='#ff1a8bbc', GradientType=0)
+}
+
+.ribbon.blue:before,
+.ribbon.blue:after {
+    border-top: 3px solid #115979
+}
     </style>
   <?php
     $notif = $this->session->flashdata('notif');
@@ -86,9 +157,10 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="#beranda" class="nav-link">Beranda</a></li>
-            <li class="nav-item"><a href="#carilowongan" class="nav-link">Cari Lowongan</a></li>            
+            <li class="nav-item"><a href="#carilowongan" class="nav-link">Cari Lowongan</a></li> 
+            <li class="nav-item"><a href="#lowonganpremium" class="nav-link">Rekomendasi</a></li>              
             <li class="nav-item"><a href="#pasanglowongan" class="nav-link">Pasang Lowongan Kerja</a></li>
-            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="nav-link" >Login</a></li>
+            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-outline-secondary" >Login/Daftar</a></li>
           </ul>
         </div>
       </div>
@@ -279,28 +351,103 @@
     </section>
 
 
+ <!-- lowongan premium -->
+    <section class="ftco-section" id="lowonganpremium">
+      <div class="container">
+          <div class="row mb-2 justify-content-center text-center"  data-aos="fade-up">
+            <div class="col-7 text-center  mb-2">
+              <h2 class="section-title">Rekomendasi Lowongan</h2>
+              <p class="lead"></p>
+            </div>
+          </div>
 
-    <!-- PASANG LOWONGAN -->
+          <div class="row">
 
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card" style="width: 20rem;">
+                <div class="ribbon-wrapper">
+                  <div class="ribbon blue">Premium</div>
+                </div>
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">Laravel Programmer</h3>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <p class="card-text">
+                    <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
+                    <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
+                    <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
+                    <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card" style="width: 20rem;">
+                <div class="ribbon-wrapper">
+                  <div class="ribbon blue">Premium</div>
+                </div>
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">Laravel Programmer</h3>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <p class="card-text">
+                    <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
+                    <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
+                    <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
+                    <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card" style="width: 20rem;">
+                <div class="ribbon-wrapper">
+                  <div class="ribbon blue">Premium</div>
+                </div>
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">Laravel Programmer</h3>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <p class="card-text">
+                    <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
+                    <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
+                    <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
+                    <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </div>
+              </div>
+            </div>     
+
+        </div>
+          <a href="#">Lihat semua lowongan <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </section>
+
+<!-- PASANG LOWONGAN -->
     <section class="ftco-section" id="pasanglowongan">
       <div class="container-fluid">
         <div class="row no-gutters justify-content-center">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2>Pasang Iklan Lowongan</h2>
+          <div class="col-md-4 text-center heading-section ftco-animate">
+            <img src="<?php echo base_url(); ?>assets/landing/images/undraw_bookmarks_r6up.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-md-6 text-center heading-section ftco-animate">
+            <h1>Pasang Iklan Lowongan</h1>
+            <p style="text-align: justify;">Cari para pekerjaan pilihaan di antara ribuan pekerja yang telah terdaftar, buatlah perusahaan impianmu. Pekerja yang handal akan menghasilkan perushaan yang baik</p>
+            <p>
+               <a  href="#" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-primary mt-1 py-3 px-4">Login</a> atau <a  href="#" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-warning mt-1 py-3 px-4">Daftar</a>
+            </p>
+           
           </div>
         </div>
-        <div class="row no-gutters justify-content-center">
-          <div class="block-3 d-md-flex ftco-animate" >
-            <div class="text text-center" style="width: 100% ">
-              <p>Cari para pekerjaan pilihaan di antara ribuan pekerja yang telah terdaftar, buatlah perusahaan impianmu. Pekerja yang handal akan menghasilkan perushaan yang baik</p>
-              <p><a  href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-primary  mt-3 py-3 px-4">Pasang Lowongan Pekerjaan</a></p>
-
-            </div>
-        </div>
-      </div>
     </section>
 
     <!-- PASANG LOWONGAN -->
+
 
 
 
