@@ -119,16 +119,11 @@
                     <div class="col-lg-9">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-md-flex no-block">
-                                    <h4 class="card-title">Lowongan Terpasang</h4>
-                                    <div class="ml-auto">
-                                    </div>
-                                </div>
                                     <div class="table-responsive mt-3">
-                                        <table class="table stylish-table mb-0">
+                                        <table class="table stylish-table mb-0 color-table warning-table">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
+                                                    <th>Lowongan Terpasang</th>
                                                     <th>Tanggal Terbit</th>
                                                     <th>Tanggal Penutupan</th>
                                                     <th>Pelamar</th>

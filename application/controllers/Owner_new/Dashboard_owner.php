@@ -11,7 +11,8 @@ class Dashboard_owner extends CI_Controller {
 			redirect("Landing");
 		}
         $this->load->model('Owner/M_vacancy','M_vacancy');		
-        $this->load->model('Owner/M_paket','M_paket');						
+        $this->load->model('Owner/M_paket','M_paket');	
+        $this->load->model('M_login');						
 
 	}
 
@@ -28,6 +29,30 @@ class Dashboard_owner extends CI_Controller {
 		$this->load->view('Element/Panel/header');
 		$this->load->view('Element/Panel/navbar');
 		$this->load->view('Owner_new/BerandaOwner_view', $data);
+		$this->load->view('Element/Panel/footer');
+	}
+
+	public function jobApplication() {
+
+    	$data = array(
+    		'applied_vacancy' => $this->M_vacancy->get_apllied_vacancy_perusahaan()
+    	);
+        $this->load->view('Element/Panel/head');
+		$this->load->view('Element/Panel/header');
+		$this->load->view('Element/Panel/navbar');
+		$this->load->view('Owner_new/JobApplication_view', $data);
+		$this->load->view('Element/Panel/footer');
+	}
+
+	public function jobInvitation() {
+
+    	$data = array(
+    		'applied_vacancy' => $this->M_vacancy->get_apllied_vacancy_perusahaan()
+    	);
+        $this->load->view('Element/Panel/head');
+		$this->load->view('Element/Panel/header');
+		$this->load->view('Element/Panel/navbar');
+		$this->load->view('Owner_new/JobInvitation_view', $data);
 		$this->load->view('Element/Panel/footer');
 	}
 

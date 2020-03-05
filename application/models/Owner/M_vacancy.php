@@ -240,6 +240,7 @@ class M_vacancy extends CI_Model{
         return $this->db->join('login', 'vacancy.id_login = login.id_login')
                         ->join('villages', 'vacancy.desa = villages.id')
                         ->where('vacancy.id_login', $this->session->userdata("id_login"))
+                        ->order_by('vacancy.status','ASC')
                         ->get('vacancy')
                         ->result();
     }    
@@ -251,6 +252,19 @@ class M_vacancy extends CI_Model{
                         ->where('login.id_login', 'apllied_vacancy.id_login')
                         ->from('apllied_vacancy')
                         ->count_all_results();
+    }  
+
+     public function get_apllied_vacancy_perusahaan()
+    {
+          $this->db->select('
+                apllied_vacancy.*, vacancy.*, apllied_vacancy.id_login as id_pelamar, vacancy.id_login as id_owner
+          ');
+          $this->db->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy');
+          $this->db->from('apllied_vacancy');
+          $this->db->where('vacancy.id_login',$this->session->userdata("id_login"));
+          $query = $this->db->get();
+          return $query->result();
+    
     }      
     public function get_apllied_vacancy($id)
     {

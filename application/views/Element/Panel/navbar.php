@@ -18,22 +18,22 @@
                          ?></li>
 
                          <?php if($this->session->userdata('level') == '2') { ?>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Dashboard_owner') ?>" aria-expanded="false"><i
                                     class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Vacancy/vacancy_result') ?>" aria-expanded="false"><i
                                     class="mdi mdi-file"></i><span class="hide-menu">Kelola Iklan</span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Owner_profil') ?>" aria-expanded="false"><i
                                     class="mdi mdi-brush"></i><span class="hide-menu">Edit Profil </span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Dashboard_owner/jobApplication') ?>" aria-expanded="false"><i
                                     class="mdi mdi-book-multiple"></i><span class="hide-menu">Job Applications </span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Dashboard_owner/jobInvitation') ?>" aria-expanded="false"><i
                                     class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Job Invitation </span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="ti-search"></i><span class="hide-menu">Cari Kandidat </span></a>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Search_resume') ?>" aria-expanded="false"><i class="ti-search"></i><span class="hide-menu">Cari Kandidat </span></a>
                             </li>
                         <?php } ?>    
                     </ul>

@@ -95,6 +95,15 @@ class M_Login extends CI_Model{
     }
   //VERIFIKASI
 
+    function getLoginByID($id)
+  {
+    $this->db->select('*');
+    $this->db->where('id_login',$id);
+    $query = $this->db->get('login');
+    return $query->row();
+
+  }
+
 
 
 }

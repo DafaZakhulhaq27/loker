@@ -17,7 +17,9 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script>
+
+
+   
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/popper/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -47,6 +49,32 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+        <!-- datatable and select2 -->
+    <script src="<?php echo base_url(); ?>assets/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
+
+
+    <!-- form add ons -->
+    <!-- ============================================================== -->
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/switchery/dist/switchery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js"
+        type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/dff/dff.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+    $('#myTable').DataTable(
+        {
+        "ordering": false,
+    }
+      );
+  } );
+    </script>
 </body>
 
 </html>
