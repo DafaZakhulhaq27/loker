@@ -71,24 +71,25 @@ class M_search extends CI_Model{
          $this->db->join('category', 'vacancy.category = category.id_category') ;                       
          $this->db->join('regencies', 'vacancy.kabupaten = regencies.id');
          $this->db->where('status', 'dibuka')    ;
-         if($this->input->post('tipe_worker') != NULL) {
+         if($this->session->userdata('tipe_worker') != NULL) {
             $this->db->where('tipe_worker', $this->session->userdata('tipe_worker') );
         }                
-        if($this->input->post('category') != NULL) {
+        if($this->session->userdata('category') != NULL) {
             $this->db->where('category', $this->session->userdata('category') );
         }                
-        if($this->input->post('vacancy.kabupaten') != NULL) {
+        if( $this->session->userdata('vacancy.kabupaten') != NULL) {
             $this->db->where('vacancy.kabupaten', $this->session->userdata('vacancy.kabupaten') );
         }                
-        if($this->input->post('education') != NULL) {
+        if($this->session->userdata('education') != NULL) {
             $this->db->where('education', $this->session->userdata('education') );
         }                
-        if($this->input->post('salary') != NULL) {
+        if($this->session->userdata('salary') != NULL) {
             $this->db->where('salary', $this->session->userdata('salary') );
         }                
-        if($this->input->post('title') != NULL) {
-            $this->db->where('title', $this->session->userdata('title') );
-        }   
+        if($this->session->userdata('title') != NULL) {
+          $this->db->like('title', $this->session->userdata('title') );
+          $this->db->or_like('login.name', $this->session->userdata('title') );
+}   
             
          $query = $this->db->get('vacancy');
          return  $query->result();
@@ -149,24 +150,25 @@ class M_search extends CI_Model{
          $this->db->join('regencies', 'vacancy.kabupaten = regencies.id');
          $this->db->where('status', 'dibuka')       ;                   
 
-                        if($this->input->post('tipe_worker') != NULL) {
-                            $this->db->where('tipe_worker', $this->session->userdata('tipe_worker') );
-                        }                
-                        if($this->input->post('category') != NULL) {
-                            $this->db->where('category', $this->session->userdata('category') );
-                        }                
-                        if($this->input->post('vacancy.kabupaten') != NULL) {
-                            $this->db->where('vacancy.kabupaten', $this->session->userdata('vacancy.kabupaten') );
-                        }                
-                        if($this->input->post('education') != NULL) {
-                            $this->db->where('education', $this->session->userdata('education') );
-                        }                
-                        if($this->input->post('salary') != NULL) {
-                            $this->db->where('salary', $this->session->userdata('salary') );
-                        }                
-                        if($this->input->post('title') != NULL) {
-                            $this->db->where('title', $this->session->userdata('title') );
-                        }   
+         if($this->session->userdata('tipe_worker') != NULL) {
+          $this->db->where('tipe_worker', $this->session->userdata('tipe_worker') );
+      }                
+      if($this->session->userdata('category') != NULL) {
+          $this->db->where('category', $this->session->userdata('category') );
+      }                
+      if( $this->session->userdata('vacancy.kabupaten') != NULL) {
+          $this->db->where('vacancy.kabupaten', $this->session->userdata('vacancy.kabupaten') );
+      }                
+      if($this->session->userdata('education') != NULL) {
+          $this->db->where('education', $this->session->userdata('education') );
+      }                
+      if($this->session->userdata('salary') != NULL) {
+          $this->db->where('salary', $this->session->userdata('salary') );
+      }                
+      if($this->session->userdata('title') != NULL) {
+        $this->db->like('title', $this->session->userdata('title') );
+        $this->db->or_like('login.name', $this->session->userdata('title') );
+      }   
                  
 
                         $query = $this->db->from('vacancy');

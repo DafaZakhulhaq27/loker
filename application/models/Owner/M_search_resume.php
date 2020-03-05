@@ -100,17 +100,19 @@ class M_search_resume extends CI_Model{
         $this->db->join('category', 'resume.work_category = category.id_category')   ;                     
         $this->db->join('provinces', 'resume.provinsi = provinces.id')       ;
         $this->db->join('regencies', 'resume.kabupaten = regencies.id');
-                        if($this->input->post('category') != NULL) {
+                        if( $this->session->userdata('category') != NULL) {
                             $this->db->where('work_category', $this->session->userdata('category') );
                         }                
-                        if($this->input->post('kabupaten') != NULL) {
+                        if($this->session->userdata('kabupaten') != NULL) {
                             $this->db->where('resume.kabupaten', $this->session->userdata('kabupaten') );
                         }                
-                        if($this->input->post('education') != NULL) {
+                        if($this->session->userdata('education')  != NULL) {
                             $this->db->where('last_education', $this->session->userdata('education') );
                         }
-                        if($this->input->post('title') != NULL) {
-                            $this->db->where('title', $this->session->userdata('title') );
+                        if( $this->session->userdata('title') != NULL) {
+                            $this->db->like('title', $this->session->userdata('title') );
+                            $this->db->or_like('login.name', $this->session->userdata('title') );
+
                         }                                                  
                         $this->db->group_by('resume.id_login');                         
                         $query = $this->db->get('resume');
@@ -124,18 +126,20 @@ class M_search_resume extends CI_Model{
         $this->db->join('regencies', 'resume.kabupaten = regencies.id');
         $this->db->join('districts', 'resume.kecamatan = districts.id');
         $this->db->join('villages', 'resume.desa = villages.id')  ;   
-        if($this->input->post('category') != NULL) {
+        if( $this->session->userdata('category') != NULL) {
             $this->db->where('work_category', $this->session->userdata('category') );
         }                
-        if($this->input->post('kabupaten') != NULL) {
+        if($this->session->userdata('kabupaten') != NULL) {
             $this->db->where('resume.kabupaten', $this->session->userdata('kabupaten') );
         }                
-        if($this->input->post('education') != NULL) {
+        if($this->session->userdata('education')  != NULL) {
             $this->db->where('last_education', $this->session->userdata('education') );
         }
-        if($this->input->post('title') != NULL) {
-            $this->db->where('title', $this->session->userdata('title') );
-        }                          
+        if( $this->session->userdata('title') != NULL) {
+            $this->db->like('title', $this->session->userdata('title') );
+            $this->db->or_like('login.name', $this->session->userdata('title') );
+
+        }                             
         $query = $this->db->from('resume');
         return  $query->count_all_results();        
     }    
