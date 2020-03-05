@@ -357,12 +357,12 @@
                     </div >
                     <div >
                                                 <h5><?php echo $d->name ?></h5>
+                                                <i class="fas fa-map-marker-alt"></i> <?php echo $d->name_regencies  ?><br>
                                                 <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
                                                 <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
                                                 <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
                                                 <b>Clossing Date </b><?php echo $d->closing_date ?><br>
                                                 <b>Status Lowongan :</b><?php echo $d->status ?><br>
-                                                <?php echo $d->description ?>
                                               </p> 
 
                   </div>
