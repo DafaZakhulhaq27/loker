@@ -232,9 +232,9 @@
                             <?php  
                                 if($this->session->userdata('level') == 2){
                                 $id_login = $this->session->userdata('id_login') ;
-                                $sql ="SELECT * FROM apllied_vacancy INNER JOIN vacancy ON apllied_vacancy.id_vacancy=vacancy.id_vacancy INNER JOIN login ON vacancy.id_login=vacancy.id_login WHERE read_owner=0 AND vacancy.id_login=$id_login AND login.id_login=apllied_vacancy.id_login";
-                                $query = $this->db->query($sql);    
-                                $notif = $query->result() ;
+                                    $sql ="SELECT * FROM apllied_vacancy INNER JOIN vacancy ON apllied_vacancy.id_vacancy=vacancy.id_vacancy INNER JOIN login ON vacancy.id_login=vacancy.id_login WHERE read_owner=0 AND vacancy.id_login=$id_login AND login.id_login=apllied_vacancy.id_login";
+                                    $query = $this->db->query($sql);    
+                                    $notif = $query->result() ;
                                 $total = 0 ;
                                     foreach ($notif as $q ) { $total+=1 ; }
                                 echo '<span class="count bg-primary">'.$total.'</span>
@@ -404,7 +404,7 @@
 
         jQuery.getJSON('<?php echo base_url() ; ?>Owner/Vacancy/get_apllied_vacancy/'+id, function(data){
             jQuery.each(data, function(index,value){
-                jQuery('#data_app').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'/'+value.email+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td><a  href="<?php echo base_url() ?>Owner/Vacancy/accept_app/'+value.id_apllied_vacancy+'" class="btn btn-success"  style="color : white ;" >Terima </a></td></tr>');
+                jQuery('#data_app').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'/'+value.id_apllied_vacancy+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td><a  href="<?php echo base_url() ?>Owner/Vacancy/accept_app/'+value.id_apllied_vacancy+'/'+value.email+'" class="btn btn-success"  style="color : white ;" >Terima </a></td></tr>');
             })
         });
     } 

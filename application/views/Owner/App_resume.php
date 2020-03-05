@@ -60,6 +60,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                    <?php 
+                                $id_login = $this->uri->segment('4') ;
+                                $sql ="SELECT * FROM apllied_vacancy  WHERE id_login=$id_login AND status_app = 'belum ada kabar' ";
+                                $query = $this->db->query($sql);    
+                                $notif = $query->result() ;
+                            $total = 0 ;
+                                foreach ($notif as $q ) { $total+=1 ; }
+                                  if($total > 1) {
+                                    echo '
+                                    <a  type="button" class="btn btn-success" style="color : white ;" href="'.base_url().'Owner/Vacancy/accept_app/'.$this->uri->segment('5').'/'.$data_resume_download->email.'"> Terima Pekerja </a>
+                                    ' ;
+
+                                  }
+                    ?>
+                    <div class="card" >
+                    </div>    
+                </div>                    
                 </div>
 
                 <div class="row">

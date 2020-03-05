@@ -110,7 +110,7 @@ class M_search_resume extends CI_Model{
                             $this->db->where('last_education', $this->session->userdata('education') );
                         }
                         if( $this->session->userdata('title') != NULL) {
-                            $this->db->like('title', $this->session->userdata('title') );
+                            $this->db->like('name_resume', $this->session->userdata('title') );
                             $this->db->or_like('login.name', $this->session->userdata('title') );
 
                         }                                                  
