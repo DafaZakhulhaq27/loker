@@ -158,13 +158,13 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 80px"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 40px"
                                     src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user" class="rounded-circle" /></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user"></div>
+                                            <div class="u-img"><img style="width: 40px" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user"></div>
                                             <div class="u-text mt-1">
                                                 <h5><?php echo $this->session->userdata('name') ; ?></h5>
                                                 <p class="text-muted"><!-- <?php echo $this->session->userdata('email') ; ?> --></p><a href="profile.html"

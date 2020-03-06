@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/landing/css/style.css">    
+     <link href="<?php echo base_url(); ?>assets/fontawesome/css/all.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
     <style>
     .tab {

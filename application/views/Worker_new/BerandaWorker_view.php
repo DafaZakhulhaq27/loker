@@ -101,10 +101,10 @@
                                 <div class="d-flex flex-row">
                                     <div
                                         class="round round-lg text-white d-inline-block text-center rounded-circle bg-primary">
-                                        <i class="mdi mdi-cart-outline"></i></div>
+                                        <i class="fab fa-wpforms"></i></div>
                                     <div class="ml-2 align-self-center">
-                                        <h3 class="mb-0 font-weight-light"><a href="#">Pasang Iklan</a></h3>
-                                        <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Pasang <i class="fas fa-check"></i></span></h5>
+                                        <h3 class="mb-0 font-weight-light"><a href="#">Resume</a></h3>
+                                        <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Buat <i class="fas fa-check"></i></span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -123,27 +123,22 @@
                                         <table class="table stylish-table mb-0 color-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Lowongan Terpasang</th>
-                                                    <th>Tanggal Terbit</th>
-                                                    <th>Tanggal Penutupan</th>
-                                                    <th>Pelamar</th>
-                                                    <th>Status</th>
+                                                    <th>Judul Resume</th>
+                                                    <th>Tanggal Dibuat</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><h7><a href="#">PROGRAMMER LARAVEL LPKN training center</a></h7></td>
+                                                    <td><h7><a href="#">Web Developer</a></h7></td>
                                                     <td>3 March 2020</td>
-                                                    <td>3 Februari 2020</td>
-                                                    <td><a href="#"><h3>15</h3></a></td>
-                                                    <td><span class="badge badge-warning px-2 py-1">Telah Terbit</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><h7><a href="#">Desain Grafis LPKN training center</a></h7></td>
-                                                    <td>3 March 2020</td>
-                                                    <td>3 Februari 2020</td>
-                                                    <td><a href="#"><h3>20</h3></a></td>
-                                                    <td><span class="badge badge-danger px-2 py-1">Ditutup</span></td>
+                                                    <td>
+                                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                      <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                                                      <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                      <button type="button" class="btn btn-dark"><i class="fas fa-download"></i></button>
+                                                    </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -152,19 +147,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="card card-outline-warning">
-                            <div class="card-header">
-                                <h4 class="mb-0 text-white">Membership</h4></div>
+                   <div class="col-lg-3 col-md-6">
+                        <div class="card">
                             <div class="card-body">
-                                <h2 class="card-title">Profesional</h2>
-                                <p class="card-text text-center">
-                                    <p><b>Maksimal Posting</b> <span class="badge badge-light-info">12</span></p>
-                                    <p><b>Maksimal Durasi Waktu</b> <span class="badge badge-light-success">12</span></p>
-                                    <p><b>Maksimal Tawaran Pekerjaan</b> <span class="badge badge-light-warning">23</span></p>
-                                    <p><b>Tanggal Kadaluarsa</b> <span class="badge badge-light-warning">2023-03-18</span></p>
-                                </p>
-                                <button type="button" class="btn btn-dark"><i class="fas fa-cloud-upload-alt"></i> Perbarui Paket</button>
+                                <div class="d-flex flex-row">
+                                    <div
+                                        class="round round-lg text-white d-inline-block text-center rounded-circle bg-danger">
+                                       <i class="fas fa-briefcase"></i></div>
+                                    <div class="ml-2 align-self-center">
+                                        <h3 class="mb-0 font-weight-light"><a href="#">2</a></h3>
+                                        <h5 class="text-muted mb-0">Job Invitation</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

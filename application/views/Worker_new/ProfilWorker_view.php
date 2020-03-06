@@ -52,44 +52,13 @@
                                 <form action="#" class="form-horizontal form-bordered">
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Perusahaan</label>
+                                            <label class="control-label text-right col-md-3">Nama Lengkap</label>
                                             <div class="col-md-9">
                                                 <input type="text" value="<?php echo $data_profil->name ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Bergerak dibidang</label>
-                                            <div class="col-md-9">
-                                                <select class="form-control custom-select">
-                                                    <option><?php echo $this->M_profile->getSectorByID($data_profil->sector)->name_sector
-                                                     ?></option>
-                                                    <?php foreach ($data_sector as $ds) { ?>
-                                                        <option value="<?php echo $ds->id_sector ?>"><?php echo $ds->name_sector ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Deskripsi Perusahaan</label>
-                                            <div class="col-md-9">
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><?php echo $data_profil->description ?></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Jumlah Karyawan</label>
-                                            <div class="col-md-9">
-                                                <select class="form-control custom-select">
-                                                    <option value="<?php echo $data_profil->num_employer ?>"><?php echo $data_profil->num_employer ?></option>
-                                                    <option value="0 - 10">0 - 10</option>
-                                                    <option value="10 - 50">10 - 50</option>
-                                                    <option value="50 - 100">50 - 100</option>
-                                                    <option value="100 - 1000">100 - 1000</option>
-                                                    <option value="Lebih dari 1000">Lebih dari 1000</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">No Telp Kantor</label>
+                                            <label class="control-label text-right col-md-3">No HP</label>
                                             <div class="col-md-9">
                                                 <input type="text" value="<?php echo $data_profil->phone ?>" class="form-control">
                                             </div>
@@ -109,40 +78,10 @@
                                         </div>
                                     </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Foto Profil Perusahaan</label>
+                                            <label class="control-label text-right col-md-3">Foto Profil</label>
                                             <div class="col-md-9">
                                                 <input type="file" class="form-control" placeholder="">
                                                 <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ?>"> 
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Alamat 1 Perusahaan</label>
-                                            <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->address1 ?>" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Alamat 2 Perusahaan</label>
-                                            <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->address2 ?>" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kota</label>
-                                            <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->city ?>" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Provinsi</label>
-                                            <div class="col-md-9">
-                                                <input type="text" placeholder="" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kode Pos</label>
-                                            <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->postcode ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -193,7 +132,7 @@
                 </div>
                 <!-- Row -->
 
-                 <div class="row">
+                  <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">

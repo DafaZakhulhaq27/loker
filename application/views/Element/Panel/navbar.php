@@ -10,8 +10,8 @@
                             if ($this->session->userdata('level') == '2') {
                                 echo "AKUN PERUSAHAAN";
                             } elseif ($this->session->userdata('level') == '1') {
-                                echo "AKUN PELAMAR";
-                            } elseif ($this->session->userdata('level') == '1') {
+                                echo "AKUN PENCARI KERJA";
+                            } else {
                                 echo "ADMIN";
                             }
 
@@ -35,7 +35,27 @@
                             </li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Search_resume') ?>" aria-expanded="false"><i class="ti-search"></i><span class="hide-menu">Cari Kandidat </span></a>
                             </li>
-                        <?php } ?>    
+                        <?php } elseif($this->session->userdata('level') == '1') {?> 
+                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Dashboard_worker') ?>" aria-expanded="false"><i
+                                    class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Worker_profil') ?>" aria-expanded="false"><i
+                                    class="mdi mdi-brush"></i><span class="hide-menu">Edit Profil </span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-file-chart"></i><span class="hide-menu">Buat Resume </span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Bookmark') ?>" aria-expanded="false"><i
+                                    class="mdi mdi-book-open-variant"></i><span class="hide-menu">Bookmark </span></a>
+                            </li>
+                             <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-book-multiple"></i><span class="hide-menu">Lamaran Pekerjaan </span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Undangan Pekerjaan </span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="ti-search"></i><span class="hide-menu">Cari Lowongan </span></a>
+                            </li>
+                        <?php } ?>   
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
