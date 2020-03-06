@@ -236,8 +236,11 @@ class M_search extends CI_Model{
   }         
     public function get_vacancy_applied()
     {
-        return $this->db->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
+        return $this->db->select('
+                apllied_vacancy.*, vacancy.*, apllied_vacancy.id_login as id_pelamar, vacancy.id_login as id_owner')
+                        ->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
                         ->where('apllied_vacancy.id_login', $this->session->userdata('id_login')) 
+                        ->order_by('apllied_vacancy.status_app', 'DESC')
                         ->get('apllied_vacancy')
                         ->result();
     }             

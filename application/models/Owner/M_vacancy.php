@@ -254,6 +254,7 @@ class M_vacancy extends CI_Model{
                         ->count_all_results();
     }  
 
+     /*code by saulia*/
      public function get_apllied_vacancy_perusahaan()
     {
           $this->db->select('

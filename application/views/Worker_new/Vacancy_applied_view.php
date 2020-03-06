@@ -13,10 +13,10 @@
                 <!-- dashboard -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-12 align-self-center">
-                        <h3 class="text-themecolor">Bookmark</h3>
+                        <h3 class="text-themecolor">Lamaran Pekerjaan</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Bookmark</li>
+                            <li class="breadcrumb-item active">Lamaran Pekerjaan</li>
                         </ol>
                     </div>
                     <div class="col-md-7 col-12 align-self-center d-none d-md-block">
@@ -47,40 +47,35 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Bookmark</h4>
-                                <h6 class="card-subtitle">Lowongan Tersimpan</h6>
+                                <h4 class="card-title">Lowongan Terdaftar</h4>
+                                <h6 class="card-subtitle"></h6>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered no-wrap">
+                                    <table class="table color-table muted-table" id="myTable">
                                         <thead>
                                             <tr>
                                                 <th>Lowongan</th>
                                                 <th>Kategori</th>
                                                 <th>Perusahaan</th>
-                                                <th>Closing Date</th>
+                                                <th>Apply Date</th>
                                                 <th>Status</th>
-                                                <th class="text-nowrap"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($data_bookmark as $db) { ?>
+                                            <?php foreach ($get_vacancy_applied as $db) { ?>
                                             <tr>
-                                                <td><h5><?php echo $db->title ?></h5></td>
-                                                <td><?php echo $db->name_category ?></td>
-                                                <td><?php echo $db->name ?></td>
+                                                <td><a href="#"><h5><?php echo $db->title ?></h5></a></td>
+                                                <td><?php echo $this->M_master->getCategoryByID($db->category)->name_category  ?></td>
+                                                <td><?php echo $this->M_login->getLoginByID($db->id_owner)->name  ?></td>
                                                 <td><?php 
-                                                $date=date_create($db->closing_date);
+                                                $date=date_create($db->date_created_app);
                                                 echo date_format($date,"d M Y"); ?>
                                                 </td>
                                                 <td><?php
-                                                if ($db->status == 'ditutup') { ?>
-                                                    <span class="badge badge-danger px-2 py-1">Ditutup</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-info px-2 py-1">Dibuka</span>
+                                                if ($db->status == 'diterima') { ?>
+                                                    <span class="badge badge-info px-2 py-1">Diterima</span>
+                                                <?php } else {?>
+                                                    <span class="badge badge-warning px-2 py-1">Belum ada kabar</span>
                                                 <?php } ?>
-                                                </td>
-                                                <td class="text-nowrap">
-                                                    <a href="#" class="btn btn-success" data-toggle="tooltip" data-original-title=""> Daftar </a>
-                                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" data-original-title=""> Hapus </a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

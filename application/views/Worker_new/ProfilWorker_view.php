@@ -41,17 +41,22 @@
                 <!-- ============================================================== -->
 
                 <!-- content -->
-                                <!-- Row -->
+
+                <!-- Row -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="mb-0 text-white">Informasi Perusahaan</h4>
+                                <h4 class="mb-0 text-white">Other Sample form</h4>
                             </div>
                             <div class="card-body">
-                                <form action="#" class="form-horizontal form-bordered">
+                                <form action="#">
                                     <div class="form-body">
-                                        <div class="form-group row">
+                                        <h3 class="card-title">Person Info</h3>
+                                        <hr>
+                                        <div class="row pt-3">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Nama Lengkap</label>
                                             <div class="col-md-9">
                                                 <input type="text" value="<?php echo $data_profil->name ?>" class="form-control">
@@ -77,41 +82,50 @@
                                             </div>
                                         </div>
                                     </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row last">
                                             <label class="control-label text-right col-md-3">Foto Profil</label>
                                             <div class="col-md-9">
                                                 <input type="file" class="form-control" placeholder="">
                                                 <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ?>"> 
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                        <label for="twitter" class="col-sm-3 text-right control-label">Twitter</label>
-                                        <div class="col-sm-9">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <i class="fab fa-twitter"></i>
-                                                    </span>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <h3 class="p-2 rounded-title mt-4">Social Networks</h3>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group row">
+                                                <label for="twitter" class="col-sm-3 text-right control-label">Twitter</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">
+                                                                <i class="fab fa-twitter"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" value="<?php echo $data_profil->twitter ?>" class="form-control" id="twitter"
+                                                            placeholder="">
+                                                    </div>
                                                 </div>
-                                                <input type="text" value="<?php echo $data_profil->twitter ?>" class="form-control" id="twitter"
-                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group row last">
+                                                <label for="facebook" class="col-sm-3 text-right control-label">Facebook</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">
+                                                                <i class="fab fa-facebook-f"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" value="<?php echo $data_profil->facebook ?>" class="form-control" id="facebook"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row last">
-                                        <label for="facebook" class="col-sm-3 text-right control-label">Facebook</label>
-                                        <div class="col-sm-9">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                        <i class="ti-world"></i>
-                                                    </span>
-                                                </div>
-                                                <input type="text" value="<?php echo $data_profil->facebook ?>" class="form-control" id="facebook"
-                                                    placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">
@@ -131,6 +145,7 @@
                     </div>
                 </div>
                 <!-- Row -->
+
 
                   <div class="row">
                     <div class="col-lg-12">

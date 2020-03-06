@@ -17,6 +17,7 @@ class M_bookmark extends CI_Model{
                         ->join('login', 'vacancy.id_login = login.id_login')         
                         ->join('category', 'vacancy.category = category.id_category')
                         ->where('bookmark.id_login', $this->session->userdata("id_login"))
+                        ->order_by('vacancy.status', 'ASC')
                         ->get('bookmark')
                         ->result();
     }               

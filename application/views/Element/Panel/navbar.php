@@ -42,13 +42,13 @@
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Worker_profil') ?>" aria-expanded="false"><i
                                     class="mdi mdi-brush"></i><span class="hide-menu">Edit Profil </span></a>
                             </li>
-                            <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Resume') ?>" aria-expanded="false"><i
                                     class="mdi mdi-file-chart"></i><span class="hide-menu">Buat Resume </span></a>
                             </li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Bookmark') ?>" aria-expanded="false"><i
                                     class="mdi mdi-book-open-variant"></i><span class="hide-menu">Bookmark </span></a>
                             </li>
-                             <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Search_vacancy/get_vacancy_applied') ?>" aria-expanded="false"><i
                                     class="mdi mdi-book-multiple"></i><span class="hide-menu">Lamaran Pekerjaan </span></a>
                             </li>
                             <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Undangan Pekerjaan </span></a>
