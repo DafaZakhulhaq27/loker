@@ -148,6 +148,10 @@
                 //templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
             });
         });
+
+              jQuery(document).ready(function() {
+            jQuery('.js-example-basic-multiple').select2();
+    });
     </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->

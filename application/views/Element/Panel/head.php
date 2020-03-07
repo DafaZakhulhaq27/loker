@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
    <!--  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/material-pro/assets/images/favicon.png"> -->
-    <title>LOKER</title>
+    <title></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>assets/material-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">

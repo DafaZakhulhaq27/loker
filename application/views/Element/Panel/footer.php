@@ -68,12 +68,13 @@
 
     <script type="text/javascript">
         $(document).ready( function () {
-    $('#myTable').DataTable(
-        {
-        "ordering": false,
-    }
-      );
-  } );
+                $('#myTable').DataTable(
+            {
+            "ordering": false,
+            }
+              );
+      } );
+
     </script>
 </body>
 

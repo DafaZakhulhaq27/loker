@@ -19,7 +19,7 @@ class Auth extends CI_Controller {
 	      return $str ;
       }
   //LOGIN
-	  public function do_login()
+	/*  public function do_login()
 	  {
 	    if($this->session->userdata('logged_in') == TRUE){
 				if($this->session->userdata('level') == 1){
@@ -50,7 +50,43 @@ class Auth extends CI_Controller {
 	          redirect('Landing');
 	        }
 	      }
+	   }*/
+
+	   //login new
+	    public function do_login()
+	  {
+	    if($this->session->userdata('logged_in') == TRUE){
+				if($this->session->userdata('level') == 1){
+		          $this->session->set_flashdata('type', 'login');  					
+			  	  redirect('Worker_new/Dashboard_worker');
+				}elseif($this->session->userdata('level') == 2){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Owner_new/Dashboard_owner');
+				}elseif($this->session->userdata('level') == 3){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Admin/Data_user');
+				}		    
+			} else {
+	        if($this->M_login->user_check() == TRUE){
+				if($this->session->userdata('level') == 1){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Worker_new/Dashboard_worker');
+				}elseif($this->session->userdata('level') == 2){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Owner_new/Dashboard_owner');
+				}elseif($this->session->userdata('level') == 3){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Admin/Data_user');
+				}	        	
+	        } else {
+	          $this->session->set_flashdata('notif', 'Usernamae atau password salah!, cek kembali username dan password anda');
+	          $this->session->set_flashdata('type', 'error');
+	          redirect('Landing');
+	        }
+	      }
 	   }
+
+
 	  public function logout(){
 	    if($this->session->userdata('logged_in') == TRUE){
 				$this->session->sess_destroy();		

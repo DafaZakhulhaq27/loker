@@ -164,7 +164,7 @@
                                     <p><b>Maksimal Tawaran Pekerjaan</b> <span class="badge badge-light-warning">23</span></p>
                                     <p><b>Tanggal Kadaluarsa</b> <span class="badge badge-light-warning">2023-03-18</span></p>
                                 </p>
-                                <button type="button" class="btn btn-dark"><i class="fas fa-cloud-upload-alt"></i> Perbarui Paket</button>
+                                <a href="<?php echo site_url('Owner_new/Paket') ?>" type="button" class="btn btn-dark"><i class="fas fa-cloud-upload-alt"></i> Perbarui Paket</a>
                             </div>
                         </div>
                     </div>
@@ -187,4 +187,5 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
- 
+
+            

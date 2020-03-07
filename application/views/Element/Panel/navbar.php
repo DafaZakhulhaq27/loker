@@ -27,6 +27,8 @@
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Owner_profil') ?>" aria-expanded="false"><i
                                     class="mdi mdi-brush"></i><span class="hide-menu">Edit Profil </span></a>
                             </li>
+                            <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Paket') ?>" aria-expanded="false"><i class="mdi mdi-cart-outline"></i><span class="hide-menu">Beli Paket </span></a>
+                            </li>
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Owner_new/Dashboard_owner/jobApplication') ?>" aria-expanded="false"><i
                                     class="mdi mdi-book-multiple"></i><span class="hide-menu">Job Applications </span></a>
                             </li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Loker</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -152,7 +152,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">LOKER</a>
+        <a class="navbar-brand" href="index.html">SDM Apsintegra</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -250,7 +250,7 @@
                   <span class="wrap"></span>
                 </strong>
               </h1>
-              <p>Loker Adalah Website Penyedia daskdnkas dkas dkas dkasnd kas dnskajd naskd naskj </p>
+              <p></p>
               <p><a href="#carilowongan" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span> Ayo Mulai</a></p>
             </div>
           </div>
