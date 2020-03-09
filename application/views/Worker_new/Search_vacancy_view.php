@@ -50,7 +50,7 @@
                                 <h4 class="card-title">Temukan Pekerjaan Impianmu</h4>
                                 <h6 class="card-subtitle">
                                     <code></code></h6>
-                        <form action="<?php echo base_url() ; ?>Worker/Search_vacancy/get_vacancy_by_search" method="post">
+                        <form action="<?php echo base_url() ; ?>Worker_new/Search_vacancy/get_vacancy_by_search" method="post">
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <h5 class="mt-4 mb-2">Pilih Kategori</h5>
@@ -132,33 +132,41 @@
 
                 <!-- Row -->
                 <div class="row">
+                    <?php 
+                    $id_login = $this->session->userdata('id_login') ;
+                    foreach ($data_vacancy as $d) {
+                        $sql ="SELECT * FROM bookmark WHERE id_login=$id_login AND id_vacancy=$d->id_vacancy ";
+                        $query = $this->db->query($sql);
+                        $sql2 ="SELECT * FROM apllied_vacancy WHERE id_login=$id_login AND id_vacancy=$d->id_vacancy ";
+                        $query2 = $this->db->query($sql2);
+                    ?>
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Special title treatment</h3>
-                                 <img height="150px" class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                                <h3 class="card-title"><?php echo $d->title ?></h3>
+                                 <img height="150px" class="card-img-top" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $d->picture ?>" alt="Card image cap">
                                 <p class="card-text">
                                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
-                                    <p style="margin-top: -15px"><i class="fas fa-dollar-sign"></i> <a href="#"> Login Lihat Gaji</a></p>
+                                    <p style="margin-top: -15px"><i class="fas fa-dollar-sign"></i> <?php echo $d->salary ?></p>
                                     <p style="margin-top: -15px" align="justify">
                                         PT. Nawastra mencari programmer berpengalaman untuk Programmer Simulasi & Strategi. Kandidat yang menyukai Mixed Reality dan siap dalam tantangan ...
                                     </p>
                                 </p>
-                                <a href="#" class="btn btn-success">Selengkapnya</a>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-star"></i> Bookmark</a>
+                                <?php if($query2->num_rows() == 0){ ?>
+                                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                                <?php } else { ?>
+                                    <a href="#"><button class="btn btn-success" disabled>Selengkapnya</button></a>
+                                <?php }
+                                 if($query->num_rows() == 0){ ?>
+                                    <a href="#" class="btn btn-danger" disabled><i class="fas fa-star"></i> Bookmark</a>
+                                <?php } else { ?>
+                                    <a href="#"><button class="btn btn-danger" disabled><i class="fas fa-star"></i> Bookmark</button></a>
+                                <?php  } ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Special title treatment</h3>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
+                <?php } ?>
                 </div>
                 <!-- End Row -->
 

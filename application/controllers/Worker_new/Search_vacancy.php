@@ -70,8 +70,13 @@ class Search_vacancy extends CI_Controller {
 	   		    $data['data_vacancy'] = $rows ;   
 	   		    $data['pagination'] = $this->pagination->create_links() ;   
 	   		    $data['start'] = $start ;   
-	   		    $data['main_view'] 		= 'Worker/Get_vacancy_search_view';
-				$this->load->view('Index',$data);
+	   		    
+				$this->load->view('Element/Panel/head_addons');
+				$this->load->view('Element/Panel/header');
+				$this->load->view('Element/Panel/navbar');
+				$this->load->view('Worker_new/Search_vacancy_view', $data);
+				$this->load->view('Element/Panel/footer_addons');
+
         	}else{
 			    $this->session->set_flashdata('notif', 'Lengkapi resume / profile terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
