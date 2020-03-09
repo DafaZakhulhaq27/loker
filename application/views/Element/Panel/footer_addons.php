@@ -149,9 +149,44 @@
             });
         });
 
-              jQuery(document).ready(function() {
-            jQuery('.js-example-basic-multiple').select2();
+    //select2
+    jQuery(document).ready(function() {
+        jQuery('.js-example-basic-multiple').select2();
     });
+
+    //get daerah
+    function get_kab(prov)
+    {
+        jQuery('#kabupaten').empty();
+
+        jQuery.getJSON('<?php echo base_url() ; ?>Worker_new/Resume/get_kabupaten/'+prov, function(data){
+            jQuery.each(data, function(index,value){
+                jQuery('#kabupaten').append('<option value="'+value.id+'">'+value.name_regencies+'</option>');
+            })
+        });
+    }    
+
+    function get_kec(kab)
+    {
+        jQuery('#kecamatan').empty();
+
+        jQuery.getJSON('<?php echo base_url() ; ?>Worker_new/Resume/get_kecamatan/'+kab, function(data){
+            jQuery.each(data, function(index,value){
+                jQuery('#kecamatan').append('<option value="'+value.id+'">'+value.name_districts+'</option>');
+            })
+        });
+    } 
+
+    function get_desa(kec)
+    {
+        jQuery('#desa').empty();
+
+        jQuery.getJSON('<?php echo base_url() ; ?>Worker_new/Resume/get_desa/'+kec, function(data){
+            jQuery.each(data, function(index,value){
+                jQuery('#desa').append('<option value="'+value.id+'">'+value.name_villages+'</option>');
+            })
+        });
+    }      
     </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->

@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label  class="control-label mb-1">Foto Profile</label>
-                                                <input type="file" name="foto" class="form-control-file" >
+                                                <input type="file" name="picture" class="form-control-file" >
                                                 <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ;  ?>" >    
                                             </div> 
                                             <h3>Sosial Media</h3>                                           

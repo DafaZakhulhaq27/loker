@@ -50,34 +50,34 @@
                                 <h4 class="mb-0 text-white">Resume Anda</h4>
                             </div>
                             <div class="card-body">
-                                <form action="#" class="form-horizontal form-bordered">
+                                <form action="<?php echo base_url('Worker_new/Resume/input_resume'); ?>" class="form-horizontal form-bordered" method="post">
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Judul Resume</label>
+                                            <label class="control-label col-md-3">Judul Resume<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="Contoh: Web Progammer" class="form-control">
+                                                <input type="text" name="name_resume" placeholder="Contoh: Web Progammer" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Ringkasan Profile</label>
+                                            <label class="control-label col-md-3">Ringkasan Profile</label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea rows="6" name="profile" type="text" class="form-control"></textarea>
                                                 <small class="form-control-feedback"> Promosikan diri anda dengan singkat jelas dan padat. Untuk menjaga privasi anda jangan menampilkan info sensitif seperti no hp/telp, alamat email pada bidang ini. </small>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label col-md-3">Gender</label>
+                                            <label class="control-label col-md-3">Gender<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select class="form-control custom-select">
-                                                    <option value="">Laki-laki</option>
-                                                    <option value="">Wanita</option>
+                                                <select class="form-control custom-select" name="gender">
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Wanita">Wanita</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label col-md-3">Tahun Kelahiran</label>
+                                            <label class="control-label col-md-3">Tahun Kelahiran<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select class="select2 form-control custom-select">
+                                                <select class="select2 form-control custom-select" name="birth_year">
                                                     <option value=""></option>
                                                         <?php  
                                                             for($i = 1970 ; $i < 2030 ; $i++){
@@ -90,7 +90,7 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Status Pernikahan</label>
                                             <div class="col-md-9">
-                                                <select class="form-control custom-select">
+                                                <select class="form-control custom-select" name="married">
                                                     <option value="Belum Menikah">Belum Menikah</option>
                                                     <option value="Menikah">Menikah</option>
                                                     <option value="Cerai">Cerai</option>
@@ -100,9 +100,9 @@
                                         <!-- provinsi kab dll -->
                                         <div class="row">
                                             <div class="form-group col-md-6 col-lg-3">
-                                                <label class="control-label">Provinsi</label>
-                                                <select class="select2 form-control custom-select">
-                                                    <option></option>
+                                                <label class="control-label">Provinsi<span class="text-danger">*</span></label>
+                                                <select class="select2 form-control custom-select" id="provinsi" name="provinsi" onchange="get_kab(this.value)">
+                                                    <option value=""></option>
                                                     <?php
                                                         $no = 0;
                                                         foreach ($data_prov as $d) {
@@ -112,78 +112,78 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
-                                                <label class="control-label">Kabupaten/Kota</label>
-                                                <select class="select2 form-control custom-select">
+                                                <label class="control-label">Kabupaten/Kota<span class="text-danger">*</span></label>
+                                                <select class="select2 form-control custom-select" id="kabupaten" name="kabupaten" onchange="get_kec(this.value)">
                                                    
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kecamatan</label>
-                                                <select class="select2 form-control custom-select">
+                                                <select class="select2 form-control custom-select" id="kecamatan" name="kecamatan" onchange="get_desa(this.value)">
                                                     
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kelurahan / Desa</label>
-                                                <select class="select2 form-control custom-select">
+                                                <select name="desa" id="desa" class="select2 form-control custom-select">
                                                     
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label  col-md-3">Alamat</label>
+                                            <label class="control-label col-md-3">Alamat <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea rows="6" name="location" type="text" class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Pendidikan Terakhir</label>
+                                            <label class="control-label col-md-3">Pendidikan Terakhir <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select class="form-control custom-select">
+                                                <select class="form-control custom-select" name="last_education">
                                                     <option value="SMA / SMK / STM">SMA / SMK / STM</option>
                                                     <option value="Diploma / D1 / D2 / D3">Diploma / D1 / D2 / D3</option>
-                                                    <option value="S1">S1 </option>
-                                                    <option value="S2">S2 </option>
-                                                    <option value="S3">S3 </option>
+                                                    <option value="S1">Sarjana/ S1 </option>
+                                                    <option value="S2">Master/ S2 </option>
+                                                    <option value="S3">Doctor / S3 </option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Riwayat Pendidikan</label>
+                                            <label class="control-label col-md-3">Riwayat Pendidikan <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea rows="6"  type="text" name="history_education" class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Keahlian</label>
+                                            <label class="control-label col-md-3">Keahlian <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea rows="6" name="skill"  type="text" class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Lama Bekerja</label>
+                                            <label class="control-label col-md-3">Lama Bekerja <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select class="select2 form-control custom-select">
+                                                <select name="time_exp" class="select2 form-control custom-select">
                                                     <option value=""></option>
-                                                    <option value=" < 1 Tahun"> < 1 Tahun</option>
+                                                    <option value=" < 1 Tahun"> Kurang dari 1 Tahun</option>
                                                     <option value=" 1 - 2 Tahun"> 1 - 2 Tahun</option>
                                                     <option value=" 2 - 5 Tahun"> 2 - 5 Tahun</option>
                                                     <option value=" 5 - 10 Tahun"> 5 - 10 Tahun</option>
-                                                    <option value=" > 10 Tahun"> > 10 Tahun</option>
+                                                    <option value=" > 10 Tahun"> Lebih dari 10 Tahun</option>
                                                     <option value="Fresh Graduate">Fresh Graduate</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label    col-md-3">Pengalaman Bekerja</label>
+                                            <label class="control-label col-md-3">Pengalaman Bekerja </label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea name="work_exp" rows="6"  type="text" class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row last">
-                                            <label class="control-label    col-md-3">Kategori Pekerjaan</label>
+                                            <label class="control-label col-md-3">Kategori Pekerjaan <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select multiple="multiple" class="form-control js-example-basic-multiple custom-select">
+                                                <select multiple="multiple" name="work_category[]" class="form-control js-example-basic-multiple custom-select">
                                                    <?php
                                                         foreach ($data_category as $d) {
                                                             echo '<option value="'.$d->id_category.'">'.$d->name_category.'</option>' ; 

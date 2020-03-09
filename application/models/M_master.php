@@ -16,4 +16,21 @@ class M_master extends CI_Model{
 	    return $query->row();
 
 	  }
+
+	   function getResumeByIDLogin($id)
+	  {
+	    $this->db->select('*');
+	    $this->db->where('id_login',$id);
+	    $query = $this->db->get('resume');
+	    return $query->row();
+	  }
+
+	function getLoginByID($id)
+	  {
+	    $this->db->select('*');
+	    $this->db->where('id_login',$id);
+	    $query = $this->db->get('login');
+	    return $query->row();
+
+	  }
 }

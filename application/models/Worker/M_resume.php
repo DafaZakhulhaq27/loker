@@ -148,8 +148,8 @@ class M_resume extends CI_Model{
                         ->join('districts', 'resume.kecamatan = districts.id')
                         ->join('villages', 'resume.desa = villages.id')
                         ->where('resume.id_login', $this->session->userdata("id_login"))
-                        ->get('resume')
-                        ->first_row();
+                        ->get('resume');
+                        /*->first_row();*/
     }    
 
   // GET RESUME

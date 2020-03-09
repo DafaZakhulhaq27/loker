@@ -13,7 +13,7 @@ class M_profile extends CI_Model{
     public function change_profile_worker($foto)
     {
         $data = array(
-            'name' => $this->input->post('nama'),
+            'name' => $this->input->post('name'),
             'phone' => $this->input->post('phone'),
             'website' => $this->input->post('website'),
             'twitter' => $this->input->post('twitter'),
@@ -34,7 +34,7 @@ class M_profile extends CI_Model{
     public function change_profile_worker2()
     {
         $data = array(
-            'name' => $this->input->post('nama'),
+            'name' => $this->input->post('name'),
             'phone' => $this->input->post('phone'),
             'website' => $this->input->post('website'),
             'twitter' => $this->input->post('twitter'),

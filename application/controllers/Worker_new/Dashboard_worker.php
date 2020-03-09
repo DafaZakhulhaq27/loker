@@ -10,7 +10,8 @@ class Dashboard_worker extends CI_Controller {
 			redirect("Landing");
 		}
         $this->load->model('Owner/M_vacancy','M_vacancy');		
-        $this->load->model('Owner/M_paket','M_paket');						        		
+        $this->load->model('Owner/M_paket','M_paket');
+        $this->load->model('M_master');						        		
 	}
 
 	public function index()
@@ -18,7 +19,9 @@ class Dashboard_worker extends CI_Controller {
     	$this->M_vacancy->cek_closing_date();     
     	$this->M_paket->cek_expired();   
 
-    	$data = array();
+    	$data = array(
+    		'resume' => $this->M_master->getResumeByIDLogin($this->session->userdata('id_login'))
+    	);
 
 		$this->load->view('Element/Panel/head');
 		$this->load->view('Element/Panel/header');

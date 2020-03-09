@@ -16,14 +16,17 @@ class Search_vacancy extends CI_Controller {
 
 	public function index()
 	{
-        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
-   		    $data['data_category'] = $this->M_search->get_category();    
-   		    $data['data_kab'] = $this->M_search->get_kabupaten2();
-   		    $data['main_view'] 		= 'Worker/Search_vacancy_view';
-			$this->load->view('Index',$data);
-        } else {
-	          redirect('Landing');
-        }		
+
+		$data = array(
+			'data_kab' => $this->M_search->get_kabupaten2(),
+			'data_category' => $this->M_search->get_category()
+		);
+		
+		$this->load->view('Element/Panel/head_addons');
+		$this->load->view('Element/Panel/header');
+		$this->load->view('Element/Panel/navbar');
+		$this->load->view('Worker_new/Search_vacancy_view', $data);
+		$this->load->view('Element/Panel/footer_addons');
 	}
 	public function get_vacancy_by_search()
 	{

@@ -9,12 +9,13 @@ class Resume extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Worker/M_resume');				
+        $this->load->model('Worker/M_resume');	
+         $this->load->model('M_master');				
 	}
 
 	public function index()
 	{
-        $id_login = $this->session->userdata('id_login') ;
+        /*$id_login = $this->session->userdata('id_login') ;
         $sql ="SELECT * FROM login WHERE id_login=$id_login AND status_resume='0' ";
         $query = $this->db->query($sql);
         if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_email_ver') == '1'){
@@ -40,7 +41,18 @@ class Resume extends CI_Controller {
 				    $this->session->set_flashdata('notif', 'Lengkapi profile / verifikasi email terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
 		       	redirect('Worker/Dashboard_worker'); 
-	      }		
+	      }		*/
+	      $data = array(
+					'data_prov' => $this->M_resume->get_provinsi(),
+					'data_category' => $this->M_resume->get_category()
+				);
+
+				$this->load->view('Element/Panel/head_addons');
+				$this->load->view('Element/Panel/header');
+				$this->load->view('Element/Panel/navbar');
+				$this->load->view('Worker_new/Resume_view', $data);
+				$this->load->view('Element/Panel/footer_addons');
+
 	}
 	public function resume_result()
 	{
@@ -97,52 +109,39 @@ class Resume extends CI_Controller {
 	}	
 	public function Resume_download()
 	{
-        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
-        	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1'){
-	    		$this->load->helper('pdf_helper');
-	   		    $data['data_resume_download'] = $this->M_resume->get_resume_download(); 
-				$this->load->view('Worker/Resume_download',$data);
-        	}else{
-			    $this->session->set_flashdata('notif', 'Lengkapi resume / profile / verifikasi email terlebih dahulu');
-			    $this->session->set_flashdata('type', 'error');                
-		       	redirect('Worker/Dashboard_worker');        		
-        	}         	
+    	/*if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1'){
+    		$this->load->helper('pdf_helper');
+   		    $data['data_resume_download'] = $this->M_resume->get_resume_download(); 
+			$this->load->view('Worker/Resume_download',$data);
+    	}else{
+		    $this->session->set_flashdata('notif', 'Lengkapi resume / profile / verifikasi email terlebih dahulu');
+		    $this->session->set_flashdata('type', 'error');                
+	       	redirect('Worker/Dashboard_worker');        		
+    	} */ 
 
-        } else {
-	         redirect('Landing');
-        }		
+    	$this->load->helper('pdf_helper');
+   		$data['data_resume_download'] = $this->M_resume->get_resume_download(); 
+		$this->load->view('Worker/Resume_download',$data); 	
+		
 	}		
 
 // DROPDOWN
 	public function get_kabupaten($id_prov)
 	{
-        if($this->session->userdata('logged_in') == TRUE){
 			$data_kabupaten = $this->M_resume->get_kabupaten($id_prov);
 			echo json_encode($data_kabupaten);
-
-		} else {
-			    redirect('Landing');
-		}
 	}	
+
 	public function get_kecamatan($id_kab)
 	{
-        if($this->session->userdata('logged_in') == TRUE){
-			$data_kecamatan = $this->M_resume->get_kecamatan($id_kab);
-			echo json_encode($data_kecamatan);
+		$data_kecamatan = $this->M_resume->get_kecamatan($id_kab);
+		echo json_encode($data_kecamatan);
+	}
 
-		} else {
-			    redirect('Landing');
-	}
-	}
 	public function get_desa($id_kec)
 	{
-        if($this->session->userdata('logged_in') == TRUE){
-			$data_desa = $this->M_resume->get_desa($id_kec);
-			echo json_encode($data_desa);
-
-		} else {
-			    redirect('Landing');
-		}
+		$data_desa = $this->M_resume->get_desa($id_kec);
+		echo json_encode($data_desa);
 	}
 // DROPDOWN
 
@@ -150,12 +149,11 @@ class Resume extends CI_Controller {
 	// INPUT RESUME
    public function input_resume()
     {
-	      $id_login = $this->session->userdata('id_login') ;
+	      /*$id_login = $this->session->userdata('id_login') ;
     	  $sql ="SELECT * FROM login WHERE id_login=$id_login AND status_resume='0' ";
 	      $query = $this->db->query($sql); 
 
-      	  if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
-        	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_email_ver') == '1'){
+        if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_email_ver') == '1'){
 		      if($query->num_rows() > 0){        	
 			          if($this->M_resume->input_resume() == TRUE ){
 						  $this->M_resume->change_status_resume() ;
@@ -180,11 +178,53 @@ class Resume extends CI_Controller {
 				    $this->session->set_flashdata('notif', 'Lengkapi profile / verifikasi email terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
 		       	redirect('Worker/Dashboard_worker');        		
-        	}         	
-		      
-            }else {
-			    redirect('Landing');
-            }
+        	}  */ 
+
+        	$data = array(
+        		'id_login' => $this->session->userdata("id_login"),
+                'name_resume' => $this->input->post('name_resume'),         
+                'date_created' => date("Y-m-d"),                       
+                'profile' => $this->input->post('profile'),
+                'gender' => $this->input->post('gender'),
+                'birth_year' => $this->input->post('birth_year'),
+                'married' => $this->input->post('married'),
+                'provinsi' => $this->input->post('provinsi'),
+                'kabupaten' => $this->input->post('kabupaten'),
+                'kecamatan' => $this->input->post('kecamatan'),
+                'desa' => $this->input->post('desa'),  
+                'location' => $this->input->post('location'),
+                'last_education' => $this->input->post('last_education'),
+                'history_education' => $this->input->post('history_education'),
+                'skill' => $this->input->post('skill'),  
+                'time_exp' => $this->input->post('time_exp'),  
+                'work_exp' => $this->input->post('work_exp')    
+        	);
+        	$this->db->insert('resume', $data);
+
+        	//input resume_category tabel
+        	$id_resume = $this->M_master->getResumeByIDLogin($this->session->userdata("id_login"))->id_resume;
+        	$work_category = $this->input->post('work_category');
+        	foreach ($work_category as $k) {
+        		$data = array(
+        			'id_resume' => $id_resume,
+        			'id_category' => $k
+        		);
+        		$this->db->insert('resume_category', $data);
+        	}
+
+        	//change status resume
+        	$data = array(
+            'status_resume' => "1" ,
+        	);
+        	$this->db->where('id_login', $this->session->userdata("id_login"))
+            ->update('login', $data);
+            /*change session status resume*/
+            $this->session->unset_userdata('status_resume');
+		 	$this->session->set_userdata('status_resume','1');
+
+		 	$this->session->set_flashdata('notif', 'Resume sudah berhasil dibuat');
+		    $this->session->set_flashdata('type', 'success');
+        	redirect('Worker_new/Dashboard_worker');
 
     }
 	// INPUT RESUME

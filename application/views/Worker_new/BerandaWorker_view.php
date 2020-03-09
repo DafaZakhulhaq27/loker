@@ -104,7 +104,11 @@
                                         <i class="fab fa-wpforms"></i></div>
                                     <div class="ml-2 align-self-center">
                                         <h3 class="mb-0 font-weight-light"><a href="#">Resume</a></h3>
-                                        <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Buat <i class="fas fa-check"></i></span></h5>
+                                        <?php if ($this->session->userdata('status_resume') == '1') { ?>
+                                            <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Buat <i class="fas fa-check"></i></span></h5>
+                                        <?php } else {?>
+                                            <h5 class="text-muted mb-0"><span class="badge badge-danger px-2 py-1">Belum Buat</span></h5>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -130,13 +134,16 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><h7><a href="#">Web Developer</a></h7></td>
-                                                    <td>3 March 2020</td>
+                                                    <td><h7><a href="#"><?php echo $resume->name_resume; ?></a></h7></td>
+                                                    <td><?php 
+                                                        $date=date_create($resume->date_created);
+                                                        echo date_format($date,"d M Y");
+                                                     ?></td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                                       <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
                                                       <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                                      <button type="button" class="btn btn-dark"><i class="fas fa-download"></i></button>
+                                                      <a type="button" href="<?php echo base_url() ; ?>Worker_new/Resume/resume_download" class="btn btn-dark"><i class="fas fa-download"></i></a>
                                                     </div>
                                                     </td>
                                                 </tr>

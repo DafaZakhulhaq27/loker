@@ -47,25 +47,25 @@
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="mb-0 text-white">Other Sample form</h4>
+                                <h4 class="mb-0 text-white">Edit Profil</h4>
                             </div>
                             <div class="card-body">
-                                <form action="#">
+                                <form action="<?php echo base_url('Worker_new/Worker_profil/change_profile_worker'); ?>" method="post" enctype="multipart/form-data">
                                     <div class="form-body">
                                         <h3 class="card-title">Person Info</h3>
                                         <hr>
                                         <div class="row pt-3">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Lengkap</label>
+                                            <label class="control-label text-right col-md-3">Nama Lengkap <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->name ?>" class="form-control">
+                                                <input type="text" name="name" value="<?php echo $data_profil->name ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">No HP</label>
+                                            <label class="control-label text-right col-md-3">No HP <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" value="<?php echo $data_profil->phone ?>" class="form-control">
+                                                <input type="text" name="phone" value="<?php echo $data_profil->phone ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -77,15 +77,15 @@
                                                         <i class="ti-world"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" id="web"
+                                                <input type="text" class="form-control" name="website" id="web"
                                                     value="<?php echo $data_profil->website ?>">
                                             </div>
                                         </div>
                                     </div>
                                         <div class="form-group row last">
-                                            <label class="control-label text-right col-md-3">Foto Profil</label>
+                                            <label class="control-label text-right col-md-3">Foto Profil <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="file" class="form-control" placeholder="">
+                                                <input type="file" name="foto" value="<?php echo $data_profil->picture ?>" class="form-control-file" >
                                                 <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ?>"> 
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@
                                                                 <i class="fab fa-twitter"></i>
                                                             </span>
                                                         </div>
-                                                        <input type="text" value="<?php echo $data_profil->twitter ?>" class="form-control" id="twitter"
+                                                        <input type="text" name="twitter" value="<?php echo $data_profil->twitter ?>" class="form-control" id="twitter"
                                                             placeholder="">
                                                     </div>
                                                 </div>
@@ -119,7 +119,7 @@
                                                                 <i class="fab fa-facebook-f"></i>
                                                             </span>
                                                         </div>
-                                                        <input type="text" value="<?php echo $data_profil->facebook ?>" class="form-control" id="facebook"
+                                                        <input type="text" name="facebook" value="<?php echo $data_profil->facebook ?>" class="form-control" id="facebook"
                                                             placeholder="">
                                                     </div>
                                                 </div>

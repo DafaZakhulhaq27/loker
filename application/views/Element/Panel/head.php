@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
    <!--  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/material-pro/assets/images/favicon.png"> -->
-    <title></title>
+    <title>SDM APSINTEGRA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>assets/material-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
@@ -28,9 +28,12 @@
     <!-- datatable -->
     <link href="<?php echo base_url(); ?>assets/DataTables/DataTables-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables/datatables.min.css"/>
+    <!-- sweetalert -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/sweetalert/sweetalert2.min.css"/>
 
     <!-- jquery -->
-     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/sweetalert/sweetalert2.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
