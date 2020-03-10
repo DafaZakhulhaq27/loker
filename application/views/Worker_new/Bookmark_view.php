@@ -79,8 +79,12 @@
                                                 <?php } ?>
                                                 </td>
                                                 <td class="text-nowrap">
-                                                    <a href="#" class="btn btn-success" data-toggle="tooltip" data-original-title=""> Daftar </a>
-                                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" data-original-title=""> Hapus </a>
+
+                                                    <div class="btn-group btn-group-toggle">
+                                                          <a target="_blank" href="<?php echo base_url(); ?>Worker_new/Search_vacancy/get_vacancy_by_id/<?php echo $db->id_vacancy ?>" class="btn btn-success btn-sm" data-toggle="tooltip" data-original-title="Lihat Lowongan"><i class="fas fa-info"></i></a>
+                                                        <!-- <a href="<?php echo base_url(); ?>Worker_new/Bookmark/delete_bookmark/<?php echo $db->id_bookmark ?>" class="btn btn-danger btn-sm" data-toggle="tooltip" data-original-title="Hapus"> <i class="fas fa-trash-alt"></i> </a> -->
+                                                        <a href="#" onclick="delete_bookmark('<?php echo $db->id_bookmark ?>')" class="btn btn-danger btn-sm" data-toggle="tooltip" data-original-title="Hapus"> <i class="fas fa-trash-alt"></i> </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -112,3 +116,23 @@
             <!-- ============================================================== -->
             <!-- ============================================================== -->
  
+ <script type="text/javascript">
+     function delete_bookmark(id)
+    {
+        swal({
+          title: 'Apakah anda yakin ingin menghapus bookmark ini?',
+          text: "",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes'
+        }).then((result) => {
+          if (result) {
+            window.location.href = "<?php echo base_url() ?>Worker_new/Bookmark/delete_bookmark/" + id;
+          }
+        });       
+    }   
+
+
+ </script>

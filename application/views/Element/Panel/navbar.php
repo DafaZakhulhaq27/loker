@@ -44,11 +44,11 @@
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Worker_profil') ?>" aria-expanded="false"><i
                                     class="mdi mdi-brush"></i><span class="hide-menu">Edit Profil </span></a>
                             </li>
-                            <?php if ($this->session->userdata('status_resume') != '1') { ?>
+                            <?php //if ($this->session->userdata('status_resume') != '1') { ?>
                                 <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Resume') ?>" aria-expanded="false"><i
                                         class="mdi mdi-file-chart"></i><span class="hide-menu">Buat Resume </span></a>
                                 </li>
-                            <?php } ?>
+                            <?php //} ?>
                             <li> <a class="waves-effect waves-dark" href="<?php echo site_url('Worker_new/Bookmark') ?>" aria-expanded="false"><i
                                     class="mdi mdi-book-open-variant"></i><span class="hide-menu">Bookmark </span></a>
                             </li>

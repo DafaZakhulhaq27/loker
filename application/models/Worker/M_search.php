@@ -67,7 +67,7 @@ class M_search extends CI_Model{
 
 
          $this->db->limit($limit,$start) ;
-         //$this->db->select('vacancy.description AS vacancydescription, vacancy.*, login.*, provinces.*, regencies.*');
+         $this->db->select('vacancy.description AS vacancydescription, vacancy.provinsi AS id_provinsi, vacancy.*, login.*, regencies.*');
          $this->db->join('login', 'vacancy.id_login = login.id_login');
          $this->db->join('category', 'vacancy.category = category.id_category') ;                       
          $this->db->join('regencies', 'vacancy.kabupaten = regencies.id');
@@ -177,7 +177,7 @@ class M_search extends CI_Model{
         
 
     }   
-    public function get_vacancy_by_id($id)
+    /*public function get_vacancy_by_id($id)
     {
         return $this->db->join('login', 'vacancy.id_login = login.id_login')
                         ->join('provinces', 'vacancy.provinsi = provinces.id')       
@@ -188,7 +188,16 @@ class M_search extends CI_Model{
                         ->where('id_vacancy', $id)
                         ->get('vacancy')
                         ->row();
-    }  
+    } */
+
+    function get_vacancy_by_id($id)
+  {
+    $this->db->select('*');
+    $this->db->where('id_vacancy',$id);
+    $query = $this->db->get('vacancy');
+    return $query->row();
+
+  } 
                               
     // GET VACANCY
   // GET DROPDOWN

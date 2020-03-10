@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
    <!--  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/material-pro/assets/images/favicon.png"> -->
-    <title>LOKER</title>
+    <title>SDM APSINTEGRA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- Custom CSS -->
     <!-- page CSS -->
@@ -32,3 +32,29 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
+
+<style type="text/css">
+    .tengah {
+  text-align: center;
+}
+.paginat {
+  display: inline-block;
+}
+
+.paginat a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.paginat a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.paginat a:hover:not(.active) {background-color: #ddd;}
+</style>

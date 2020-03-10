@@ -55,13 +55,13 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Judul Resume<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" name="name_resume" placeholder="Contoh: Web Progammer" class="form-control" required>
+                                                <input type="text" value="<?php echo $resume->name_resume ?>" name="name_resume" placeholder="Contoh: Web Progammer" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Ringkasan Profile<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6" name="profile" type="text" class="form-control" required></textarea>
+                                                <textarea rows="6" name="profile" type="text" class="form-control" required><?php echo $resume->profile ?></textarea>
                                                 <small class="form-control-feedback"> Promosikan diri anda dengan singkat jelas dan padat. Untuk menjaga privasi anda jangan menampilkan info sensitif seperti no hp/telp, alamat email pada bidang ini. </small>
                                             </div>
                                         </div>
@@ -69,8 +69,9 @@
                                             <label class="control-label col-md-3">Gender<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select" name="gender" required>
+                                                    <option value="<?php echo $resume->gender ?>"><b><?php echo $resume->gender ?></b></option>
                                                     <option value="Laki-laki">Laki-laki</option>
-                                                    <option value="Wanita">Wanita</option>
+                                                    <option value="Perempuan">Perempuan</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -78,6 +79,7 @@
                                             <label class="control-label col-md-3">Tahun Kelahiran<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
                                                 <select class="select2 form-control custom-select" name="birth_year" required>
+                                                    <option value="<?php echo $resume->birth_year ?>"><?php echo $resume->birth_year ?></option>
                                                         <?php  
                                                             for($i = 1970 ; $i < 2030 ; $i++){
                                                                 echo '<option value="'.$i.'">'.$i.'</option>' ;                                            
@@ -90,6 +92,7 @@
                                             <label class="control-label col-md-3">Status Pernikahan<span class="text-danger">*</span></label>
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select" name="married" required>
+                                                    <option value="<?php echo $resume->married ?>"><b><?php echo $resume->married ?></b></option>
                                                     <option value="Belum Menikah">Belum Menikah</option>
                                                     <option value="Menikah">Menikah</option>
                                                     <option value="Cerai">Cerai</option>
@@ -100,8 +103,8 @@
                                         <div class="row">
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Provinsi<span class="text-danger">*</span></label>
-                                                <select class="select2 form-control custom-select" id="provinsi" name="provinsi" onchange="get_kab(this.value)" required>
-                                                    <option value=""></option>
+                                                <select class="select2 form-control custom-select" id="provinsi" name="provinsi" onchange="get_kab(this.value)" disabled>
+                                                    <option value="<?php echo $resume->id_provinsi ?>"><?php echo $resume->name_provinces ?></option>
                                                     <?php
                                                         $no = 0;
                                                         foreach ($data_prov as $d) {
@@ -112,32 +115,34 @@
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kabupaten/Kota<span class="text-danger">*</span></label>
-                                                <select class="select2 form-control custom-select" id="kabupaten" name="kabupaten" onchange="get_kec(this.value)" required>
+                                                <select class="select2 form-control custom-select" id="kabupaten" name="kabupaten" onchange="get_kec(this.value)" disabled>
+                                                <option value="<?php echo $resume->id_regencies ?>"><?php echo $resume->name_regencies ?></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kecamatan</label>
-                                                <select class="select2 form-control custom-select" id="kecamatan" name="kecamatan" onchange="get_desa(this.value)">
-                                                    
+                                                <select class="select2 form-control custom-select" id="kecamatan" name="kecamatan" onchange="get_desa(this.value)" disabled>
+                                                <option value="<?php echo $resume->id_districts ?>"><?php echo $resume->name_districts ?></option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kelurahan / Desa</label>
-                                                <select name="desa" id="desa" class="select2 form-control custom-select">
-                                                    
+                                                <select name="desa" id="desa" class="select2 form-control custom-select" disabled>
+                                                    <option value="<?php echo $resume->id_villages ?>"><?php echo $resume->name_villages ?></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Alamat <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6" name="location" type="text" class="form-control" required></textarea>
+                                                <textarea rows="6" name="location" type="text" class="form-control" required><?php echo $resume->location ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Pendidikan Terakhir <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select" name="last_education" required>
+                                                    <option value="<?php echo $resume->last_education ?>"><?php echo $resume->last_education ?></option>
                                                     <option value="SMA / SMK / STM">SMA / SMK / STM</option>
                                                     <option value="Diploma / D1 / D2 / D3">Diploma / D1 / D2 / D3</option>
                                                     <option value="S1">Sarjana/ S1 </option>
@@ -149,20 +154,20 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Riwayat Pendidikan <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6"  type="text" name="history_education" class="form-control" required></textarea>
+                                                <textarea rows="6"  type="text" name="history_education" class="form-control" required><?php echo $resume->history_education ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Keahlian <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <textarea rows="6" name="skill"  type="text" class="form-control" required></textarea>
+                                                <textarea rows="6" name="skill"  type="text" class="form-control" required><?php echo $resume->skill ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Lama Bekerja <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
                                                 <select name="time_exp" class="select2 form-control custom-select" required>
-                                                    <option value=""></option>
+                                                    <option value="<?php echo $resume->time_exp ?>"><?php echo $resume->time_exp ?></option>
                                                     <option value=" < 1 Tahun"> Kurang dari 1 Tahun</option>
                                                     <option value=" 1 - 2 Tahun"> 1 - 2 Tahun</option>
                                                     <option value=" 2 - 5 Tahun"> 2 - 5 Tahun</option>
@@ -175,13 +180,13 @@
                                         <div class="form-group row">
                                             <label class="control-label col-md-3">Pengalaman Bekerja </label>
                                             <div class="col-md-9">
-                                                <textarea name="work_exp" rows="6"  type="text" class="form-control"></textarea>
+                                                <textarea name="work_exp" rows="6"  type="text" class="form-control"><?php echo $resume->work_exp ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row last">
                                             <label class="control-label col-md-3">Kategori Pekerjaan <span class="text-danger">*</span></label>
                                             <div class="col-md-9">
-                                                <select multiple="multiple" name="work_category[]" class="form-control js-example-basic-multiple custom-select" required>
+                                                <select multiple="multiple" name="work_category[]" class="form-control js-example-basic-multiple custom-select">
                                                    <?php
                                                         foreach ($data_category as $d) {
                                                             echo '<option value="'.$d->id_category.'">'.$d->name_category.'</option>' ; 

@@ -87,7 +87,11 @@
                                         <i class="fas fa-user"></i></div>
                                     <div class="ml-2 align-self-center">
                                         <h3 class="mb-0 font-weight-light"><a href="#">Profil</a></h3>
-                                        <h5 class="text-muted mb-0"><span class="badge badge-danger px-2 py-1">Belum Lengkap</span></h5>
+                                        <?php if($this->session->userdata('status_profile') == "1"){ ?>
+                                         <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Lengkap <i class="fas fa-check"></i></span></h5>
+                                        <?php } else { ?>
+                                             <h5 class="text-muted mb-0"><span class="badge badge-danger px-2 py-1">Belum Lengkap</span></h5>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -141,9 +145,9 @@
                                                      ?></td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                      <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                                                      <a type="button" href="<?php echo base_url() ; ?>Worker_new/Resume/Resume_result_edit" class="btn btn-info"><i class="far fa-edit"></i></a>
                                                       <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                                      <a type="button" href="<?php echo base_url() ; ?>Worker_new/Resume/resume_download" class="btn btn-dark"><i class="fas fa-download"></i></a>
+                                                      <a type="button" href="<?php echo base_url() ; ?>Worker/Resume/resume_download" class="btn btn-dark"><i class="fas fa-download"></i></a>
                                                     </div>
                                                     </td>
                                                 </tr>

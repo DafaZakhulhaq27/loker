@@ -33,4 +33,22 @@ class M_master extends CI_Model{
 	    return $query->row();
 
 	  }
+
+	  function getProvincesByID($id)
+	  {
+	    $this->db->select('*');
+	    $this->db->where('id',$id);
+	    $query = $this->db->get('provinces');
+	    return $query->row();
+
+	  }
+
+	  function getRegenciesByID($id)
+	  {
+	    $this->db->select('*');
+	    $this->db->where('id',$id);
+	    $query = $this->db->get('regencies');
+	    return $query->row();
+
+	  }
 }

@@ -44,7 +44,8 @@ class Resume extends CI_Controller {
 	      }		*/
 	      $data = array(
 					'data_prov' => $this->M_resume->get_provinsi(),
-					'data_category' => $this->M_resume->get_category()
+					'data_category' => $this->M_resume->get_category(),
+					'resume' => $this->M_resume->get_resume_download()
 				);
 
 				$this->load->view('Element/Panel/head_addons');
@@ -73,21 +74,22 @@ class Resume extends CI_Controller {
 	}	
 	public function Resume_result_edit()
 	{
-        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
         	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1' && $this->session->userdata('status_email_ver') == '1'){
-	   		    $data['data_resume'] = $this->M_resume->get_resume_download();         	
+
+	   		    $data['resume'] = $this->M_resume->get_resume_download();         	
 	   		    $data['data_resume2'] = $this->M_resume->get_resume2();    		      		
-		   		$data['data_category'] = $this->M_resume->get_category();      		           	              	 
-		        $data['main_view'] 		= 'Worker/Resume_result_edit';
-				$this->load->view('Index',$data);
+		   		$data['data_category'] = $this->M_resume->get_category(); 
+
+				$this->load->view('Element/Panel/head_addons');
+				$this->load->view('Element/Panel/header');
+				$this->load->view('Element/Panel/navbar');
+				$this->load->view('Worker_new/Resume_result_edit', $data);
+				$this->load->view('Element/Panel/footer_addons');
         	}else{
 			    $this->session->set_flashdata('notif', 'Lengkapi resume / profile / verifikasi email terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
 		       	redirect('Worker/Dashboard_worker');        		
-        	}         	
-        } else {
-	         redirect('Landing');
-        }		
+        	}  		
 	}	
 
 	public function Resume_result_download()

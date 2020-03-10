@@ -141,25 +141,24 @@
                         $query2 = $this->db->query($sql2);
                     ?>
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card h-100">
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $d->title ?></h3>
                                  <img height="150px" class="card-img-top" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $d->picture ?>" alt="Card image cap">
+                                 <span class="sub-title d-block mb-1" style="font-size: 15px"><b><?php echo $d->name ?></b></span>
                                 <p class="card-text">
-                                    <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
-                                    <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
-                                    <p style="margin-top: -15px"><i class="fas fa-dollar-sign"></i> <?php echo $d->salary ?></p>
-                                    <p style="margin-top: -15px" align="justify">
-                                        PT. Nawastra mencari programmer berpengalaman untuk Programmer Simulasi & Strategi. Kandidat yang menyukai Mixed Reality dan siap dalam tantangan ...
+                                    <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> <?php echo $this->M_master->getProvincesByID($d->id_provinsi)->name_provinces ?> - <?php echo $d->name_regencies ?></p>
+                                    <p style="margin-top: -12px"><i class="fas fa-graduation-cap"></i> <?php echo $d->education ?></p>
+                                    <p style="margin-top: -12px"><i class="fas fa-dollar-sign"></i> <?php echo $d->salary ?></p>
+                                    <p style="margin-top: -12px" align="justify">
+                                        <?php echo $d->vacancydescription ?>
                                     </p>
                                 </p>
-                                <?php if($query2->num_rows() == 0){ ?>
-                                    <a href="#" class="btn btn-success">Selengkapnya</a>
-                                <?php } else { ?>
-                                    <a href="#"><button class="btn btn-success" disabled>Selengkapnya</button></a>
-                                <?php }
-                                 if($query->num_rows() == 0){ ?>
-                                    <a href="#" class="btn btn-danger" disabled><i class="fas fa-star"></i> Bookmark</a>
+                            </div>
+                            <div class="card-footer">
+                                <a target="_blank" href="<?php echo base_url(); ?>Worker_new/Search_vacancy/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" class="btn btn-success">Selengkapnya</a>
+                                 <?php  if($query->num_rows() == 0){ ?>
+                                    <a href="<?php echo base_url(); ?>Worker_new/Bookmark/input_bookmark/<?php echo $d->id_vacancy ?>" class="btn btn-danger" disabled><i class="fas fa-star"></i> Bookmark</a>
                                 <?php } else { ?>
                                     <a href="#"><button class="btn btn-danger" disabled><i class="fas fa-star"></i> Bookmark</button></a>
                                 <?php  } ?>
@@ -170,8 +169,10 @@
                 </div>
                 <!-- End Row -->
 
-
-                <!-- ============================================================== -->
+                <div class="tengah">
+                    <?php  echo $pagination ;  ?>     
+                </div>
+    <!-- ============================================================== -->
                 <!-- End PAge Content -->
 
 

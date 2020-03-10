@@ -34,9 +34,9 @@ class Search_vacancy extends CI_Controller {
         	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1' && $this->session->userdata('status_email_ver') == '1'){
         		$this->load->library('pagination') ;
 
-        		$config['base_url'] = base_url().'Worker/Search_vacancy/get_vacancy_by_search' ;
+        		$config['base_url'] = base_url().'Worker_new/Search_vacancy/get_vacancy_by_search' ;
         		$config['total_rows'] = $this->M_search->get_vacancy_total_record() ;
-        		$config['per_page'] = 6 ;
+        		$config['per_page'] = 4 ;
         		$config['uri_segment'] = 4;
 				$choice = $config["total_rows"] / $config["per_page"];
 				$config["num_links"] = floor($choice);
@@ -80,7 +80,7 @@ class Search_vacancy extends CI_Controller {
         	}else{
 			    $this->session->set_flashdata('notif', 'Lengkapi resume / profile terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
-		       	redirect('Worker/Dashboard_worker');
+		       	redirect('Worker_new/Dashboard_worker');
         	}
 
         } else {
@@ -91,36 +91,30 @@ class Search_vacancy extends CI_Controller {
 	// VACANCY APPLIED
    public function input_vacancy_applied()
     {
-
-        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
         	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1' && $this->session->userdata('status_email_ver') == '1'){
         		if($this->M_search->cek_vacancy_applied() == TRUE )
         		{
 			          if($this->M_search->input_vacancy_applied() == TRUE ){
 						  $this->session->set_flashdata('notif', 'Anda sudah terdaftar di lowongan tersebut');
 		                  $this->session->set_flashdata('type', 'success');
-			        	  redirect('Worker/Search_vacancy/get_vacancy_applied');
+			        	  redirect('Worker_new/Search_vacancy/get_vacancy_applied');
 	 	               }else{
 						  $this->session->set_flashdata('notif', 'gagal');
 			              $this->session->set_flashdata('type', 'error');                
-			        	  redirect('Worker/Search_vacancy');
+			        	  redirect('Worker_new/Search_vacancy');
 			           }	        	  	
 
         		}else{
 						  $this->session->set_flashdata('notif', 'Anda sudah terdaftar di lowongan tersebut, tunggu saja kabar selanjutnya');
 			              $this->session->set_flashdata('type', 'error');                
-			        	  redirect('Worker/Search_vacancy');
+			        	  redirect('Worker_new/Search_vacancy');
 
         		}
 	      }else{
 		      	$this->session->set_flashdata('notif', 'lengkapi profile / resume terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
-		       	redirect('Worker/Dashboard_worker') ;
+		       	redirect('Worker_new/Dashboard_worker') ;
 	      }
-
-            }else {
-			    redirect('Landing');
-            }
 
     }
     
@@ -140,25 +134,22 @@ class Search_vacancy extends CI_Controller {
 	      }else{
 		      	$this->session->set_flashdata('notif', 'lengkapi profile / resume terlebih dahulu');
 			    $this->session->set_flashdata('type', 'error');                
-		       	redirect('Worker/Dashboard_worker') ;
+		       	redirect('Worker_new/Dashboard_worker') ;
 	      }		
 	} 
 
 	public function get_vacancy_by_id($id)
 	{
-        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 1){
-        	if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_resume') == '1' && $this->session->userdata('status_email_ver') == '1'){
-   		    $data['get_vacancy_by_id'] = $this->M_search->get_vacancy_by_id($id);
-   		    $data['main_view'] 		= 'Worker/Vacancy_by_id_view';
-			$this->load->view('Index',$data);	
-	      }else{
-			    $this->session->set_flashdata('notif', 'Lengkapi resume / profile / verifikasi email terlebih dahulu');
-			    $this->session->set_flashdata('type', 'error');                
-		       	redirect('Worker/Dashboard_worker') ;
-	      }        		
-        } else {
-	          redirect('Landing');
-        }		
+
+		    $data = array(
+		    	'get_vacancy_by_id' => $this->M_search->get_vacancy_by_id($id),
+		    );
+
+			$this->load->view('Element/Panel/head');
+			$this->load->view('Element/Panel/header');
+			$this->load->view('Element/Panel/navbar');
+			$this->load->view('Worker_new/Vacancy_by_id_view', $data);
+			$this->load->view('Element/Panel/footer');		
 	}  
 	// VACANCY APPLIED
 

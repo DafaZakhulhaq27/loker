@@ -34,8 +34,8 @@
                             <div class="form-group">
                                 <label class="control-label mb-1">Kelamin</label>
                                 <select name="gender" id="gender" class="form-control">
-                                    <option value="male">Laki - laki</option>
-                                    <option value="female">Perempuan</option>
+                                    <option value="Laki-laki">Laki - laki</option>
+                                    <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div> 
                             <div class="form-group">

@@ -10,6 +10,7 @@ class Worker_profil extends CI_Controller {
 			redirect("Landing");
 		}
         $this->load->model('Worker/M_profile');		
+        $this->load->model('M_master');
 	}
 
 	public function index()

@@ -63,7 +63,7 @@
                                         <tbody>
                                             <?php foreach ($get_vacancy_applied as $db) { ?>
                                             <tr>
-                                                <td><a href="#"><h5><?php echo $db->title ?></h5></a></td>
+                                                <td><a target="_blank" href="<?php echo base_url(); ?>Worker_new/Search_vacancy/get_vacancy_by_id/<?php echo $db->id_vacancy ?>"><h5><?php echo $db->title ?></h5></a></td>
                                                 <td><?php echo $this->M_master->getCategoryByID($db->category)->name_category  ?></td>
                                                 <td><?php echo $this->M_login->getLoginByID($db->id_owner)->name  ?></td>
                                                 <td><?php 
