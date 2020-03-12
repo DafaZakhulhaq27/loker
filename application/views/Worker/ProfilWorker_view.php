@@ -25,7 +25,7 @@
                                         <form action="<?php echo base_url('Worker/Worker_profil/change_profile_worker'); ?>" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label class="control-label mb-1">Nama Lengkap</label>
-                                                <input name="nama" type="text" class="form-control" value="<?php echo $data_profil->name ; ?>" required>
+                                                <input name="name" type="text" class="form-control" value="<?php echo $data_profil->name ; ?>" required>
                                             </div>
                                             <div class="form-group">
                                                 <label  class="control-label mb-1">No Hp</label>
@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label  class="control-label mb-1">Foto Profile</label>
-                                                <input type="file" name="picture" class="form-control-file" >
+                                                <input type="file" name="foto" class="form-control-file" >
                                                 <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ;  ?>" >    
                                             </div> 
                                             <h3>Sosial Media</h3>                                           
@@ -73,7 +73,7 @@
                                                 <input id="Password" name="old_password" type="password" class="form-control">
                                             </div>                         
                                             <div class="form-group">
-                                                <label  class="control-label mb-1">Password</label>
+                                                <label  class="control-label mb-1">Password Baru</label>
                                                 <input id="Password" name="password" type="password" class="form-control">
                                             </div>
                                             <div class="form-group">

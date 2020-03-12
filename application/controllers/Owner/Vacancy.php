@@ -33,7 +33,7 @@ class Vacancy extends CI_Controller {
    public function input_vacancy()
     {
 
-echo $this->M_vacancy->cek_paket_posts() ;
+// echo $this->M_vacancy->cek_paket_posts() ;
         if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 2){
         	$max = $this->M_vacancy->cek_paket_date() ;
 			$maxdate=date('Y-m-d', strtotime("+".$max->length_post." days"));

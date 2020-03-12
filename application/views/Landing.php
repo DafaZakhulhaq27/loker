@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <link rel="icon" type="image/png" sizes="16x16" href="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/landing/images/APSI.png">
     <title>PORTAL KERJA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -469,8 +469,8 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-6">
-              <h2 class="ftco-heading-2">Loker</h2>
-              <p>dasd asd sa das das dasd as dasd as das das dd asd asd asd asd as dasd</p>
+              <h2 class="ftco-heading-2">Portal Kerja</h2>
+              <p>Penyediaan Tenaga Kerja Professional</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -481,11 +481,12 @@
 
           <div class="col-md">
              <div class="ftco-footer-widget mb-6">
-              <h2 class="ftco-heading-2">Contact Information</h2>
+              <h2 class="ftco-heading-2">PT Angkasa Pura Solusi Integra</h2>
+              <p>Area Perkantoran Terminal 1A Keberangkatan
+              Bandara Internasional Soekarno Hatta , Tangerang Banten  19120</p>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">alamat</a></li>
-                <li><a href="#" class="py-2 d-block">098312938123</a></li>
-                <li><a href="#" class="py-2 d-block">email@email.com</a></li>
+                <li><a href="#" class="py-2 d-block">info@apsintegra.co.id</a></li>
+                <li><a href="#" class="py-2 d-block">​www.apsintegra.co.id</a></li>
               </ul>
             </div>
           </div>

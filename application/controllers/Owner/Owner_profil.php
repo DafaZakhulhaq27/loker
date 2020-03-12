@@ -82,7 +82,7 @@ class Owner_profil extends CI_Controller {
 			        if($this->M_profile->change_password_owner() == TRUE){
 			          $this->session->set_flashdata('notif', 'Password profil anda berhasil diubah');
 			          $this->session->set_flashdata('type', 'success');
-			          redirect('Landing');
+			          redirect('Owner/Dashboard_owner');
 			        } else {
 			          $this->session->set_flashdata('notif', 'Profil anda gagal tersimpan / coba submit ulang');
 			          $this->session->set_flashdata('type', 'error');

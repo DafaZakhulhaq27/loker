@@ -54,7 +54,7 @@ class Worker_profil extends CI_Controller {
 					  $this->M_profile->change_status_profile() ;
 					  $this->session->unset_userdata('status_profile');
 					  $this->session->set_userdata('status_profile','1');					  		        	
-			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan 11');
+			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan');
 			          $this->session->set_flashdata('type', 'success');
 				  	  redirect('Worker/Worker_profil');
 			        } else {
@@ -77,7 +77,7 @@ class Worker_profil extends CI_Controller {
 			        if($this->M_profile->change_password_worker() == TRUE){
 			          $this->session->set_flashdata('notif', 'Password profil anda berhasil diubah');
 			          $this->session->set_flashdata('type', 'success');
-			          redirect('Landing');
+			          redirect('Worker/Dashboard_worker');
 			        } else {
 			          $this->session->set_flashdata('notif', 'Profil anda gagal tersimpan / coba submit ulang');
 			          $this->session->set_flashdata('type', 'error');

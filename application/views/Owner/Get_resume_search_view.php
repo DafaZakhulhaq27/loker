@@ -71,7 +71,8 @@
                             <div class="row">
                         <?php 
                             $id_login = $this->session->userdata('id_login') ;
-                            foreach ($data_resume as $d) {                                               
+                            foreach ($data_resume as $d) {  
+                            echo"$d->id_resume";                                             
                                 echo '
                                     <div class="col-md-4">
                                         <section class="card">
@@ -136,6 +137,7 @@
                      </div>
                      <div class="form-group">
                          <label class="control-label mb-1">Pesan</label>
+                         <?php //echo $id_login ?>
                           <input type="hidden" id="id_login" name="id_login">
                          <textarea name="message" id="message" rows="3"  class="form-control" ></textarea>
                      </div>                                                                                  

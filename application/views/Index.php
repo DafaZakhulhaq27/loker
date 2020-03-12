@@ -328,7 +328,9 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto">
+                            <?php if ($this->session->userdata('picture') != "") { ?>
+                                <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto">
+                            <?php } ?>
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -568,13 +570,15 @@
           }
         });       
 
-    }     
+    }    
+
     function invite_worker(id)
     {
         jQuery('#id_login').empty();
         jQuery('#id_login').val(id);
           
-    }     
+    }    
+     
     function upload_payment(id)
     {
         jQuery('#id_paket').empty();
@@ -607,7 +611,7 @@
             jQuery('#skill').text(data.skill);
             jQuery('#req_qualification').text(data.req_qualification);
             jQuery('#insentif').text(data.insentif);
-            jQuery('#work_time').val(data.work_time);            
+            jQuery('#work_time').val(data.work_time);       
             jQuery('#lokasi').val(data.name_provinces + " , " + data.name_regencies + " , " + data.name_districts + " , " + data.name_villages);
             jQuery('#education option').filter(function () { return jQuery(this).val() == data.education }).attr('selected', true);
             jQuery('#category option').filter(function () { return jQuery(this).val() == data.category }).attr('selected', true);

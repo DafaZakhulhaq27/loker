@@ -58,9 +58,9 @@
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <?php
-                                        if($this->session->userdata('status_email_ver') != NULL)
+                                        if($this->session->userdata('status_profile') != NULL)
                                         {
-                                            if($this->session->userdata('status_email_ver') == "1"){
+                                            if($this->session->userdata('status_profile') == "1"){
                                                 echo '                                    
                                                     <div class="stat-icon dib flat-color-3">
                                                         <i class="menu-icon fa fa-user"></i>
@@ -101,9 +101,9 @@
                                     </div>
 
                                     <?php
-                                        if($this->session->userdata('status_email_ver') != NULL)
+                                        if($this->session->userdata('status_vacancy') != NULL)
                                         {
-                                            if($this->session->userdata('status_email_ver') == "1"){
+                                            if($this->session->userdata('status_vacancy') == "1"){
                                                 echo '                                    
                                                     <div class="stat-icon dib flat-color-3">
                                                         <i class="menu-icon fa fa-bell"></i>

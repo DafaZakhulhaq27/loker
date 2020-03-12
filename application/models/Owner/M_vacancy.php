@@ -146,7 +146,9 @@ class M_vacancy extends CI_Model{
                 'desa' => $this->input->post('desa'),	
 
             );    
+           
             $this->db->insert('vacancy', $data);
+            // var_dump($this->input->post('desa'));exit();
 
         if($this->db->affected_rows() > 0){
             return TRUE;
@@ -243,7 +245,21 @@ class M_vacancy extends CI_Model{
                         ->order_by('vacancy.status','ASC')
                         ->get('vacancy')
                         ->result();
-    }    
+    }
+
+   /* public function get_vacancy(){
+      $this->db->select('
+         vacancy.*, login.*
+      ');
+      $this->db->join('login', 'vacancy.id_login = login.id_login');
+      $this->db->join('villages', 'vacancy.desa = villages.id');
+         $this->db->from('vacancy');
+      $this->db->where('vacancy.id_login', $this->session->userdata("id_login"));
+      $this->db->order_by('vacancy.status','ASC');
+      $query = $this->db->get();
+      return $query->result();
+  }*/
+
     public function get_apllied_vacancy_total()
     {
         return $this->db->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy') 
