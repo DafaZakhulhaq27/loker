@@ -9,7 +9,8 @@ class Owner_profil extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Owner/M_profile');		
+        $this->load->model('Owner/M_profile');
+        $this->load->model('M_master');		
 	}
 
 	public function index()

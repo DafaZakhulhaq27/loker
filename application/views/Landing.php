@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+     <link rel="icon" type="image/png" sizes="16x16" href="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png">
+    <title>PORTAL KERJA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -139,6 +140,17 @@
 .ribbon.blue:after {
     border-top: 3px solid #115979
 }
+
+.darkenx {
+  background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.1), 
+          rgba(0, 0, 0, 0.1)
+        ),
+        /* bottom, image */
+        url(<?php echo base_url(); ?>assets/landing/images/bandara3.jpg) no-repeat center center fixed !important; 
+}
     </style>
   <?php
     $notif = $this->session->flashdata('notif');
@@ -150,7 +162,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">SDM Apsintegra</a>
+        <a class="navbar-brand" href="index.html"> <img src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" width="170"><p></p></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -161,7 +173,7 @@
             <li class="nav-item"><a href="#carilowongan" class="nav-link">Cari Lowongan</a></li> 
             <li class="nav-item"><a href="#lowonganpremium" class="nav-link">Rekomendasi</a></li>              
             <li class="nav-item"><a href="#pasanglowongan" class="nav-link">Pasang Lowongan Kerja</a></li>
-            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-outline-secondary" >Login/Daftar</a></li>
+            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-info" >Login/Daftar</a></li>
           </ul>
         </div>
       </div>
@@ -239,12 +251,12 @@
 
     <section class="home-slider ftco-degree-bg" id="beranda">
       <div class="slider-item">
-        <div class="overlay"></div>
+        <div class="overlay darkenx"></div>
         <div class="container">
           <div class="row slider-text align-items-center justify-content-center">
             <div class="col-md-10 ftco-animate text-center" style="margin-top: 20%">
-              <h1 class="mb-4">Cari Pekerjaan
-                <strong class="typewrite" data-period="4000" data-type='[ "Mudah.", "Cepat.", "Nggak Ribet."]'>
+              <h1 class="mb-4">PORTAL
+                <strong class="typewrite" data-period="4000" data-type='[ "KERJA"]'>
                   <span class="wrap"></span>
                 </strong>
               </h1>
@@ -425,7 +437,7 @@
             </div>     
 
         </div>
-          <a href="#">Lihat semua lowongan <i class="fas fa-arrow-circle-right"></i></a>
+          <!-- <a href="#">Lihat semua lowongan <i class="fas fa-arrow-circle-right"></i></a> -->
         </div>
     </section>
 

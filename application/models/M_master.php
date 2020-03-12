@@ -25,6 +25,20 @@ class M_master extends CI_Model{
 	    return $query->row();
 	  }
 
+	  function getResumeCategoryByResumeID($id)
+	  {
+	    $this->db->select('*');
+		$this->db->where('id_resume', $id);
+		$query = $this->db->get('resume_category');
+		if($query->num_rows()>0)
+		{
+			return $query->result();
+		} else{
+			return $query->result();
+		}
+	  }
+
+
 	function getLoginByID($id)
 	  {
 	    $this->db->select('*');
@@ -51,4 +65,14 @@ class M_master extends CI_Model{
 	    return $query->row();
 
 	  }
+
+	 function cekData($table,$where){		
+		return $this->db->get_where($table,$where);
+	}
+
+	function updateData($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}		
+
 }

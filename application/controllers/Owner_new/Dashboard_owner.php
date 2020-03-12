@@ -12,7 +12,8 @@ class Dashboard_owner extends CI_Controller {
 		}
         $this->load->model('Owner/M_vacancy','M_vacancy');		
         $this->load->model('Owner/M_paket','M_paket');	
-        $this->load->model('M_login');						
+        $this->load->model('M_login');
+        $this->load->model('M_master');						
 
 	}
 

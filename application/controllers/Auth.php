@@ -104,13 +104,36 @@ class Auth extends CI_Controller {
             if($this->M_login->cek_user() == TRUE ){
 	            if($this->input->post('password') == $this->input->post('password_ver') ){
 	            	  //EMAIL
+
+	            	$config = [
+		               'useragent' => 'CodeIgniter',
+		               'protocol'  => 'smtp',
+		               'mailpath'  => '/usr/sbin/sendmail',
+		               'smtp_host' => 'sdm.apsintegra.co.id',
+		               'smtp_user' => 'noreply@sdm.apsintegra.co.id',   // Ganti dengan email gmail Anda.
+		               'smtp_pass' => 'Asdasd123098!',             // Password gmail Anda.
+		               'smtp_port' => 465,
+		               'smtp_keepalive' => TRUE,
+		               'smtp_crypto' => 'ssl',
+		               'wordwrap'  => TRUE,
+		               'wrapchars' => 80,
+		               'mailtype'  => 'html',
+		               'charset'   => 'utf-8',
+		               'validate'  => TRUE,
+		               'crlf'      => "\r\n",
+		               'newline'   => "\r\n",
+		           ];
+
+			        // Load library email dan konfigurasinya.
+			         $this->email->initialize($config);
+
 			        $token = $this->randomString() ;
 			        $to_mail = $this->input->post('email') ;
-			        $from_email = "dafa27890@gmail.com";
+			        $from_email = "noreply@sdm.apsintegra.co.id";
 			        $this->email->from($from_email, 'Loker');
 			        $this->email->to($to_mail);
 			        $this->email->subject('Verifikasi Akun Loker');
-			        $this->email->message('<h1>Silakan verifikasi akun untuk bisa menikmati fitu-fitur loker </h1>silakan klik link tersebut <a href="'.base_url().'Auth/ver_email/'.$token.'">Klik Disini</a></p> <p>Have A Nice Day </p>');
+			        $this->email->message('<h1>Silakan verifikasi akun untuk bisa menikmati fitu-fitur loker </h1>silahkan klik link berikut <a href="'.base_url().'Auth/ver_email/'.$token.'">Klik Disini</a></p>');
 			        $this->email->set_mailtype('html');
 	            	  //EMAIL	 
 		            if($this->email->send()){	            	
@@ -125,6 +148,7 @@ class Auth extends CI_Controller {
 		                }
 
 				          }else{
+				          	//var_dump($this->email->print_debugger());exit();
 				              $this->session->set_flashdata('notif', 'Failed Send Mail');
 				              $this->session->set_flashdata('type', 'error');
 				     		 redirect('Landing');
@@ -148,7 +172,9 @@ class Auth extends CI_Controller {
 		        if($this->M_login->ver_status_email() == TRUE){
 						  $this->session->unset_userdata('status_resume');
 						  $this->session->set_userdata('status_email_ver','1');		        	
-		        	echo "Selamat, Akun anda sudah terverifikasi. silahkan lengkapi profile anda" ;
+		        	$this->session->set_flashdata('notif', 'Selamat, akun Anda sudah terverifikasi. silahkan login');
+			        $this->session->set_flashdata('type', 'success');
+				   	redirect('Landing');
 		        } else {
 		          $this->session->set_flashdata('notif', 'gagal ubah status ver email');
 		          $this->session->set_flashdata('type', 'error');

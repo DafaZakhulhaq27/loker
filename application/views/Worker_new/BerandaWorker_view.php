@@ -86,7 +86,7 @@
                                         class="round round-lg text-white d-inline-block text-center rounded-circle bg-warning">
                                         <i class="fas fa-user"></i></div>
                                     <div class="ml-2 align-self-center">
-                                        <h3 class="mb-0 font-weight-light"><a href="#">Profil</a></h3>
+                                        <h3 class="mb-0 font-weight-light">Profil</h3>
                                         <?php if($this->session->userdata('status_profile') == "1"){ ?>
                                          <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Lengkap <i class="fas fa-check"></i></span></h5>
                                         <?php } else { ?>
@@ -107,7 +107,7 @@
                                         class="round round-lg text-white d-inline-block text-center rounded-circle bg-primary">
                                         <i class="fab fa-wpforms"></i></div>
                                     <div class="ml-2 align-self-center">
-                                        <h3 class="mb-0 font-weight-light"><a href="#">Resume</a></h3>
+                                        <h3 class="mb-0 font-weight-light">Resume</h3>
                                         <?php if ($this->session->userdata('status_resume') == '1') { ?>
                                             <h5 class="text-muted mb-0"><span class="badge badge-success px-2 py-1">Sudah Buat <i class="fas fa-check"></i></span></h5>
                                         <?php } else {?>
@@ -138,17 +138,30 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><h7><a href="#"><?php echo $resume->name_resume; ?></a></h7></td>
+                                                    <td>
+                                                    <?php 
+                                                    $where = array( 'id_login' => $this->session->userdata('id_login'));
+                                                    $cek = $this->M_master->cekData("resume",$where)->num_rows();
+                                                    if ($cek == 0) { ?>
+                                                         <a type="button" href="<?php echo site_url('Worker_new/Resume') ?>" class="btn btn-info">Buat Resume</a>
+                                                    <?php } else { ?>
+                                                        <a href="<?php echo site_url('Worker_new/Resume/Resume_result_detail') ?>"><h7><?php echo $resume->name_resume; ?></h7></a>
+                                                    <?php } ?>
+                                                    </td>
                                                     <td><?php 
-                                                        $date=date_create($resume->date_created);
-                                                        echo date_format($date,"d M Y");
+                                                        if ($cek > 0) {
+                                                            $date=date_create($resume->date_created);
+                                                            echo date_format($date,"d M Y");
+                                                        }
                                                      ?></td>
                                                     <td>
+                                                        <?php if ($cek > 0) { ?>
                                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                      <a type="button" href="<?php echo base_url() ; ?>Worker_new/Resume/Resume_result_edit" class="btn btn-info"><i class="far fa-edit"></i></a>
-                                                      <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                                      <a type="button" href="<?php echo base_url() ; ?>Worker/Resume/resume_download" class="btn btn-dark"><i class="fas fa-download"></i></a>
+                                                          <a type="button" href="<?php echo base_url() ; ?>Worker_new/Resume/Resume_result_edit" class="btn btn-info"><i class="far fa-edit"></i></a>
+                                                          <a type="button" href="#" onclick="delete_resume()" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                                          <a type="button" href="<?php echo base_url() ; ?>Worker/Resume/resume_download" class="btn btn-dark"><i class="fas fa-download"></i></a>
                                                     </div>
+                                                    <?php } ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -192,4 +205,23 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
- 
+
+<script type="text/javascript">
+     function delete_resume()
+    {
+         swal({
+          title: 'Apakah anda yakin ingin menghapus resume ini?',
+          text: "",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes'
+        }).then((result) => {
+          if (result) {
+            window.location.href = "<?php echo base_url() ?>Worker_new/Resume/delete_resume";
+          }
+        });         
+
+    }
+</script>

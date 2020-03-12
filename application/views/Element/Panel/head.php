@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-   <!--  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/material-pro/assets/images/favicon.png"> -->
-    <title>SDM APSINTEGRA</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png">
+    <title>PORTAL KERJA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- chartist CSS -->
     <link href="<?php echo base_url(); ?>assets/material-pro/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">

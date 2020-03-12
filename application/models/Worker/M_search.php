@@ -67,7 +67,7 @@ class M_search extends CI_Model{
 
 
          $this->db->limit($limit,$start) ;
-         $this->db->select('vacancy.description AS vacancydescription, vacancy.provinsi AS id_provinsi, vacancy.*, login.*, regencies.*');
+         $this->db->select('vacancy.description AS vacancydescription, vacancy.provinsi AS id_provinsi, vacancy.*, login.*, regencies.*, category.*');
          $this->db->join('login', 'vacancy.id_login = login.id_login');
          $this->db->join('category', 'vacancy.category = category.id_category') ;                       
          $this->db->join('regencies', 'vacancy.kabupaten = regencies.id');

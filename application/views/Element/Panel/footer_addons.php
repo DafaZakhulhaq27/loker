@@ -18,7 +18,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script>
+   <!--  <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script> -->
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/popper/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -44,6 +44,8 @@
         type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/dff/dff.js" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+
+
     <script>
         $(function () {
             // Switchery
@@ -187,6 +189,24 @@
             })
         });
     }      
+
+    jQuery(document).ready(function() {
+
+      <?php
+        $notif = $this->session->flashdata('notif');
+        $type = $this->session->flashdata('type');
+
+      ?>
+            if("<?php echo $type ; ?>" == "success"){
+                 swal("SUCCESS", "<?php echo $notif ; ?>", "success");
+            }else if("<?php echo $type ; ?>" == "error"){
+                 swal("GAGAL", "<?php echo $notif ; ?>", "error");
+            } else if("<?php echo $type ; ?>" == "id_login"){
+                  swal("Selamat Datang", "<?php echo $this->session->userdata('name') ; ?>");
+               
+            }
+    });
+
     </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->

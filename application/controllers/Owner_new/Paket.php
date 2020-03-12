@@ -9,7 +9,8 @@ class Paket extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Owner/M_paket');						
+        $this->load->model('Owner/M_paket');
+        $this->load->model('M_master');						
 	}
 
 	public function index()

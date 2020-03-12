@@ -70,7 +70,7 @@
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select" name="gender" required>
                                                     <option value="Laki-laki">Laki-laki</option>
-                                                    <option value="Wanita">Wanita</option>
+                                                    <option value="Perempuan">Perempuan</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                                             </div>
                                             <div class="form-group col-md-6 col-lg-3">
                                                 <label class="control-label">Kelurahan / Desa</label>
-                                                <select name="desa" id="desa" class="select2 form-control custom-select">
+                                                <select id="desa" name="desa" class="select2 form-control custom-select">
                                                     
                                                 </select>
                                             </div>

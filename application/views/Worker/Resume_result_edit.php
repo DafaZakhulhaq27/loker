@@ -62,7 +62,6 @@
                                     <label class="control-label mb-1">Provinsi</label>
                                     <input  type="text" class="form-control" value="<?php echo $data_resume->name_provinces ?>" readonly>
                                     <input name="provinsi" type="hidden" class="form-control" value="<?php echo $data_resume->province_id ?>" >
-
                                 </div>
                                 <div class="form-group col-lg-3 col-md-6">
                                     <label class="control-label mb-1">Kabupaten</label>

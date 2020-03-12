@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
    <!--  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/material-pro/assets/images/favicon.png"> -->
-    <title>SDM APSINTEGRA</title>
+    <title>PORTAL KERJA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
     <!-- Custom CSS -->
     <!-- page CSS -->
@@ -25,6 +25,16 @@
     <link href="<?php echo base_url(); ?>assets/material-pro/material/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url(); ?>assets/material-pro/material/css/colors/blue.css" id="theme" rel="stylesheet">
+
+     <!-- datatable -->
+    <link href="<?php echo base_url(); ?>assets/DataTables/DataTables-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables/datatables.min.css"/>
+    <!-- sweetalert -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/sweetalert/sweetalert2.min.css"/>
+
+          <!-- jquery -->
+    <script src="<?php echo base_url(); ?>assets/material-pro/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/sweetalert/sweetalert2.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

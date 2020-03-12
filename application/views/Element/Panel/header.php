@@ -25,7 +25,7 @@
                             <!-- Dark Logo icon -->
                             <!-- <img src="<?php echo base_url(); ?>assets/material-pro/assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo icon -->
-                           <!--  <img src="<?php echo base_url(); ?>assets/material-pro/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
+                            <img style="width: 123px" src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>

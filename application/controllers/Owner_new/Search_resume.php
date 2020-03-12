@@ -9,7 +9,8 @@ class Search_resume extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Owner/M_search_resume');		
+        $this->load->model('Owner/M_search_resume');
+        $this->load->model('M_master');		
 
 	}
 
