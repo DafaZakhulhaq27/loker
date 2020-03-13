@@ -6,7 +6,8 @@ class Data_sector extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Admin/M_data_sector');		
+        $this->load->model('Admin/M_data_sector');
+        $this->load->model('M_master');		
 
 	}
 

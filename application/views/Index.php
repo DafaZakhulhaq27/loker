@@ -328,7 +328,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php if ($this->session->userdata('picture') != "") { ?>
+                            <?php if ($this->M_master->getLoginByID($this->session->userdata('id_login'))->picture != "") { ?>
                                 <img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->M_master->getLoginByID($this->session->userdata('id_login'))->picture ?>" alt="user" class="user-avatar rounded-circle" />
                                 <!-- <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto"> -->
                             <?php } ?>

@@ -127,14 +127,17 @@ class Auth extends CI_Controller {
 			        // Load library email dan konfigurasinya.
 			         $this->email->initialize($config);
 
-			        $token = $this->randomString() ;
+			        $token = $this->randomString();
+			        $data = array(
+			        	'token' => $token
+			        );
 			        $to_mail = $this->input->post('email') ;
 			        $from_email = "noreply@sdm.apsintegra.co.id";
-			        $this->email->from($from_email, 'Loker');
+			        $this->email->from($from_email, 'noreply');
 			        $this->email->to($to_mail);
-			        $this->email->subject('Verifikasi Akun Loker');
+			        $this->email->subject('Verifikasi Email Anda');
 
-			        $massage = $this->load->view('email', $token, TRUE);
+			        $massage = $this->load->view('email', $data, TRUE);
 			        $this->email->message($massage);
 			        $this->email->set_mailtype('html');
 	            	  //EMAIL	 

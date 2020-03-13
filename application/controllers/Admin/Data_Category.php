@@ -42,15 +42,18 @@ class Data_Category extends CI_Controller {
    public function input_category()
     {
         if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 3){
+        	/*var_dump($this->M_data_category->input_category());exit();*/
 		          if($this->M_data_category->input_category() == TRUE ){
 			   		  $this->session->set_flashdata('notif', 'Kategory berhasil ditambah');
 	                  $this->session->set_flashdata('type', 'success');
-			          redirect('Admin/Data_Category');
+			          //redirect('Admin/Data_Category');
+
  	               }else{
 		              $this->session->set_flashdata('notif', 'Kategory Gagal dihapus');
 		              $this->session->set_flashdata('type', 'error');                
-			          redirect('Admin/Data_Category');
+			          //redirect('Admin/Data_Category');
 		           }
+		           redirect('Admin/Data_Category');
             }else {
 			    redirect('Landing');
             }

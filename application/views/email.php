@@ -143,7 +143,7 @@
         <tr>
             <td>
                 <div style="overflow:hidden;display:none;font-size:1px;color:#ffffff;line-height:1px;font-family:Arial;maxheight:0px;max-width:0px;opacity:0;">
-                    Welcome to MDB!
+                    
                 </div>
             </td>
         </tr>
@@ -168,7 +168,7 @@
                                 <tr>
                                     <td align="center" height="70" style="height:70px;">
                                        <!--  <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="100" border="0" style="display: block; width: 100px;" src="https://mdbootstrap.com/img/logo/mdb-email.png" alt="" /></a> -->
-                                       <a href="<?php echo base_url() ?>loker/landing"><img style="display: block; width: 250px;" src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" border="0"></a>
+                                       <a href="<?php echo base_url() ?>loker/landing"><img style="display: block; width: 250px;" src="<?php echo base_url(); ?>assets/landing/images/APSI-copy.png" border="0"></a>
                                     </td>
                                 </tr>
 
