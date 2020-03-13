@@ -7,6 +7,7 @@ class Worker_profil extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Worker/M_profile');		
+        $this->load->model('M_master');	
 	}
 
 	public function index()

@@ -71,8 +71,7 @@
                             <div class="row">
                         <?php 
                             $id_login = $this->session->userdata('id_login') ;
-                            foreach ($data_resume as $d) {  
-                            echo"$d->id_resume";                                             
+                            foreach ($data_resume as $d) {                                               
                                 echo '
                                     <div class="col-md-4">
                                         <section class="card">

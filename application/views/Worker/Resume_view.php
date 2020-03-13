@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label class="control-label mb-1">Status pernikahan (Wajib Diisi)</label>
                                 <select name="married" id="married" class="form-control" required>
-                                    <option value="belum menikah">Belum Menilah</option>                     
+                                    <option value="belum menikah">Belum Menikah</option>                     
                                     <option value="menikah">Menikah</option>
                                     <option value="cerai">Cerai</option>
                                 </select>

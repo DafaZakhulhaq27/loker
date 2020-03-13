@@ -6,7 +6,8 @@ class Owner_profil extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Owner/M_profile');		
+        $this->load->model('Owner/M_profile');	
+        $this->load->model('M_master');		
 	}
 
 	public function index()

@@ -7,7 +7,8 @@ class Dashboard_worker extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Owner/M_vacancy','M_vacancy');		
-        $this->load->model('Owner/M_paket','M_paket');						        		
+        $this->load->model('Owner/M_paket','M_paket');		
+        $this->load->model('M_master');					        		
 	}
 
 	public function index()

@@ -6,7 +6,9 @@ class Vacancy extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Owner/M_vacancy');		
+        $this->load->model('Owner/M_vacancy');
+        $this->load->model('Worker/M_resume');	
+        $this->load->model('M_master');		
 
 	}
 
@@ -120,7 +122,7 @@ class Vacancy extends CI_Controller {
 	{
         if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 2){
 			$this->M_vacancy->read($id) ;        	
-        	redirect("Owner/Vacancy/get_resume_app/$id") ;
+        	redirect("Owner/Vacancy/get_applicant/$id") ;
 
         } else {
 	         redirect('Landing');
@@ -149,6 +151,25 @@ class Vacancy extends CI_Controller {
 	         redirect('Landing');
         }		
 	}	
+
+	public function get_applicant($id_apllied)
+	{
+        if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('level') == 2){
+	      if($this->session->userdata('status_profile') == '1' && $this->session->userdata('status_email_ver') == '1'){
+				   $data['data_resume_download'] = $this->M_vacancy->getAplliedByID($id_apllied); 
+				   //$data['data_resume2'] = $this->M_vacancy->get_resume2(); 
+		        $data['main_view'] 		= 'Owner/Applicant_view';
+				$this->load->view('Index',$data);
+        	}else{
+			    $this->session->set_flashdata('notif', 'Lengkapi profile / verifikasi email terlebih dahulu');
+			    $this->session->set_flashdata('type', 'error');                
+		       	redirect('Owner/Dashboard_owner') ;
+        	}
+       	
+        } else {
+	         redirect('Landing');
+        }		
+	}	
 	// GET RESUME	
 
 	// ACCPET APP	
@@ -160,16 +181,38 @@ class Vacancy extends CI_Controller {
 			          if($this->M_vacancy->status_app($id) == TRUE ){
 						  $this->M_vacancy->read_worker($id) ;		
 	            	  //EMAIL
-					  $to_mail = $this->uri->segment(5) ;
-					  $from_email = "dafa27890@gmail.com";
-					//   $from_email = $this->session->userdata('email'); jika sudah bisa saya sarankan pakai ini
-					  $this->email->from($from_email, 'Loker');
-					  $this->email->to($to_mail);
-					  $this->email->subject('Lamaran Pekerjaan Loker Loker');
-					  $this->email->message('<h1>Selamat, Lamaran pekerjaan anda telah diterima </h1>');
-					  $this->email->set_mailtype('html');
-					  $this->email->send()	;				  
-						//EMAIL							  	          	
+							$config = [
+			               'useragent' => 'CodeIgniter',
+			               'protocol'  => 'smtp',
+			               'mailpath'  => '/usr/sbin/sendmail',
+			               'smtp_host' => 'sdm.apsintegra.co.id',
+			               'smtp_user' => 'noreply@sdm.apsintegra.co.id',   // Ganti dengan email gmail Anda.
+			               'smtp_pass' => 'Asdasd123098!',             // Password gmail Anda.
+			               'smtp_port' => 465,
+			               'smtp_keepalive' => TRUE,
+			               'smtp_crypto' => 'ssl',
+			               'wordwrap'  => TRUE,
+			               'wrapchars' => 80,
+			               'mailtype'  => 'html',
+			               'charset'   => 'utf-8',
+			               'validate'  => TRUE,
+			               'crlf'      => "\r\n",
+			               'newline'   => "\r\n",
+			           ];
+
+				        // Load library email dan konfigurasinya.
+				         $this->email->initialize($config);
+
+						  $to_mail =  $this->M_vacancy->getAplliedByID($id)->email;
+						  $from_email = "noreply@sdm.apsintegra.co.id";
+						//   $from_email = $this->session->userdata('email'); jika sudah bisa saya sarankan pakai ini
+						  $this->email->from($from_email, 'Loker');
+						  $this->email->to($to_mail);
+						  $this->email->subject('Lamaran Pekerjaan Loker Loker');
+						  $this->email->message('<h1>Selamat, Lamaran pekerjaan anda telah diterima </h1>');
+						  $this->email->set_mailtype('html');
+						  $this->email->send();				  
+							//EMAIL							  	          	
 						  $this->session->set_flashdata('notif', 'Selamat anda telah memilih pekerja');
 		                  $this->session->set_flashdata('type', 'success');
 			        	  redirect('Owner/Vacancy/vacancy_result');

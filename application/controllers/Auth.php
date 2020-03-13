@@ -19,7 +19,7 @@ class Auth extends CI_Controller {
 	      return $str ;
       }
   //LOGIN
-	/*  public function do_login()
+	  public function do_login()
 	  {
 	    if($this->session->userdata('logged_in') == TRUE){
 				if($this->session->userdata('level') == 1){
@@ -50,10 +50,10 @@ class Auth extends CI_Controller {
 	          redirect('Landing');
 	        }
 	      }
-	   }*/
+	   }
 
 	   //login new
-	    public function do_login()
+	   /* public function do_login()
 	  {
 	    if($this->session->userdata('logged_in') == TRUE){
 				if($this->session->userdata('level') == 1){
@@ -85,7 +85,7 @@ class Auth extends CI_Controller {
 	        }
 	      }
 	   }
-
+*/
 
 	  public function logout(){
 	    if($this->session->userdata('logged_in') == TRUE){
@@ -133,7 +133,9 @@ class Auth extends CI_Controller {
 			        $this->email->from($from_email, 'Loker');
 			        $this->email->to($to_mail);
 			        $this->email->subject('Verifikasi Akun Loker');
-			        $this->email->message('<h1>Silakan verifikasi akun untuk bisa menikmati fitu-fitur loker </h1>silahkan klik link berikut <a href="'.base_url().'Auth/ver_email/'.$token.'">Klik Disini</a></p>');
+
+			        $massage = $this->load->view('email', $token, TRUE);
+			        $this->email->message($massage);
 			        $this->email->set_mailtype('html');
 	            	  //EMAIL	 
 		            if($this->email->send()){	            	

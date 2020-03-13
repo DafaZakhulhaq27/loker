@@ -177,27 +177,27 @@ class M_search extends CI_Model{
         
 
     }   
-    /*public function get_vacancy_by_id($id)
+    public function get_vacancy_by_id($id)
     {
         return $this->db->join('login', 'vacancy.id_login = login.id_login')
                         ->join('provinces', 'vacancy.provinsi = provinces.id')       
                         ->join('regencies', 'vacancy.kabupaten = regencies.id')
                         ->join('districts', 'vacancy.kecamatan = districts.id')
-                        ->join('category', 'vacancy.category = category.id_category')                        
+                        ->join('category', 'vacancy.category = category.id_category')                       
                         ->join('villages', 'vacancy.desa = villages.id')
                         ->where('id_vacancy', $id)
                         ->get('vacancy')
                         ->row();
-    } */
+    } 
 
-    function get_vacancy_by_id($id)
+   /* function get_vacancy_by_id($id)
   {
     $this->db->select('*');
     $this->db->where('id_vacancy',$id);
     $query = $this->db->get('vacancy');
     return $query->row();
 
-  } 
+  } */
                               
     // GET VACANCY
   // GET DROPDOWN

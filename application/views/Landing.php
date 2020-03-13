@@ -391,7 +391,7 @@
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>
@@ -411,7 +411,7 @@
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>
@@ -431,7 +431,7 @@
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>     

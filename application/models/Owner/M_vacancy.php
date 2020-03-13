@@ -165,7 +165,7 @@ class M_vacancy extends CI_Model{
             'read_owner' => 1 ,
         );
 
-        $this->db->where('id_login', $id)
+        $this->db->where('id_apllied_vacancy', $id)
             ->update('apllied_vacancy', $data);
 
         if($this->db->affected_rows() > 0){
@@ -310,6 +310,14 @@ class M_vacancy extends CI_Model{
                         ->where('id_login',$this->uri->segment(4))
                         ->get('resume')
                         ->result();
+    }  
+
+    public function get_category_resume($id_login)
+    {
+        return $this->db->join('category', 'resume.work_category = category.id_category')
+                        ->where('id_login',$id_login)
+                        ->get('resume')
+                        ->result();
     }    
     public function get_resume_download($id)
     {
@@ -321,6 +329,17 @@ class M_vacancy extends CI_Model{
                         ->where('resume.id_login', $id)
                         ->get('resume')
                         ->first_row();
+    }  
+
+    public function getAplliedByID($id)
+    {
+        return $this->db->select('
+                apllied_vacancy.*, vacancy.*, apllied_vacancy.id_login as id_pelamar, vacancy.id_login as id_owner, login.*')
+                        ->join('login', 'apllied_vacancy.id_login = login.id_login')
+                        ->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
+                        ->where('apllied_vacancy.id_apllied_vacancy', $id)
+                        ->get('apllied_vacancy')
+                        ->row();
     }    
 
   // GET RESUME    

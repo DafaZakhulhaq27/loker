@@ -6,7 +6,8 @@ class Data_user extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Admin/M_data_user');		
+        $this->load->model('Admin/M_data_user');
+        $this->load->model('M_master');		
 
 	}
 

@@ -7,6 +7,7 @@ class Data_paket extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Admin/M_data_paket');		
+        $this->load->model('M_master');
 
 	}
 

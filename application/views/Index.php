@@ -242,7 +242,7 @@
                                     <div class="dropdown-menu" aria-labelledby="message">'  ; 
                                     foreach ($notif as $q ) {
                                         echo '
-                                        <a class="dropdown-item media" href="'.base_url().'Owner/Vacancy/read/'.$q->id_login.'">
+                                        <a class="dropdown-item media" href="'.base_url().'Owner/Vacancy/read/'.$q->id_apllied_vacancy.'">
                                             <span class="photo media-left"><img alt="avatar" src="'.base_url().'assets/admin/images/'.$q->picture.'"></span>
                                             <div class="message media-body">
                                                 <span class="name float-left">'.$q->name.'</span>
@@ -329,7 +329,8 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php if ($this->session->userdata('picture') != "") { ?>
-                                <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto">
+                                <img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->M_master->getLoginByID($this->session->userdata('id_login'))->picture ?>" alt="user" class="user-avatar rounded-circle" />
+                                <!-- <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto"> -->
                             <?php } ?>
                         </a>
 

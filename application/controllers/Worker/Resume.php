@@ -6,7 +6,8 @@ class Resume extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Worker/M_resume');				
+        $this->load->model('Worker/M_resume');
+        $this->load->model('M_master');					
 	}
 
 	public function index()

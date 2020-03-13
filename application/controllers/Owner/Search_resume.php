@@ -6,7 +6,8 @@ class Search_resume extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Owner/M_search_resume');		
+        $this->load->model('Owner/M_search_resume');
+        $this->load->model('M_master');			
 
 	}
 
