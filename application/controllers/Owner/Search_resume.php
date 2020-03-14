@@ -103,7 +103,9 @@ class Search_resume extends CI_Controller {
 				        	  redirect('Owner/Search_resume');
 	        		}
         		}else{
-
+        			$this->session->set_flashdata('notif', 'Kuota undangan pekerja anda telah habis, silahkan perbarui paket');
+				              $this->session->set_flashdata('type', 'error');                
+				        	  redirect('Owner/Search_resume');
         		}
         	  	
 	      }else{

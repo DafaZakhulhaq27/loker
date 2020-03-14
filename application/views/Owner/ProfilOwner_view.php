@@ -59,7 +59,9 @@
                                             <div class="form-group">
                                                 <label  class="control-label mb-1">Foto Profile Perusahaan</label>
                                                 <input type="file" name="foto" class="form-control-file" >
-                                                <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ;  ?>">    
+                                                <?php if ($data_profil->picture != '') {?>
+                                                    <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ;  ?>">    
+                                                <?php } ?>
                                             </div> 
                                             <h3>Lokasi Perusahaan</h3>                                         
                                             <hr>

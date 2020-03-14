@@ -111,7 +111,7 @@
                                             </div>
                                             <footer class="twt-footer">
                                                 <p><b>Nama Perusahaan :</b> '.$d->name.'<br>
-                                                <b>Kategoi pekerjaan :</b>'.$d->name_category.'<br>
+                                                <b>Kategori pekerjaan :</b>'.$d->name_category.'<br>
                                                 <b>Gaji :</b> '.$d->salary.'<br>
                                                 <b>Clossing Date :</b> '.$d->closing_date.'<br>
                                                 <b>Status Lowongan :</b> '.$d->status.'</p> 
