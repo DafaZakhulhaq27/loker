@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/landing/images/APSI.png">
     <title>Portal Kerja</title>
     <meta name="description" content="Loker">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -413,7 +414,7 @@
 
         jQuery.getJSON('<?php echo base_url() ; ?>Owner/Vacancy/get_apllied_vacancy_acc/'+id, function(data){
             jQuery.each(data, function(index,value){
-                jQuery('#data_app_acc').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td></td></tr>');
+                jQuery('#data_app_acc').append('<tr><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td></tr>');
             })
         });
     }             

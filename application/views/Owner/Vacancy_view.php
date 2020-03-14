@@ -210,7 +210,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Basic Table</strong>
+                                <strong class="card-title"></strong>
                             </div>
                             <div class="card-body">
                                 <table class="table">
@@ -257,16 +257,16 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Basic Table</strong>
+                                <strong class="card-title"></strong>
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                          <th scope="col">No</th>
+                                          <!-- <th scope="col">No</th> -->
                                           <th scope="col">Nama Pelamar</th>
                                           <th scope="col">Detail</th>
-                                          <th scope="col">Aksi</th>
+                                          <!-- <th scope="col">Aksi</th> -->
                                       </tr>
                                   </thead>
                                   <tbody id="data_app_acc">

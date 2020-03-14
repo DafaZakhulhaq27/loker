@@ -28,7 +28,7 @@
                                     <th>'.$d->email.'</th>
                                     <td>'.$d->name_paket.'</td>
                                     <td>'.$d->date_created_paket.'</td>
-                                    <td><img src="'.base_url().'assets/admin/images/'.$d->bukti.'" style="height : 150px"></td>
+                                    <td><a href="'.base_url().'assets/admin/images/'.$d->bukti.'"><img src="'.base_url().'assets/admin/images/'.$d->bukti.'" style="height : 150px"></a></td>
                                     ';
                                     if($d->status == 'menunggu balasan')
                                     {

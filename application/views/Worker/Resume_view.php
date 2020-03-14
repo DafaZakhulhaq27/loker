@@ -114,7 +114,7 @@
                             <div class="form-group">
                                 <label class="control-label mb-1" >Lama Bekerja (Wajib Diisi)</label>
                                 <select name="time_exp" id="time_exp" class="form-control" required>
-                                    <option value="Fresh Grauate">Fresh Grauate</option>
+                                    <option value="Fresh Grauate">Fresh Graduate</option>
                                     <option value=" < 1 Tahun"> < 1 Tahun</option>
                                     <option value=" 1 - 2 Tahun"> 1 - 2 Tahun</option>
                                     <option value=" 2 - 5 Tahun"> 2 - 5 Tahun</option>

@@ -42,7 +42,7 @@ class Owner_profil extends CI_Controller {
 					  $this->M_profile->change_status_profile() ;		
 					  $this->session->unset_userdata('status_profile');
 					  $this->session->set_userdata('status_profile','1');					          	
-			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan, jika foto profil belum update, cobalah logout dan login kembali');
+			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan');
 			          $this->session->set_flashdata('type', 'success');
 				  	  redirect('Owner/Owner_profil');
 			        } else {
