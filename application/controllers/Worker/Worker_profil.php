@@ -27,7 +27,7 @@ class Worker_profil extends CI_Controller {
 	    	if(empty($_FILES['foto']['error']) != 0)
 	    	{
 		    	$config['upload_path'] = 'assets/admin/images/' ;
-		    	$config['allowed_types'] = 'jpg|png' ;
+		    	$config['allowed_types'] = 'jpg|png|jpeg' ;
 		    	$config['max_size'] = 2000 ;
 
 		    	$this->load->library('upload',$config) ;

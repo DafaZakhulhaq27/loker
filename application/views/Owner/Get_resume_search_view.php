@@ -68,13 +68,13 @@
 
                                       
                             </div>
-                            <div class="row">
+                            <div class="row container">
                         <?php 
                             $id_login = $this->session->userdata('id_login') ;
                             foreach ($data_resume as $d) {                                               
                                 echo '
                                     <div class="col-md-4">
-                                        <section class="card">
+                                        <section class="card" style="width : 280px">
                                             <img src="'.base_url().'assets/admin/images/'.$d->picture.'" style="height : 200px ;">
                                             <div class="twt-write col-sm-12" style="margin-top: 5% ;">
                                                 <a href="#" style="font-size: 20px ; color : #3282b8"><b><i>'.$d->name_resume.'</i></b></a>

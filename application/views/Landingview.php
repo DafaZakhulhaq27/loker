@@ -414,10 +414,10 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
@@ -434,10 +434,10 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
@@ -454,10 +454,10 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
