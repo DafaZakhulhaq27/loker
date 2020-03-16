@@ -164,7 +164,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" width="170"></a>
+        <a class="navbar-brand" href="<?php echo site_url('Landing') ?>"><img src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" width="170"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -378,8 +378,7 @@
                                               </p> 
 
                   </div>
-                      <!-- <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div> -->
-                      <div><a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#login" >Selengkapnya </a></div>                
+                      <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div>                       <!-- <div><a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#login" >Selengkapnya </a></div>  -->               
                   </div>
 
 

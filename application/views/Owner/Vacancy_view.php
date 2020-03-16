@@ -204,7 +204,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="modal_addLabel">Data Pelamar Diterima</h4>
+                    <h4 class="modal-title" id="modal_addLabel">Data Pelamar</h4>
                 </div>
                   <div class="modal-body">
                     <div class="col-lg-12">
@@ -251,7 +251,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="modal_addLabel">Data Pelamar</h4>
+                    <h4 class="modal-title" id="modal_addLabel">Data Pelamar Diterima</h4>
                 </div>
                   <div class="modal-body">
                     <div class="col-lg-12">

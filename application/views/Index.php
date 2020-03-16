@@ -187,7 +187,7 @@
                                     <a href="'.base_url().'Admin/Data_user"><i class="menu-icon fa fa-user"></i>Data Pengguna </a>
                                 </li>
                                 <li'; if($this->uri->segment(2) == 'Data_Category'){echo ' class="active"' ; }echo'>
-                                    <a href="'.base_url().'Admin/Data_Category"><i class="menu-icon fa fa-circle"></i>Data Category </a>
+                                    <a href="'.base_url().'Admin/Data_Category"><i class="menu-icon fa fa-circle"></i>Data Kategori </a>
                                 </li> 
                                 <li'; if($this->uri->segment(2) == 'Data_sector'){echo ' class="active"' ; }echo'>
                                     <a href="'.base_url().'Admin/Data_sector"><i class="menu-icon fa fa-circle"></i>Data Bidang Usaha </a>
@@ -219,7 +219,14 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><strong>Portal Kerja</strong></a>
+                    <?php if ($this->session->userdata('level') == '2') { ?>
+                       <a class="navbar-brand" href="<?php echo site_url('Owner/Dashboard_owner') ?>"><strong>Portal Kerja</strong></a> 
+                    <?php } elseif ($this->session->userdata('level') == '1') { ?>
+                        <a class="navbar-brand" href="<?php echo site_url('Worker/Dashboard_worker') ?>"><strong>Portal Kerja</strong></a>
+                    <?php } else { ?>
+                        <a class="navbar-brand" href="<?php echo site_url('Admin/Data_user') ?>"><strong>Portal Kerja</strong></a>
+                    <?php } ?>
+                    
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
