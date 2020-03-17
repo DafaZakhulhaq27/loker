@@ -92,7 +92,7 @@
 
                                       
                             </div>
-                            <div class="row">
+                            <div class="row container">
                         <?php 
                             $id_login = $this->session->userdata('id_login') ;
                             foreach ($data_vacancy as $d) {

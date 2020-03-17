@@ -383,7 +383,7 @@
         <div class="footer-inner bg-white">
             <div class="row">
                 <div class="col-sm-6">
-                    loker || 2020
+                    Copyright || 2020
                 </div>
             </div>
         </div>
