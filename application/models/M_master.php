@@ -48,6 +48,15 @@ class M_master extends CI_Model{
 
 	  }
 
+	  function getPaketByIDLogin($id_login)
+	  {
+	    $this->db->select('*');
+	    $this->db->where('id_login',$id_login);
+	    $query = $this->db->get('paket');
+	    return $query->row();
+
+	  }
+
 	  function getProvincesByID($id)
 	  {
 	    $this->db->select('*');

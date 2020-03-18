@@ -368,14 +368,14 @@
                       <div ><h3 class="heading"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap"><?php echo $d->title ?></a><h3></div>
                     </div >
                     <div >
-                                                <h5><?php echo $d->name ?></h5>
-                                                <i class="fas fa-map-marker-alt"></i> <?php echo $d->name_regencies  ?><br>
-                                                <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
-                                                <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
-                                                <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
-                                                <b>Clossing Date </b><?php echo $d->closing_date ?><br>
-                                                <b>Status Lowongan :</b><?php echo $d->status ?><br>
-                                              </p> 
+                              <h5><?php echo $d->name ?></h5>
+                              <i class="fas fa-map-marker-alt"></i> <?php echo $d->name_regencies  ?><br>
+                              <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
+                              <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
+                              <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
+                              <b>Clossing Date </b><?php echo $d->closing_date ?><br>
+                              <b>Status Lowongan :</b><?php echo $d->status ?><br>
+                            </p> 
 
                   </div>
                       <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div>                       <!-- <div><a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#login" >Selengkapnya </a></div>  -->               

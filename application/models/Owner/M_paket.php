@@ -30,7 +30,8 @@ class M_paket extends CI_Model{
                 'id_login' => $this->session->userdata("id_login"),
                 'id_upgrade' => $id,   
                 'date_created_paket' => date("Y-m-d"),  
-                'date_expired_date' => $expired,                                                                                                        
+                'date_expired_date' => $expired, 
+                'kuota_premium' => $max->premium                                                                                                       
             );    
             $this->db->insert('paket', $data);
 

@@ -124,6 +124,16 @@ class M_vacancy extends CI_Model{
 
     public function input_vacancy()
     {
+            
+            if ($this->input->post('premium') == '1') {
+                $premium = 'yes';
+                $open_date = date("Y-m-d");
+                $exp_headline = date('Y-m-d', strtotime('+14 days', strtotime($open_date))); 
+            } else {
+                $premium = 'no';
+                $exp_headline = Null;
+            }
+
             $data = array(
                 'id_login' => $this->session->userdata("id_login"),
                 'title' => $this->input->post('title'),         
@@ -143,7 +153,9 @@ class M_vacancy extends CI_Model{
                 'provinsi' => $this->input->post('provinsi'),
                 'kabupaten' => $this->input->post('kabupaten'),
                 'kecamatan' => $this->input->post('kecamatan'),
-                'desa' => $this->input->post('desa'),	
+                'desa' => $this->input->post('desa'),
+                'premium' => $premium,
+                'exp_headline' => $exp_headline
 
             );    
            

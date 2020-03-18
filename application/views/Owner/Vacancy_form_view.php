@@ -140,10 +140,15 @@
                                                  <option value="">-- Pilih Desa --</option>
                                             </select>
                                         </div>
-                                            <div class="col-md-4">
+                                        <div class="form-group col-lg-3 col-md-6">
+                                            <label class="control-label mb-1">Jadikan Iklan Premium </label>
+                                            <input name="premium" value="1" type="checkbox">
+                                        </div> <br>
+                                                                              
+                                    </div>  
+                                    <div class="col-md-4">
                                                <input class="btn btn-lg btn-info btn-block" type="submit" name="submit" value="Simpan">
-                                            </div>                                        
-                                    </div>      
+                                            </div>      
                                 </form>
                                     </div>
                                 </div>

@@ -45,6 +45,18 @@ class Vacancy extends CI_Controller {
 					     if($this->input->post('closing_date') <= $maxdate ){
 				          if($this->M_vacancy->input_vacancy() == TRUE ){
 							  $this->M_vacancy->change_status_vacancy() ;
+
+							  //iklan premium
+							  if ($this->input->post('premium') == '1') {
+							  	$kuota_premium = $this->M_master->getPaketByIDLogin($this->session->userdata('id_login'))->kuota_premium;
+
+							  	$update_premium = array(
+							  		'kuota_premium' => $kuota_premium - 1
+							  	);
+							  	$where = array('id_login' => $this->session->userdata('id_login'));
+							  	$this->M_master->updateData($where,$update_premium,'paket');
+							  }
+
 							  $this->session->unset_userdata('status_vacancy');
 							  $this->session->set_userdata('status_vacancy','1');
 							  $this->session->set_flashdata('notif', 'Iklan Lowongan sudah berhasil dibuat');
