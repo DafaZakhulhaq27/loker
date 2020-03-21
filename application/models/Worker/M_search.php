@@ -120,6 +120,7 @@ class M_search extends CI_Model{
             $this->session->unset_userdata('tipe_worker');
             $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
           }  
+          
           if($this->input->post('category') != NULL && $this->session->userdata('category') == NULL){
             $this->session->set_userdata('category',$this->input->post('category'));
           }elseif($this->input->post('category') != NULL && $this->session->userdata('category') != NULL){
