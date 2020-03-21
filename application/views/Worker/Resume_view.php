@@ -76,7 +76,7 @@
                                 </div> 
                                 <div class="form-group col-lg-3 col-md-6">
                                     <label class="control-label mb-1">Kecamatan</label>
-                                    <select name="kecamatan" id="kecamatan" class="form-control js-example-basic-single" onchange="get_desa(this.value)" >
+                                    <select name="kecamatan" id="kecamatan" class="form-control js-example-basic-single" onchange="get_desa(this.value)"   >
                                          <option value="">-- Pilih Kecamatan --</option>
                                     </select>
                                 </div>
