@@ -70,27 +70,27 @@ class M_search_resume extends CI_Model{
 
     public function get_resume_by_search($limit,$start)
     {
-        if($this->input->post('title') != NULL && $this->session->userdata('title') == NULL){
+        if( $this->session->userdata('title') == NULL){
             $this->session->set_userdata('title',$this->input->post('title'));
-          }elseif($this->input->post('title') != NULL && $this->session->userdata('title') != NULL){
+          }elseif($this->session->userdata('title') != NULL){
             $this->session->unset_userdata('title');
             $this->session->set_userdata('title',$this->input->post('title'));
           }  
-          if($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') == NULL){
+          if( $this->session->userdata('kabupaten') == NULL){
             $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
-          }elseif($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') != NULL){
+          }elseif( $this->session->userdata('kabupaten') != NULL){
             $this->session->unset_userdata('kabupaten');
             $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
           }  
-          if($this->input->post('category') != NULL && $this->session->userdata('category') == NULL){
+          if( $this->session->userdata('category') == NULL){
             $this->session->set_userdata('category',$this->input->post('category'));
-          }elseif($this->input->post('category') != NULL && $this->session->userdata('category') != NULL){
+          }elseif( $this->session->userdata('category') != NULL){
             $this->session->unset_userdata('category');
             $this->session->set_userdata('category',$this->input->post('category'));
           } 
-          if($this->input->post('education') != NULL && $this->session->userdata('education') == NULL){
+          if($this->session->userdata('education') == NULL){
             $this->session->set_userdata('education',$this->input->post('education'));
-          }elseif($this->input->post('education') != NULL && $this->session->userdata('education') != NULL){
+          }elseif($this->session->userdata('education') != NULL){
             $this->session->unset_userdata('education');
             $this->session->set_userdata('education',$this->input->post('education'));
           }

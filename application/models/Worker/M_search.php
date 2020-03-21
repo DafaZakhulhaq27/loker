@@ -27,42 +27,43 @@ class M_search extends CI_Model{
     }    
     public function get_vacancy_by_search($limit,$start)
     {
-        if($this->input->post('title') != NULL && $this->session->userdata('title') == NULL){
-            $this->session->set_userdata('title',$this->input->post('title'));
-          }elseif($this->input->post('title') != NULL && $this->session->userdata('title') != NULL){
-            $this->session->unset_userdata('title');
-            $this->session->set_userdata('title',$this->input->post('title'));
-          }  
-          if($this->input->post('tipe_worker') != NULL && $this->session->userdata('tipe_worker') == NULL){
-            $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
-          }elseif($this->input->post('tipe_worker') != NULL && $this->session->userdata('tipe_worker') != NULL){
-            $this->session->unset_userdata('tipe_worker');
-            $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
-          }  
-          if($this->input->post('category') != NULL && $this->session->userdata('category') == NULL){
-            $this->session->set_userdata('category',$this->input->post('category'));
-          }elseif($this->input->post('category') != NULL && $this->session->userdata('category') != NULL){
-            $this->session->unset_userdata('category');
-            $this->session->set_userdata('category',$this->input->post('category'));
-          }  
-          if($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') == NULL){
-            $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
-          }elseif($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') != NULL){
-            $this->session->unset_userdata('kabupaten');
-            $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
-          }  
-          if($this->input->post('education') != NULL && $this->session->userdata('education') == NULL){
-            $this->session->set_userdata('education',$this->input->post('education'));
-          }elseif($this->input->post('education') != NULL && $this->session->userdata('education') != NULL){
-            $this->session->unset_userdata('education');
-            $this->session->set_userdata('education',$this->input->post('education'));
-          }  
-          if($this->input->post('salary') != NULL && $this->session->userdata('salary') == NULL){
-            $this->session->set_userdata('salary',$this->input->post('salary'));
-          }elseif($this->input->post('salary') != NULL && $this->session->userdata('salary') != NULL){
-            $this->session->unset_userdata('salary');
-            $this->session->set_userdata('salary',$this->input->post('salary'));
-          }  
+      if($this->session->userdata('title') == NULL){
+        $this->session->set_userdata('title',$this->input->post('title'));
+      }elseif( $this->session->userdata('title') != NULL){
+        $this->session->unset_userdata('title');
+        $this->session->set_userdata('title',$this->input->post('title'));
+      }  
+      if( $this->session->userdata('tipe_worker') == NULL){
+        $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
+      }elseif( $this->session->userdata('tipe_worker') != NULL){
+        $this->session->unset_userdata('tipe_worker');
+        $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
+      }  
+      
+      if($this->session->userdata('category') == NULL){
+        $this->session->set_userdata('category',$this->input->post('category'));
+      }elseif($this->session->userdata('category') != NULL){
+        $this->session->unset_userdata('category');
+        $this->session->set_userdata('category',$this->input->post('category'));
+      }  
+      if( $this->session->userdata('kabupaten') == NULL){
+        $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
+      }elseif( $this->session->userdata('kabupaten') != NULL){
+        $this->session->unset_userdata('kabupaten');
+        $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
+      }  
+      if( $this->session->userdata('education') == NULL){
+        $this->session->set_userdata('education',$this->input->post('education'));
+      }elseif($this->session->userdata('education') != NULL){
+        $this->session->unset_userdata('education');
+        $this->session->set_userdata('education',$this->input->post('education'));
+      }  
+      if( $this->session->userdata('salary') == NULL){
+        $this->session->set_userdata('salary',$this->input->post('salary'));
+      }elseif( $this->session->userdata('salary') != NULL){
+        $this->session->unset_userdata('salary');
+        $this->session->set_userdata('salary',$this->input->post('salary'));
+      }  
 
 
          $this->db->limit($limit,$start) ;
@@ -107,40 +108,40 @@ class M_search extends CI_Model{
     public function get_vacancy_total_record()
     {
 
-        if($this->input->post('title') != NULL && $this->session->userdata('title') == NULL){
+        if($this->session->userdata('title') == NULL){
             $this->session->set_userdata('title',$this->input->post('title'));
-          }elseif($this->input->post('title') != NULL && $this->session->userdata('title') != NULL){
+          }elseif( $this->session->userdata('title') != NULL){
             $this->session->unset_userdata('title');
             $this->session->set_userdata('title',$this->input->post('title'));
           }  
-          if($this->input->post('tipe_worker') != NULL && $this->session->userdata('tipe_worker') == NULL){
+          if( $this->session->userdata('tipe_worker') == NULL){
             $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
-          }elseif($this->input->post('tipe_worker') != NULL && $this->session->userdata('tipe_worker') != NULL){
+          }elseif( $this->session->userdata('tipe_worker') != NULL){
             $this->session->unset_userdata('tipe_worker');
             $this->session->set_userdata('tipe_worker',$this->input->post('tipe_worker'));
           }  
           
-          if($this->input->post('category') != NULL && $this->session->userdata('category') == NULL){
+          if($this->session->userdata('category') == NULL){
             $this->session->set_userdata('category',$this->input->post('category'));
-          }elseif($this->input->post('category') != NULL && $this->session->userdata('category') != NULL){
+          }elseif($this->session->userdata('category') != NULL){
             $this->session->unset_userdata('category');
             $this->session->set_userdata('category',$this->input->post('category'));
           }  
-          if($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') == NULL){
+          if( $this->session->userdata('kabupaten') == NULL){
             $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
-          }elseif($this->input->post('kabupaten') != NULL && $this->session->userdata('kabupaten') != NULL){
+          }elseif( $this->session->userdata('kabupaten') != NULL){
             $this->session->unset_userdata('kabupaten');
             $this->session->set_userdata('kabupaten',$this->input->post('kabupaten'));
           }  
-          if($this->input->post('education') != NULL && $this->session->userdata('education') == NULL){
+          if( $this->session->userdata('education') == NULL){
             $this->session->set_userdata('education',$this->input->post('education'));
-          }elseif($this->input->post('education') != NULL && $this->session->userdata('education') != NULL){
+          }elseif($this->session->userdata('education') != NULL){
             $this->session->unset_userdata('education');
             $this->session->set_userdata('education',$this->input->post('education'));
           }  
-          if($this->input->post('salary') != NULL && $this->session->userdata('salary') == NULL){
+          if( $this->session->userdata('salary') == NULL){
             $this->session->set_userdata('salary',$this->input->post('salary'));
-          }elseif($this->input->post('salary') != NULL && $this->session->userdata('salary') != NULL){
+          }elseif( $this->session->userdata('salary') != NULL){
             $this->session->unset_userdata('salary');
             $this->session->set_userdata('salary',$this->input->post('salary'));
           }  

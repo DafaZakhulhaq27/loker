@@ -17,7 +17,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Cari Pekerjaan Impianmu</strong>
+                                <strong>Cari Pekerjaan Impianmu <?php echo $this->session->userdata('salary') ?></strong>
                             </div>
                             <div class="card-body card-block">
                                 <form action="<?php echo base_url() ; ?>Worker/Search_vacancy/get_vacancy_by_search" method="post" class="form-horizontal">
