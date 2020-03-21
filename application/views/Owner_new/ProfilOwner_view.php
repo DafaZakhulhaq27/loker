@@ -52,146 +52,172 @@
                                 <form action="#" class="form-horizontal form-bordered">
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">First Name</label>
+                                            <label class="control-label text-right col-md-3">Nama Perusahaan</label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="small" class="form-control">
-                                                <small class="form-control-feedback"> This is inline help </small>
+                                                <input type="text" value="<?php echo $data_profil->name ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Last Name</label>
-                                            <div class="col-md-9">
-                                                <input type="text" placeholder="medium" class="form-control">
-                                                <small class="form-control-feedback"> This is inline help </small>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Gender</label>
+                                            <label class="control-label text-right col-md-3">Bergerak dibidang</label>
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select">
-                                                    <option value="">Male</option>
-                                                    <option value="">Female</option>
+                                                    <option><?php echo $this->M_profile->getSectorByID($data_profil->sector)->name_sector
+                                                     ?></option>
+                                                    <?php foreach ($data_sector as $ds) { ?>
+                                                        <option value="<?php echo $ds->id_sector ?>"><?php echo $ds->name_sector ?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Date of Birth</label>
+                                            <label class="control-label text-right col-md-3">Deskripsi Perusahaan</label>
                                             <div class="col-md-9">
-                                                <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><?php echo $data_profil->description ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Category</label>
+                                            <label class="control-label text-right col-md-3">Jumlah Karyawan</label>
                                             <div class="col-md-9">
                                                 <select class="form-control custom-select">
-                                                    <option value="Category 1">Category 1</option>
-                                                    <option value="Category 2">Category 2</option>
-                                                    <option value="Category 3">Category 5</option>
-                                                    <option value="Category 4">Category 4</option>
+                                                    <option value="<?php echo $data_profil->num_employer ?>"><?php echo $data_profil->num_employer ?></option>
+                                                    <option value="0 - 10">0 - 10</option>
+                                                    <option value="10 - 50">10 - 50</option>
+                                                    <option value="50 - 100">50 - 100</option>
+                                                    <option value="100 - 1000">100 - 1000</option>
+                                                    <option value="Lebih dari 1000">Lebih dari 1000</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Multi-Value Select</label>
+                                            <label class="control-label text-right col-md-3">No Telp Kantor</label>
                                             <div class="col-md-9">
-                                                <select class="form-control" multiple="">
-                                                    <optgroup label="NFC EAST">
-                                                        <option>Dallas Cowboys</option>
-                                                        <option>New York Giants</option>
-                                                        <option>Philadelphia Eagles</option>
-                                                        <option>Washington Redskins</option>
-                                                    </optgroup>
-                                                    <optgroup label="NFC NORTH">
-                                                        <option>Chicago Bears</option>
-                                                        <option>Detroit Lions</option>
-                                                        <option>Green Bay Packers</option>
-                                                        <option>Minnesota Vikings</option>
-                                                    </optgroup>
-                                                    <optgroup label="NFC SOUTH">
-                                                        <option>Atlanta Falcons</option>
-                                                        <option>Carolina Panthers</option>
-                                                        <option>New Orleans Saints</option>
-                                                        <option>Tampa Bay Buccaneers</option>
-                                                    </optgroup>
-                                                    <optgroup label="NFC WEST">
-                                                        <option>Arizona Cardinals</option>
-                                                        <option>St. Louis Rams</option>
-                                                        <option>San Francisco 49ers</option>
-                                                        <option>Seattle Seahawks</option>
-                                                    </optgroup>
-                                                    <optgroup label="AFC EAST">
-                                                        <option>Buffalo Bills</option>
-                                                        <option>Miami Dolphins</option>
-                                                        <option>New England Patriots</option>
-                                                        <option>New York Jets</option>
-                                                    </optgroup>
-                                                    <optgroup label="AFC NORTH">
-                                                        <option>Baltimore Ravens</option>
-                                                        <option>Cincinnati Bengals</option>
-                                                        <option>Cleveland Browns</option>
-                                                        <option>Pittsburgh Steelers</option>
-                                                    </optgroup>
-                                                    <optgroup label="AFC SOUTH">
-                                                        <option>Houston Texans</option>
-                                                        <option>Indianapolis Colts</option>
-                                                        <option>Jacksonville Jaguars</option>
-                                                        <option>Tennessee Titans</option>
-                                                    </optgroup>
-                                                    <optgroup label="AFC WEST">
-                                                        <option>Denver Broncos</option>
-                                                        <option>Kansas City Chiefs</option>
-                                                        <option>Oakland Raiders</option>
-                                                        <option>San Diego Chargers</option>
-                                                    </optgroup>
-                                                </select>
+                                                <input type="text" value="<?php echo $data_profil->phone ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Membership</label>
+                                        <label for="web" class="col-sm-3 text-right control-label">Website</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                        <i class="ti-world"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" id="web"
+                                                    value="<?php echo $data_profil->website ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Foto Profil Perusahaan</label>
                                             <div class="col-md-9">
-                                                <div class="mb-2">
-                                                    <label class="custom-control custom-radio">
-                                                        <input id="radio5" name="radio" type="radio"
-                                                            class="custom-control-input">
-                                                        <span class="custom-control-label">Free</span>
-                                                    </label>
-                                                    <label class="custom-control custom-radio">
-                                                        <input id="radio6" name="radio" type="radio"
-                                                            class="custom-control-input">
-                                                        <span class="custom-control-label">Paid</span>
-                                                    </label>
+                                                <input type="file" class="form-control" placeholder="">
+                                                <img class="align-self-center mr-3" style="margin-top : 3% ;width:85px; height:85px;" alt="" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $data_profil->picture ?>"> 
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Alamat 1 Perusahaan</label>
+                                            <div class="col-md-9">
+                                                <input type="text" value="<?php echo $data_profil->address1 ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Alamat 2 Perusahaan</label>
+                                            <div class="col-md-9">
+                                                <input type="text" value="<?php echo $data_profil->address2 ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kota</label>
+                                            <div class="col-md-9">
+                                                <input type="text" value="<?php echo $data_profil->city ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Provinsi</label>
+                                            <div class="col-md-9">
+                                                <input type="text" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kode Pos</label>
+                                            <div class="col-md-9">
+                                                <input type="text" value="<?php echo $data_profil->postcode ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="twitter" class="col-sm-3 text-right control-label">Twitter</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" value="<?php echo $data_profil->twitter ?>" class="form-control" id="twitter"
+                                                    placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row last">
+                                        <label for="facebook" class="col-sm-3 text-right control-label">Facebook</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                        <i class="ti-world"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" value="<?php echo $data_profil->facebook ?>" class="form-control" id="facebook"
+                                                    placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="offset-sm-3 col-md-9">
+                                                        <button type="submit" class="btn btn-success"> <i
+                                                                class="fa fa-check"></i> Submit</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="mb-0 text-white">Ubah Password</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" class="form-horizontal form-bordered">
+                                    <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Street</label>
+                                            <label class="control-label text-right col-md-3">Password Lama</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" placeholder="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">City</label>
+                                            <label class="control-label text-right col-md-3">Password Baru</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">State</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Post Code</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" placeholder="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row last">
-                                            <label class="control-label text-right col-md-3">Country</label>
+                                            <label class="control-label text-right col-md-3">Verifikasi Password</label>
                                             <div class="col-md-9">
-                                                <select class="form-control">
-                                                </select>
+                                                <input type="text" placeholder="" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +228,6 @@
                                                     <div class="offset-sm-3 col-md-9">
                                                         <button type="submit" class="btn btn-success"> <i
                                                                 class="fa fa-check"></i> Submit</button>
-                                                        <button type="button" class="btn btn-inverse">Cancel</button>
                                                     </div>
                                                 </div>
                                             </div>

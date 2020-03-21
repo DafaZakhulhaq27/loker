@@ -7,6 +7,7 @@ class Accept_payment extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Admin/M_data_acc_payment');		
+         $this->load->model('M_master');	
 
 	}
 

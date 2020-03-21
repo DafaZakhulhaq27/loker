@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -67,7 +66,7 @@ class M_search extends CI_Model{
 
 
          $this->db->limit($limit,$start) ;
-         //$this->db->select('vacancy.description AS vacancydescription, vacancy.*, login.*, provinces.*, regencies.*');
+         $this->db->select('vacancy.description AS vacancydescription, vacancy.provinsi AS id_provinsi, vacancy.*, login.*, regencies.*, category.*');
          $this->db->join('login', 'vacancy.id_login = login.id_login');
          $this->db->join('category', 'vacancy.category = category.id_category') ;                       
          $this->db->join('regencies', 'vacancy.kabupaten = regencies.id');
@@ -184,12 +183,21 @@ class M_search extends CI_Model{
                         ->join('provinces', 'vacancy.provinsi = provinces.id')       
                         ->join('regencies', 'vacancy.kabupaten = regencies.id')
                         ->join('districts', 'vacancy.kecamatan = districts.id')
-                        ->join('category', 'vacancy.category = category.id_category')                        
+                        ->join('category', 'vacancy.category = category.id_category')                       
                         ->join('villages', 'vacancy.desa = villages.id')
                         ->where('id_vacancy', $id)
                         ->get('vacancy')
                         ->row();
-    }  
+    } 
+
+   /* function get_vacancy_by_id($id)
+  {
+    $this->db->select('*');
+    $this->db->where('id_vacancy',$id);
+    $query = $this->db->get('vacancy');
+    return $query->row();
+
+  } */
                               
     // GET VACANCY
   // GET DROPDOWN
@@ -237,8 +245,11 @@ class M_search extends CI_Model{
   }         
     public function get_vacancy_applied()
     {
-        return $this->db->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
+        return $this->db->select('
+                apllied_vacancy.*, vacancy.*, apllied_vacancy.id_login as id_pelamar, vacancy.id_login as id_owner')
+                        ->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
                         ->where('apllied_vacancy.id_login', $this->session->userdata('id_login')) 
+                        ->order_by('apllied_vacancy.status_app', 'DESC')
                         ->get('apllied_vacancy')
                         ->result();
     }             

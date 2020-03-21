@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -140,7 +139,7 @@ class M_resume extends CI_Model{
                         ->get('resume')
                         ->result();
     }    
-    public function get_resume_download()
+   /* public function get_resume_download()
     {
         return $this->db->join('login', 'resume.id_login = login.id_login')
                         ->join('provinces', 'resume.provinsi = provinces.id')       
@@ -150,7 +149,59 @@ class M_resume extends CI_Model{
                         ->where('resume.id_login', $this->session->userdata("id_login"))
                         ->get('resume')
                         ->first_row();
-    }    
+    }*/
+
+ /*    function get_resume_download()
+  {
+    $this->db->select('*');
+    $this->db->where('id_login',$this->session->userdata("id_login"));
+    $query = $this->db->get('resume');
+    return $query->row();
+
+  }  */  
+
+  public function get_resume_download(){
+      $this->db->select('
+         id_resume AS resumeID, resume.*, login.name AS nama_kandidat, login.*, provinces.id AS id_provinsi, provinces.*, regencies.id AS id_kabupaten, regencies.*, districts.id AS id_districts, districts.*, villages.*
+      ');
+      $this->db->join('login', 'resume.id_login = login.id_login');
+      $this->db->join('provinces', 'resume.provinsi = provinces.id');
+      $this->db->join('regencies', 'resume.kabupaten = regencies.id');
+      $this->db->join('districts', 'resume.kecamatan = districts.id');
+      $this->db->join('villages', 'resume.desa = villages.id');
+      $this->db->from('resume');
+      $this->db->where('resume.id_login',$this->session->userdata("id_login"));
+      $query = $this->db->get();
+      return $query->row();
+  }
+
+  public function getResumeByLoginID($id_login)
+    {
+        return $this->db->join('login', 'resume.id_login = login.id_login')
+                        ->join('provinces', 'resume.provinsi = provinces.id')       
+                        ->join('regencies', 'resume.kabupaten = regencies.id')
+                        ->join('districts', 'resume.kecamatan = districts.id')
+                        ->join('villages', 'resume.desa = villages.id')
+                        ->where('resume.id_login', $id_login)
+                        ->get('resume')
+                        ->first_row();
+    }
+
+  public function get_resume_edit(){
+      $this->db->select('
+         resume.*, login.name AS nama_kandidat, login.*, provinces.id AS id_provinsi, provinces.*, regencies.id AS id_kabupaten, regencies.*, districts.id AS id_districts, districts.*, villages.id AS id_villages, villages.*
+      ');
+      $this->db->join('login', 'resume.id_login = login.id_login');
+      $this->db->join('provinces', 'resume.provinsi = provinces.id');
+      $this->db->join('regencies', 'resume.kabupaten = regencies.id');
+      $this->db->join('districts', 'resume.kecamatan = districts.id');
+      $this->db->join('villages', 'resume.desa = villages.id');
+      $this->db->from('resume');
+      $this->db->where('resume.id_login',$this->session->userdata("id_login"));
+      $query = $this->db->get();
+      return $query->row();
+  }
+    
 
   // GET RESUME
 
@@ -197,6 +248,12 @@ class M_resume extends CI_Model{
     {
         return $this->db->where('id_login', $this->session->userdata('id_login'))
                     ->delete('resume');
+    }
+    public function delete_resume_category($id_resume)
+    {
+        
+        return $this->db->where('id_resume', $id_resume)
+                    ->delete('resume_category');
     }
   // DELETE RESUME
 

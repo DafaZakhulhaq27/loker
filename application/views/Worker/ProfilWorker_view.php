@@ -25,7 +25,7 @@
                                         <form action="<?php echo base_url('Worker/Worker_profil/change_profile_worker'); ?>" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label class="control-label mb-1">Nama Lengkap</label>
-                                                <input name="nama" type="text" class="form-control" value="<?php echo $data_profil->name ; ?>" required>
+                                                <input name="name" type="text" class="form-control" value="<?php echo $data_profil->name ; ?>" required>
                                             </div>
                                             <div class="form-group">
                                                 <label  class="control-label mb-1">No Hp</label>
@@ -73,7 +73,7 @@
                                                 <input id="Password" name="old_password" type="password" class="form-control">
                                             </div>                         
                                             <div class="form-group">
-                                                <label  class="control-label mb-1">Password</label>
+                                                <label  class="control-label mb-1">Password Baru</label>
                                                 <input id="Password" name="password" type="password" class="form-control">
                                             </div>
                                             <div class="form-group">

@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang=""> 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Loker</title>
+    <title>Portal Kerja</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -58,7 +58,7 @@
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="card ">
                             <div class="card-header bg-danger">
                                 <strong class="card-title text-light"><?php echo $get_vacancy_by_id->title ;  ?></strong>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" >
+                    <div class="col-md-5" >
                         <div class="card" style="height: 400px">
 
                             <div class="card-body">
@@ -108,6 +108,9 @@
                             </div>
                         </div>
                     </div>
+                   <!--  <div class="col-md-2" >
+                         <a type="button" class="btn btn-success" data-toggle="modal" data-target="#login" style="color : white ;" href="#"> Daftar Lowongan </a>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -216,7 +219,7 @@
     <div class="footer-inner bg-white">
         <div class="row">
             <div class="col-sm-6">
-                loker || 2020
+                Copyright || 2020
             </div>
         </div>
     </div>

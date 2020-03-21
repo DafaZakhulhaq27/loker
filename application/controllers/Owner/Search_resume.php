@@ -6,7 +6,8 @@ class Search_resume extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Owner/M_search_resume');		
+        $this->load->model('Owner/M_search_resume');
+        $this->load->model('M_master');			
 
 	}
 
@@ -102,7 +103,9 @@ class Search_resume extends CI_Controller {
 				        	  redirect('Owner/Search_resume');
 	        		}
         		}else{
-
+        			$this->session->set_flashdata('notif', 'Kuota undangan pekerja anda telah habis, silahkan perbarui paket');
+				              $this->session->set_flashdata('type', 'error');                
+				        	  redirect('Owner/Search_resume');
         		}
         	  	
 	      }else{

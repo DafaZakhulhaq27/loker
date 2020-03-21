@@ -7,6 +7,7 @@ class Worker_profil extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Worker/M_profile');		
+        $this->load->model('M_master');	
 	}
 
 	public function index()
@@ -26,7 +27,7 @@ class Worker_profil extends CI_Controller {
 	    	if(empty($_FILES['foto']['error']) != 0)
 	    	{
 		    	$config['upload_path'] = 'assets/admin/images/' ;
-		    	$config['allowed_types'] = 'jpg|png' ;
+		    	$config['allowed_types'] = 'jpg|png|jpeg' ;
 		    	$config['max_size'] = 2000 ;
 
 		    	$this->load->library('upload',$config) ;
@@ -54,7 +55,7 @@ class Worker_profil extends CI_Controller {
 					  $this->M_profile->change_status_profile() ;
 					  $this->session->unset_userdata('status_profile');
 					  $this->session->set_userdata('status_profile','1');					  		        	
-			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan 11');
+			          $this->session->set_flashdata('notif', 'Data profil anda berhasil disimpan');
 			          $this->session->set_flashdata('type', 'success');
 				  	  redirect('Worker/Worker_profil');
 			        } else {
@@ -77,7 +78,7 @@ class Worker_profil extends CI_Controller {
 			        if($this->M_profile->change_password_worker() == TRUE){
 			          $this->session->set_flashdata('notif', 'Password profil anda berhasil diubah');
 			          $this->session->set_flashdata('type', 'success');
-			          redirect('Landing');
+			          redirect('Worker/Dashboard_worker');
 			        } else {
 			          $this->session->set_flashdata('notif', 'Profil anda gagal tersimpan / coba submit ulang');
 			          $this->session->set_flashdata('type', 'error');

@@ -9,7 +9,8 @@ class Owner_profil extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Owner/M_profile');		
+        $this->load->model('Owner/M_profile');
+        $this->load->model('M_master');		
 	}
 
 	public function index()
@@ -19,7 +20,7 @@ class Owner_profil extends CI_Controller {
    		$data = array(
    			'data_profil' => $this->M_profile->get_user_by_id(),
    			'data_prov' => $this->M_profile->get_provinsi(),
-   			'data_category' => $this->M_profile->get_sector(),
+   			'data_sector' => $this->M_profile->get_sector(),
    			'data_kab' => $this->M_profile->get_kabupaten2(),
    			'data_kec' => $this->M_profile->get_kecamatan2(),
    			'data_desa' => $this->M_profile->get_desa2()

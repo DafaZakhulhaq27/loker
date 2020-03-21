@@ -6,7 +6,8 @@ class Paket extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Owner/M_paket');						
+        $this->load->model('Owner/M_paket');	
+        $this->load->model('M_master');						
 	}
 
 	public function index()

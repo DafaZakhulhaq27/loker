@@ -60,7 +60,7 @@
                                     <div class="row form-group">
                                         <div class="col col-md-12">
                                             <div class="input-group">
-                                                <input type="text" name="title" placeholder="Cari Pekerjaanmu" class="form-control">
+                                                <input type="text" name="title" placeholder="Cari Pekerjamu" class="form-control">
                                                 <div class="input-group-btn"><input class="btn btn-primary" type="submit" value="cari"></div>
                                             </div>
                                         </div>

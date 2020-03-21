@@ -25,7 +25,7 @@
                             <!-- Dark Logo icon -->
                             <!-- <img src="<?php echo base_url(); ?>assets/material-pro/assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo icon -->
-                           <!--  <img src="<?php echo base_url(); ?>assets/material-pro/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
+                            <img style="width: 123px" src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
@@ -158,16 +158,16 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 80px"
-                                    src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user" class="rounded-circle" /></a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 40px"
+                                    src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->M_master->getLoginByID($this->session->userdata('id_login'))->picture ?>" alt="user" class="rounded-circle" /></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user"></div>
+                                            <div class="u-img"><img style="width: 40px" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="user"></div>
                                             <div class="u-text mt-1">
                                                 <h5><?php echo $this->session->userdata('name') ; ?></h5>
-                                                <p class="text-muted"><!-- <?php echo $this->session->userdata('email') ; ?> --></p><a href="profile.html"
+                                                <p class="text-muted"><!-- <?php echo $this->session->userdata('email') ; ?> --></p><a href="<?php echo site_url('Worker_new/Worker_profil') ?>"
                                                     class="btn btn-rounded btn-danger btn-sm">View
                                                     Profile</a>
                                             </div>

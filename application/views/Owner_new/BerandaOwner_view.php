@@ -84,7 +84,7 @@
                                 <div class="d-flex flex-row">
                                     <div
                                         class="round round-lg text-white d-inline-block text-center rounded-circle bg-warning">
-                                        <i class="mdi mdi-cellphone-link"></i></div>
+                                        <i class="fas fa-user"></i></div>
                                     <div class="ml-2 align-self-center">
                                         <h3 class="mb-0 font-weight-light"><a href="#">Profil</a></h3>
                                         <h5 class="text-muted mb-0"><span class="badge badge-danger px-2 py-1">Belum Lengkap</span></h5>
@@ -120,7 +120,7 @@
                         <div class="card">
                             <div class="card-body">
                                     <div class="table-responsive mt-3">
-                                        <table class="table stylish-table mb-0 color-table warning-table">
+                                        <table class="table stylish-table mb-0 color-table">
                                             <thead>
                                                 <tr>
                                                     <th>Lowongan Terpasang</th>
@@ -164,7 +164,7 @@
                                     <p><b>Maksimal Tawaran Pekerjaan</b> <span class="badge badge-light-warning">23</span></p>
                                     <p><b>Tanggal Kadaluarsa</b> <span class="badge badge-light-warning">2023-03-18</span></p>
                                 </p>
-                                <button type="button" class="btn btn-dark"><i class="fas fa-cloud-upload-alt"></i> Perbarui Paket</button>
+                                <a href="<?php echo site_url('Owner_new/Paket') ?>" type="button" class="btn btn-dark"><i class="fas fa-cloud-upload-alt"></i> Perbarui Paket</a>
                             </div>
                         </div>
                     </div>
@@ -187,4 +187,5 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
- 
+
+            

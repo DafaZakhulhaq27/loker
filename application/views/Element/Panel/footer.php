@@ -68,12 +68,31 @@
 
     <script type="text/javascript">
         $(document).ready( function () {
-    $('#myTable').DataTable(
-        {
-        "ordering": false,
-    }
-      );
-  } );
+                $('#myTable').DataTable(
+            {
+            "ordering": false,
+            }
+              );
+      } );
+
+
+    jQuery(document).ready(function() {
+
+      <?php
+        $notif = $this->session->flashdata('notif');
+        $type = $this->session->flashdata('type');
+
+      ?>
+            if("<?php echo $type ; ?>" == "success"){
+                 swal("SUCCESS", "<?php echo $notif ; ?>", "success");
+            }else if("<?php echo $type ; ?>" == "error"){
+                 swal("GAGAL", "<?php echo $notif ; ?>", "error");
+            } else if("<?php echo $type ; ?>" == "id_login"){
+                  swal("Selamat Datang", "<?php echo $this->session->userdata('name') ; ?>");
+               
+            }
+    });
+
     </script>
 </body>
 

@@ -22,10 +22,11 @@
                                 <div class="card-header bg-secondary">
                                     <strong class="card-title text-light">'.$d->name_paket.'</strong>
                                 </div>
-                                <div class="card-body  ">
+                                <div class="card-body">
                                     <p><b>Maksimal Posting Lowongan Pekerjaan :</b>'.$d->num_post.'<br>
                                     <b>Maksimal Durasi Waktu :</b> '.$d->length_post.'<br>
                                     <b>Maksimal Tawaran Pekerjaan :</b> '.$d->job_inv.'<br>
+                                    <b>Jumlah Iklan Premium :</b> '.$d->premium.'<br>
                                     <b>Tanggal Kadaluarsa Paket :</b> '.$d->expired.' Hari<br>
                                     <b>Harga :</b> Rp. '.$d->price.'</p> 
                                         <a  type="button" class="btn btn-success" style="color : white ;" onclick="input_paket('.$d->id_upgrade.')"><i class="fa fa-plus" ></i> Beli </a> 

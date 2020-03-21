@@ -79,7 +79,7 @@ $html = <<<EOF
 <hr>
 	<table>
 	 <tr >
-	  <td width="300"><p><b>Nama :</b> $data_resume_download->name </p></td>
+	  <td width="300"><p><b>Nama :</b> $data_resume_download->nama_kandidat </p></td>
 	  <td width="300" rowspan="7"><img src="http://localhost/loker/assets/admin/images/$data_resume_download->picture"></td>
 	 </tr>
 	 <tr>
@@ -98,7 +98,7 @@ $html = <<<EOF
 	  <td width="300"><p><b>No. Hp :</b> $data_resume_download->phone </p></td>
 	 </tr>
 	 <tr>
-	  <td width="300"><p><b>Alamat :</b> $data_resume_download->name_provinces , $data_resume_download->name_regencies , $data_resume_download->name_districts , $data_resume_download->name_villages , $data_resume_download->location ,  </p></td>
+	  <td width="300"><p><b>Alamat :</b> $data_resume_download->name_provinces , $data_resume_download->name_regencies , $data_resume_download->name_districts, $data_resume_download->name_villages , $data_resume_download->location  </p></td>
 	 </tr>	 	 		  	 	 
 	</table>
 	<h1>Ringkasan Profile</h1>

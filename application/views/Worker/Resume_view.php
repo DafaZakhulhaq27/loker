@@ -21,22 +21,22 @@
                         <div class="card-body">
                            <form action="<?php echo base_url('Worker/Resume/input_resume'); ?>" method="post">  
                             <div class="form-group">
-                                <label class="control-label mb-1">Judul Resume (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Judul Resume <span style="color:red">*</span></label>
                                 <input name="name_resume" id="name" type="text" class="form-control" required>                           
                             </div>                                                        
                             <div class="form-group">
-                                <label class="control-label mb-1">Ringkasan Profile (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Ringkasan Profile <span style="color:red">*</span></label>
                                 <textarea name="profile" id="profile" rows="5"  class="form-control" required></textarea>
                             </div>                            
                             <div class="form-group">
-                                <label class="control-label mb-1">Kelamin (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Kelamin <span style="color:red">*</span></label>
                                 <select name="gender" id="gender" class="form-control" required>
-                                    <option value="male">Laki - laki</option>
-                                    <option value="female">Perempuan</option>
+                                    <option value="Laki-laki">Laki - laki</option>
+                                    <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>  
                             <div class="form-group">
-                                <label class="control-label mb-1">Tahun Kelahiran (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Tahun Kelahiran <span style="color:red">*</span></label>
                                 <select name="birth_year" id="birth_year" class="form-control js-example-basic-single" required>
                                     <option value="">-- Pilih Tahun Kelahiran --</option>
                                     <?php  
@@ -47,16 +47,16 @@
                                 </select>
                             </div>  
                             <div class="form-group">
-                                <label class="control-label mb-1">Status pernikahan (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Status pernikahan <span style="color:red">*</span></label>
                                 <select name="married" id="married" class="form-control" required>
-                                    <option value="belum menikah">Belum Menilah</option>                     
+                                    <option value="belum menikah">Belum Menikah</option>                     
                                     <option value="menikah">Menikah</option>
                                     <option value="cerai">Cerai</option>
                                 </select>
                             </div> 
                             <div class="row">
                                 <div class="form-group col-lg-3 col-md-6">
-                                    <label class="control-label mb-1">Provinsi (Wajib Diisi)</label>
+                                    <label class="control-label mb-1">Provinsi <span style="color:red">*</span></label>
                                     <select name="provinsi" id="provinsi" class=" form-control js-example-basic-single" onchange="get_kab(this.value)" required>
                                     <option value="">-- Pilih Provinsi --</option>
 
@@ -69,7 +69,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-lg-3 col-md-6">
-                                    <label class="control-label mb-1">Kabupaten / Kota (Wajib Diisi)</label>
+                                    <label class="control-label mb-1">Kabupaten / Kota <span style="color:red">*</span></label>
                                     <select name="kabupaten" id="kabupaten" class="form-control js-example-basic-single" onchange="get_kec(this.value)">
                                          <option value="">-- Pilih Kabupaten --</option>
                                     </select>
@@ -88,11 +88,11 @@
                                 </div>                                                                                                    
                             </div> 
                             <div class="form-group">
-                                <label class="control-label mb-1">Alamat (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Alamat <span style="color:red">*</span></label>
                                     <textarea name="location" id="location" rows="3"  class="form-control" required></textarea>
                             </div>
                             <div class="form-group">
-                            <label class="control-label mb-1">Pendidikan Terakhir (Wajib Diisi)</label>
+                            <label class="control-label mb-1">Pendidikan Terakhir <span style="color:red">*</span></label>
 
                                 <select name="last_education" id="last_education" class="form-control" required>
                                     <option value="SMA / SMK / STM">SMA / SMK / STM</option>
@@ -104,17 +104,17 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label mb-1">Riwayat Pendidikan (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Riwayat Pendidikan <span style="color:red">*</span></label>
                                     <textarea name="history_education" id="history_education" rows="3"  class="form-control" required></textarea>
                             </div> 
                             <div class="form-group">
-                                <label class="control-label mb-1">Keahlian (Wajib Diisi)</label>
+                                <label class="control-label mb-1">Keahlian <span style="color:red">*</span></label>
                                         <textarea name="skill" id="skill" rows="3"  class="form-control" required></textarea>
                             </div>                                                                                  
                             <div class="form-group">
-                                <label class="control-label mb-1" >Lama Bekerja (Wajib Diisi)</label>
+                                <label class="control-label mb-1" >Lama Bekerja <span style="color:red">*</span></label>
                                 <select name="time_exp" id="time_exp" class="form-control" required>
-                                    <option value="Fresh Grauate">Fresh Grauate</option>
+                                    <option value="Fresh Grauate">Fresh Graduate</option>
                                     <option value=" < 1 Tahun"> < 1 Tahun</option>
                                     <option value=" 1 - 2 Tahun"> 1 - 2 Tahun</option>
                                     <option value=" 2 - 5 Tahun"> 2 - 5 Tahun</option>
@@ -127,7 +127,7 @@
                                     <textarea name="work_exp" id="work_exp" rows="3"  class="form-control" ></textarea>
                             </div>                                                                            
                             <div class="form-group">
-                                <label class="control-label mb-1" required>Kategori Pekerjaan (Wajib Diisi)</label>
+                                <label class="control-label mb-1" required>Kategori Pekerjaan <span style="color:red">*</span></label>
                                 <select class="form-control js-example-basic-multiple" name="work_category[]" multiple="multiple" placeholder="Pili Kategori" required>
 
                                     <?php

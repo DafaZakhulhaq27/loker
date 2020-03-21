@@ -58,9 +58,9 @@
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <?php
-                                        if($this->session->userdata('status_email_ver') != NULL)
+                                        if($this->session->userdata('status_profile') != NULL)
                                         {
-                                            if($this->session->userdata('status_email_ver') == "1"){
+                                            if($this->session->userdata('status_profile') == "1"){
                                                 echo '                                    
                                                     <div class="stat-icon dib flat-color-3">
                                                         <i class="menu-icon fa fa-user"></i>
@@ -101,9 +101,9 @@
                                     </div>
 
                                     <?php
-                                        if($this->session->userdata('status_email_ver') != NULL)
+                                        if($this->session->userdata('status_vacancy') != NULL)
                                         {
-                                            if($this->session->userdata('status_email_ver') == "1"){
+                                            if($this->session->userdata('status_vacancy') == "1"){
                                                 echo '                                    
                                                     <div class="stat-icon dib flat-color-3">
                                                         <i class="menu-icon fa fa-bell"></i>
@@ -135,8 +135,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-5 col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                                    <div class="stat-icon dib flat-color-1">
+                                                        <i class="menu-icon fa fa-user"></i>
+                                                    </div>
+                                                    <div class="stat-content">
+                                                        <div class="text-left dib">
+                                                            <div class="stat-text">Login Sebagai Perusahaan</div>
+                                                            <div class="stat-heading"><?php 
+                                                                if ($this->session->userdata('name') != NULL) {
+                                                                    echo $this->session->userdata('name');
+                                                                }
+                                                             ?>
+                                                                 
+                                                             </div>                                            
+                                                        </div>
+                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
                     <?php 
-                        if($this->session->userdata('name') != NULL){
+                        /*if($this->session->userdata('name') != NULL){
                             echo '
                         <div class="col-lg-5 col-md-12">
                             <div class="card">
@@ -157,7 +182,7 @@
                     </div>
 
                             ' ;
-                        }                    
+                        }          */          
                         if($data_paket->name_paket != NULL){
                             echo '
                                 <div class="col-lg-7 col-md-12">

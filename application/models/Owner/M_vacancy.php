@@ -124,6 +124,16 @@ class M_vacancy extends CI_Model{
 
     public function input_vacancy()
     {
+            
+            if ($this->input->post('premium') == '1') {
+                $premium = 'yes';
+                $open_date = date("Y-m-d");
+                $exp_headline = date('Y-m-d', strtotime('+14 days', strtotime($open_date))); 
+            } else {
+                $premium = 'no';
+                $exp_headline = Null;
+            }
+
             $data = array(
                 'id_login' => $this->session->userdata("id_login"),
                 'title' => $this->input->post('title'),         
@@ -143,10 +153,14 @@ class M_vacancy extends CI_Model{
                 'provinsi' => $this->input->post('provinsi'),
                 'kabupaten' => $this->input->post('kabupaten'),
                 'kecamatan' => $this->input->post('kecamatan'),
-                'desa' => $this->input->post('desa'),	
+                'desa' => $this->input->post('desa'),
+                'premium' => $premium,
+                'exp_headline' => $exp_headline
 
             );    
+           
             $this->db->insert('vacancy', $data);
+            // var_dump($this->input->post('desa'));exit();
 
         if($this->db->affected_rows() > 0){
             return TRUE;
@@ -163,7 +177,7 @@ class M_vacancy extends CI_Model{
             'read_owner' => 1 ,
         );
 
-        $this->db->where('id_login', $id)
+        $this->db->where('id_apllied_vacancy', $id)
             ->update('apllied_vacancy', $data);
 
         if($this->db->affected_rows() > 0){
@@ -243,7 +257,21 @@ class M_vacancy extends CI_Model{
                         ->order_by('vacancy.status','ASC')
                         ->get('vacancy')
                         ->result();
-    }    
+    }
+
+   /* public function get_vacancy(){
+      $this->db->select('
+         vacancy.*, login.*
+      ');
+      $this->db->join('login', 'vacancy.id_login = login.id_login');
+      $this->db->join('villages', 'vacancy.desa = villages.id');
+         $this->db->from('vacancy');
+      $this->db->where('vacancy.id_login', $this->session->userdata("id_login"));
+      $this->db->order_by('vacancy.status','ASC');
+      $query = $this->db->get();
+      return $query->result();
+  }*/
+
     public function get_apllied_vacancy_total()
     {
         return $this->db->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy') 
@@ -254,6 +282,7 @@ class M_vacancy extends CI_Model{
                         ->count_all_results();
     }  
 
+     /*code by saulia*/
      public function get_apllied_vacancy_perusahaan()
     {
           $this->db->select('
@@ -293,6 +322,14 @@ class M_vacancy extends CI_Model{
                         ->where('id_login',$this->uri->segment(4))
                         ->get('resume')
                         ->result();
+    }  
+
+    public function get_category_resume($id_login)
+    {
+        return $this->db->join('category', 'resume.work_category = category.id_category')
+                        ->where('id_login',$id_login)
+                        ->get('resume')
+                        ->result();
     }    
     public function get_resume_download($id)
     {
@@ -304,6 +341,17 @@ class M_vacancy extends CI_Model{
                         ->where('resume.id_login', $id)
                         ->get('resume')
                         ->first_row();
+    }  
+
+    public function getAplliedByID($id)
+    {
+        return $this->db->select('
+                apllied_vacancy.*, vacancy.*, apllied_vacancy.id_login as id_pelamar, vacancy.id_login as id_owner, login.*')
+                        ->join('login', 'apllied_vacancy.id_login = login.id_login')
+                        ->join('vacancy', 'apllied_vacancy.id_vacancy = vacancy.id_vacancy')
+                        ->where('apllied_vacancy.id_apllied_vacancy', $id)
+                        ->get('apllied_vacancy')
+                        ->row();
     }    
 
   // GET RESUME    

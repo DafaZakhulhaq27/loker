@@ -51,6 +51,42 @@ class Auth extends CI_Controller {
 	        }
 	      }
 	   }
+
+	   //login new
+	   /* public function do_login()
+	  {
+	    if($this->session->userdata('logged_in') == TRUE){
+				if($this->session->userdata('level') == 1){
+		          $this->session->set_flashdata('type', 'login');  					
+			  	  redirect('Worker_new/Dashboard_worker');
+				}elseif($this->session->userdata('level') == 2){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Owner_new/Dashboard_owner');
+				}elseif($this->session->userdata('level') == 3){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Admin/Data_user');
+				}		    
+			} else {
+	        if($this->M_login->user_check() == TRUE){
+				if($this->session->userdata('level') == 1){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Worker_new/Dashboard_worker');
+				}elseif($this->session->userdata('level') == 2){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Owner_new/Dashboard_owner');
+				}elseif($this->session->userdata('level') == 3){
+		          $this->session->set_flashdata('type', 'login');					
+			  	  redirect('Admin/Data_user');
+				}	        	
+	        } else {
+	          $this->session->set_flashdata('notif', 'Usernamae atau password salah!, cek kembali username dan password anda');
+	          $this->session->set_flashdata('type', 'error');
+	          redirect('Landing');
+	        }
+	      }
+	   }
+*/
+
 	  public function logout(){
 	    if($this->session->userdata('logged_in') == TRUE){
 				$this->session->sess_destroy();		
@@ -68,13 +104,41 @@ class Auth extends CI_Controller {
             if($this->M_login->cek_user() == TRUE ){
 	            if($this->input->post('password') == $this->input->post('password_ver') ){
 	            	  //EMAIL
-			        $token = $this->randomString() ;
+
+	            	$config = [
+		               'useragent' => 'CodeIgniter',
+		               'protocol'  => 'smtp',
+		               'mailpath'  => '/usr/sbin/sendmail',
+		               'smtp_host' => 'sdm.apsintegra.co.id',
+		               'smtp_user' => 'noreply@sdm.apsintegra.co.id',   // Ganti dengan email gmail Anda.
+		               'smtp_pass' => 'Asdasd123098!',             // Password gmail Anda.
+		               'smtp_port' => 465,
+		               'smtp_keepalive' => TRUE,
+		               'smtp_crypto' => 'ssl',
+		               'wordwrap'  => TRUE,
+		               'wrapchars' => 80,
+		               'mailtype'  => 'html',
+		               'charset'   => 'utf-8',
+		               'validate'  => TRUE,
+		               'crlf'      => "\r\n",
+		               'newline'   => "\r\n",
+		           ];
+
+			        // Load library email dan konfigurasinya.
+			         $this->email->initialize($config);
+
+			        $token = $this->randomString();
+			        $data = array(
+			        	'token' => $token
+			        );
 			        $to_mail = $this->input->post('email') ;
-			        $from_email = "dafa27890@gmail.com";
-			        $this->email->from($from_email, 'Loker');
+			        $from_email = "noreply@sdm.apsintegra.co.id";
+			        $this->email->from($from_email, 'noreply');
 			        $this->email->to($to_mail);
-			        $this->email->subject('Verifikasi Akun Loker');
-			        $this->email->message('<h1>Silakan verifikasi akun untuk bisa menikmati fitu-fitur loker </h1>silakan klik link tersebut <a href="'.base_url().'Auth/ver_email/'.$token.'">Klik Disini</a></p> <p>Have A Nice Day </p>');
+			        $this->email->subject('Verifikasi Email Anda');
+
+			        $massage = $this->load->view('email', $data, TRUE);
+			        $this->email->message($massage);
 			        $this->email->set_mailtype('html');
 	            	  //EMAIL	 
 		            if($this->email->send()){	            	
@@ -89,6 +153,7 @@ class Auth extends CI_Controller {
 		                }
 
 				          }else{
+				          	//var_dump($this->email->print_debugger());exit();
 				              $this->session->set_flashdata('notif', 'Failed Send Mail');
 				              $this->session->set_flashdata('type', 'error');
 				     		 redirect('Landing');
@@ -112,7 +177,9 @@ class Auth extends CI_Controller {
 		        if($this->M_login->ver_status_email() == TRUE){
 						  $this->session->unset_userdata('status_resume');
 						  $this->session->set_userdata('status_email_ver','1');		        	
-		        	echo "Selamat, Akun anda sudah terverifikasi. silahkan lengkapi profile anda" ;
+		        	$this->session->set_flashdata('notif', 'Selamat, akun Anda sudah terverifikasi. silahkan login');
+			        $this->session->set_flashdata('type', 'success');
+				   	redirect('Landing');
 		        } else {
 		          $this->session->set_flashdata('notif', 'gagal ubah status ver email');
 		          $this->session->set_flashdata('type', 'error');

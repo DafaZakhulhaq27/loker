@@ -9,7 +9,8 @@ class Search_resume extends CI_Controller {
 		if($_SESSION["logged_in"] != TRUE) {
 			redirect("Landing");
 		}
-        $this->load->model('Owner/M_search_resume');		
+        $this->load->model('Owner/M_search_resume');
+        $this->load->model('M_master');		
 
 	}
 
@@ -30,11 +31,11 @@ class Search_resume extends CI_Controller {
         	'data_category' => $this->M_search_resume->get_category(),
         	'data_kab' => $this->M_search_resume->get_kabupaten2()
         );
-        $this->load->view('Element/Panel/head');
+        $this->load->view('Element/Panel/head_addons');
 		$this->load->view('Element/Panel/header');
 		$this->load->view('Element/Panel/navbar');
 		$this->load->view('Owner_new/Search_resume_view', $data);
-		$this->load->view('Element/Panel/footer');
+		$this->load->view('Element/Panel/footer_addons');
 
 	}
 	

@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -100,23 +99,23 @@ class M_search_resume extends CI_Model{
         $this->db->join('category', 'resume.work_category = category.id_category')   ;                     
         $this->db->join('provinces', 'resume.provinsi = provinces.id')       ;
         $this->db->join('regencies', 'resume.kabupaten = regencies.id');
-                        if( $this->session->userdata('category') != NULL) {
-                            $this->db->where('work_category', $this->session->userdata('category') );
-                        }                
-                        if($this->session->userdata('kabupaten') != NULL) {
-                            $this->db->where('resume.kabupaten', $this->session->userdata('kabupaten') );
-                        }                
-                        if($this->session->userdata('education')  != NULL) {
-                            $this->db->where('last_education', $this->session->userdata('education') );
-                        }
-                        if( $this->session->userdata('title') != NULL) {
-                            $this->db->like('name_resume', $this->session->userdata('title') );
-                            $this->db->or_like('login.name', $this->session->userdata('title') );
+        if( $this->session->userdata('category') != NULL) {
+            $this->db->where('work_category', $this->session->userdata('category') );
+        }                
+        if($this->session->userdata('kabupaten') != NULL) {
+            $this->db->where('resume.kabupaten', $this->session->userdata('kabupaten') );
+        }                
+        if($this->session->userdata('education')  != NULL) {
+            $this->db->where('last_education', $this->session->userdata('education') );
+        }
+        if( $this->session->userdata('title') != NULL) {
+            $this->db->like('name_resume', $this->session->userdata('title') );
+            $this->db->or_like('login.name', $this->session->userdata('title') );
 
-                        }                                                  
-                        $this->db->group_by('resume.id_login');                         
-                        $query = $this->db->get('resume');
-                        return $query->result();
+        }                                                  
+        $this->db->group_by('resume.id_login');                         
+        $query = $this->db->get('resume');
+        return $query->result();
     }    
     public function get_resume_total_record()
     {
@@ -173,7 +172,7 @@ class M_search_resume extends CI_Model{
                 'id_worker' => $this->input->post("id_login"),
                 'id_vacancy' => $this->input->post("id_vacancy"),
                 'message' => $this->input->post("message"),
-            'id_owner' => $this->session->userdata("id_login"),                                                
+                'id_owner' => $this->session->userdata("id_login"),                                                
                 'date_created_inv' => date("Y-m-d"),                                                
             );    
             $this->db->insert('job_inv', $data);

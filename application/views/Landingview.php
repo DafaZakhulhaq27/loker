@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Loker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/landing/images/APSI.png">
+    <title>PORTAL KERJA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -141,6 +142,17 @@
     border-top: 3px solid #115979
 }
 
+.darkenx {
+  background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.1), 
+          rgba(0, 0, 0, 0.1)
+        ),
+        /* bottom, image */
+        url(<?php echo base_url(); ?>assets/landing/images/bandara3.jpg) no-repeat center center fixed !important; 
+}
+
     </style>
   <?php
     $notif = $this->session->flashdata('notif');
@@ -152,7 +164,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">LOKER</a>
+        <a class="navbar-brand" href="<?php echo site_url('Landing') ?>"><img src="https://integraaps.apsintegra.co.id/wp-content/uploads/2020/03/APSI-copy.png" width="170"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -163,7 +175,7 @@
             <li class="nav-item"><a href="#carilowongan" class="nav-link">Cari Lowongan</a></li>  
              <li class="nav-item"><a href="#lowonganpremium" class="nav-link">Rekomendasi</a></li>             
             <li class="nav-item"><a href="#pasanglowongan" class="nav-link">Pasang Lowongan Kerja</a></li>
-            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-outline-secondary" >Login/Daftar</a></li>
+            <li class="nav-item"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap" class="btn btn-info" >Login/Daftar</a></li>
           </ul>
         </div>
       </div>
@@ -241,16 +253,16 @@
 
     <section class="home-slider ftco-degree-bg" id="beranda">
       <div class="slider-item">
-        <div class="overlay"></div>
+        <div class="overlay darkenx"></div>
         <div class="container">
           <div class="row slider-text align-items-center justify-content-center">
             <div class="col-md-10 ftco-animate text-center" style="margin-top: 20%">
-              <h1 class="mb-4">Cari Pekerjaan
-                <strong class="typewrite" data-period="4000" data-type='[ "Mudah.", "Cepat.", "Nggak Ribet."]'>
+              <h1 class="mb-4"> PORTAL
+                <strong class="typewrite" data-period="4000" data-type='[ "KERJA"]'>
                   <span class="wrap"></span>
                 </strong>
               </h1>
-              <p>Loker Adalah Website Penyedia daskdnkas dkas dkas dkasnd kas dnskajd naskd naskj </p>
+              <p></p>
               <p><a href="#carilowongan" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span> Ayo Mulai</a></p>
             </div>
           </div>
@@ -356,17 +368,17 @@
                       <div ><h3 class="heading"><a href="" data-toggle="modal" data-target="#login" data-whatever="@getbootstrap"><?php echo $d->title ?></a><h3></div>
                     </div >
                     <div >
-                                                <h5><?php echo $d->name ?></h5>
-                                                <i class="fas fa-map-marker-alt"></i> <?php echo $d->name_regencies  ?><br>
-                                                <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
-                                                <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
-                                                <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
-                                                <b>Clossing Date </b><?php echo $d->closing_date ?><br>
-                                                <b>Status Lowongan :</b><?php echo $d->status ?><br>
-                                              </p> 
+                              <h5><?php echo $d->name ?></h5>
+                              <i class="fas fa-map-marker-alt"></i> <?php echo $d->name_regencies  ?><br>
+                              <i class="fas fa-briefcase"></i> <?php echo $d->name_category ?><br>
+                              <i class="fas fa-comment-dollar"></i> <?php echo $d->salary ?> <br>
+                              <i class="fas fa-graduation-cap"></i> <?php echo $d->education ?><br>
+                              <b>Clossing Date </b><?php echo $d->closing_date ?><br>
+                              <b>Status Lowongan :</b><?php echo $d->status ?><br>
+                            </p> 
 
                   </div>
-                      <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div>                
+                      <div><a class="btn btn-sm btn-primary" target="_blank" href="<?php echo base_url(); ?>Landing/get_vacancy_by_id/<?php echo $d->id_vacancy ?>" >Selengkapnya </a></div>                       <!-- <div><a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#login" >Selengkapnya </a></div>  -->               
                   </div>
 
 
@@ -401,17 +413,17 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>
@@ -421,17 +433,17 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>
@@ -441,23 +453,23 @@
                 <div class="ribbon-wrapper">
                   <div class="ribbon blue">Premium</div>
                 </div>
-                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/adidas.jpg" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/landing/images/logo angpur.png" alt="Card image cap">
                 <div class="card-body">
                   <h3 class="card-title">Laravel Programmer</h3>
-                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Adidas</span>
+                  <span class="sub-title d-block mb-1" style="font-size: 20px; font-color: blue ">PT Angkasa Pura</span>
                   <p class="card-text">
                     <p style="font-color: grey"><i class="fas fa-map-marker-alt"></i> DKI Jakarta</p>
                     <p style="margin-top: -15px"><i class="fas fa-graduation-cap"></i> Min. S1</p>
                     <p style="margin-top: -15px"><i class="fas fa-comment-dollar"></i> <a href="#"> Login Lihat Gaji</a></p>
                     <p align="justify" style="margin-top: -17px">Job Responsibility : Building complete range of E-commerce Website : database, website layout design, programming.</p>
                   </p>
-                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+                  <a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>     
 
         </div>
-          <a href="#">Lihat semua lowongan <i class="fas fa-arrow-circle-right"></i></a>
+         <!--  <a href="#">Lihat semua lowongan <i class="fas fa-arrow-circle-right"></i></a> -->
         </div>
     </section>
 
@@ -485,13 +497,14 @@
 
 
 
+    
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-6">
-              <h2 class="ftco-heading-2">Loker</h2>
-              <p>dasd asd sa das das dasd as dasd as das das dd asd asd asd asd as dasd</p>
+              <h2 class="ftco-heading-2">Portal Kerja</h2>
+              <p>Penyediaan Tenaga Kerja Professional</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -502,11 +515,12 @@
 
           <div class="col-md">
              <div class="ftco-footer-widget mb-6">
-              <h2 class="ftco-heading-2">Contact Information</h2>
+              <h2 class="ftco-heading-2">PT Angkasa Pura Solusi Integra</h2>
+              <p>Area Perkantoran Terminal 1A Keberangkatan
+              Bandara Internasional Soekarno Hatta , Tangerang Banten  19120</p>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">alamat</a></li>
-                <li><a href="#" class="py-2 d-block">098312938123</a></li>
-                <li><a href="#" class="py-2 d-block">email@email.com</a></li>
+                <li><a href="#" class="py-2 d-block">info@apsintegra.co.id</a></li>
+                <li><a href="#" class="py-2 d-block">​www.apsintegra.co.id</a></li>
               </ul>
             </div>
           </div>

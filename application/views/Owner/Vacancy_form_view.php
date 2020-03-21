@@ -24,19 +24,19 @@
                                     <div class="card-body">
                                         <form action="<?php echo base_url('Owner/Vacancy/input_vacancy'); ?>" method="post" enctype="multipart/form-data" >
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Judul Lowongan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Judul Lowongan <span style="color:red">*</span></label>
                                                 <input name="title" type="text" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Deskripsi Pekerjaan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Deskripsi Pekerjaan <span style="color:red">*</span></label>
                                                 <textarea name="description" id="description" rows="5"  class="form-control" required></textarea>
                                             </div>                                                   
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Tanggal penutupan lowongan kerja (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Tanggal penutupan lowongan kerja <span style="color:red">*</span></label>
                                                 <input name="closing_date" type="date" class="form-control" required>
                                             </div>     
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Syarat Pendidikan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Syarat Pendidikan <span style="color:red">*</span></label>
                                                 <select name="education" id="education" class="form-control" required>
                                                     <option value="SMA / SMK / STM">SMA / SMK / STM</option>
                                                     <option value="Diploma / D1 / D2 / D3">Diploma / D1 / D2 / D3</option>
@@ -47,7 +47,7 @@
                                                 </select>
                                             </div>
                                         <div class="form-group" >
-                                            <label class="control-label mb-1" >Kategori (Wajib Diisi)</label>
+                                            <label class="control-label mb-1" >Kategori <span style="color:red">*</span></label>
                                             <select name="category" id="category"  class=" form-control js-example-basic-single" required>
                                             <option value="">-- Pilih Category --</option>
                                             <?php
@@ -59,23 +59,23 @@
                                             </select>
                                         </div>                                            
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Syarat Pengalaman (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Syarat Pengalaman <span style="color:red">*</span></label>
                                                 <textarea name="req_exp" id="req_exp" rows="5"  class="form-control" required></textarea>
                                             </div>                                             
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Keahlian (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Keahlian <span style="color:red">*</span></label>
                                                 <textarea name="skill" id="skill" rows="5"  class="form-control" required></textarea>
                                             </div>   
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Kualifikasi (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Kualifikasi <span style="color:red">*</span></label>
                                                 <textarea name="req_qualification" id="req_qualification" rows="5"  class="form-control" required></textarea>
                                             </div>    
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Tunjangan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Tunjangan <span style="color:red">*</span></label>
                                                 <textarea name="insentif" id="insentif" rows="5"  class="form-control" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Level Posisi Pekerjaan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Level Posisi Pekerjaan <span style="color:red">*</span></label>
                                                 <select name="position" id="position" class="form-control" required>
                                                     <option value="Manager / CEO">GM / CEO</option>
                                                     <option value="Fresh Graduate">Fresh Graduate</option>
@@ -85,7 +85,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Gaji (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Gaji <span style="color:red">*</span></label>
                                                 <select name="salary" id="salary" class="form-control" required>
                                                     <option value=" > 10jt"> > 10jt</option>
                                                     <option value="5 - 10 jt">5 - 10 jt</option>
@@ -95,11 +95,11 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Waktu Bekerja (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Waktu Bekerja <span style="color:red">*</span></label>
                                                 <input name="work_time" type="text" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label mb-1">Tipe Pekerjaan (Wajib Diisi)</label>
+                                                <label class="control-label mb-1">Tipe Pekerjaan <span style="color:red">*</span></label>
                                                 <select name="tipe_worker" id="tipe_worker" class="form-control" required>
                                                     <option value="Freelance">Freelance</option>
                                                     <option value="Tetap">Tetap</option>
@@ -110,7 +110,7 @@
                                             </div>
                                     <div class="row">
                                         <div class="form-group col-lg-3 col-md-6">
-                                            <label class="control-label mb-1">Provinsi (Wajib Diisi)</label>
+                                            <label class="control-label mb-1">Provinsi <span style="color:red">*</span></label>
                                             <select name="provinsi" id="provinsi" class=" form-control js-example-basic-single" onchange="get_kab(this.value)" required>
                                             <option value="">-- Pilih Provinsi --</option>
 
@@ -123,7 +123,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3 col-md-6">
-                                            <label class="control-label mb-1">Kabupaten / Kota (Wajib Diisi)</label>
+                                            <label class="control-label mb-1">Kabupaten / Kota <span style="color:red">*</span></label>
                                             <select name="kabupaten" id="kabupaten" class="form-control js-example-basic-single" onchange="get_kec(this.value)" required> 
                                                  <option value="">-- Pilih Kabupaten --</option>
                                             </select>
@@ -140,10 +140,15 @@
                                                  <option value="">-- Pilih Desa --</option>
                                             </select>
                                         </div>
-                                            <div class="col-md-4">
+                                        <div class="form-group col-lg-3 col-md-6">
+                                            <label class="control-label mb-1">Jadikan Iklan Premium </label>
+                                            <input name="premium" value="1" type="checkbox">
+                                        </div> <br>
+                                                                              
+                                    </div>  
+                                    <div class="col-md-4">
                                                <input class="btn btn-lg btn-info btn-block" type="submit" name="submit" value="Simpan">
-                                            </div>                                        
-                                    </div>      
+                                            </div>      
                                 </form>
                                     </div>
                                 </div>

@@ -29,7 +29,7 @@
                                     <th>'.$d->name_category.'</th>                                 
                                     <td>
                                             <div class="col-lg-12 col-md-2">
-                                                      <a  type="button" class="btn btn-danger" style="color : white ;" href="'.base_url().'Admin/Data_category/delete_category/'.$d->id_category.'"> <i class="menu-icon fa fa-times"></i> </a>
+                                                      <a  type="button" class="btn btn-danger" style="color : white ;" href="'.base_url().'Admin/Data_Category/delete_category/'.$d->id_category.'"> <i class="menu-icon fa fa-times"></i> </a>
                                                       <a  type="button" class="btn btn-primary" style="color : white ;" onclick="change_category('.$d->id_category.')" data-toggle="modal" data-target="#modal_ubah"> <i class="menu-icon fa fa-pencil"></i> </a>
 
                                             </div>
@@ -57,7 +57,7 @@
 <div class="modal fade" id="modal_add" tabindex="-1" role="dialog" ari-labelleadby="modal_addLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="<?php echo base_url('Admin/Data_category/input_category'); ?>" enctype="multipart/form-data" method="post" >
+            <form action="<?php echo base_url('Admin/Data_Category/input_category'); ?>" enctype="multipart/form-data" method="post" >
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal_addLabel">Tambah Category</h4>
                 </div>
@@ -85,7 +85,7 @@
   <div class="modal fade" id="modal_ubah" tabindex="-1" role="dialog" ari-labelleadby="modal_addLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="<?php echo base_url('Admin/Data_category/change_category'); ?>" enctype="multipart/form-data" method="post" >
+            <form action="<?php echo base_url('Admin/Data_Category/change_category'); ?>" enctype="multipart/form-data" method="post" >
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal_addLabel">Ubah Category</h4>
                 </div>

@@ -6,7 +6,8 @@ class Job_inv extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Worker/M_jobinv');						
+        $this->load->model('Worker/M_jobinv');	
+        $this->load->model('M_master');						
 	}
 
 	public function index()

@@ -24,7 +24,7 @@
                                     <div class="row form-group">
                                          <div class="col-lg-4 col-md-9">
                                             <select name="category" id="category"  class=" form-control js-example-basic-single" >
-                                            <option value="">Pilih Category</option>
+                                            <option value="">Pilih Kategori</option>
                                             <?php
                                                 $no = 0;
                                                 foreach ($data_category as $d) {

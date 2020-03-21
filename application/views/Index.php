@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang=""> 
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Loker</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/landing/images/APSI.png">
+    <title>Portal Kerja</title>
     <meta name="description" content="Loker">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -186,7 +187,7 @@
                                     <a href="'.base_url().'Admin/Data_user"><i class="menu-icon fa fa-user"></i>Data Pengguna </a>
                                 </li>
                                 <li'; if($this->uri->segment(2) == 'Data_Category'){echo ' class="active"' ; }echo'>
-                                    <a href="'.base_url().'Admin/Data_Category"><i class="menu-icon fa fa-circle"></i>Data Category </a>
+                                    <a href="'.base_url().'Admin/Data_Category"><i class="menu-icon fa fa-circle"></i>Data Kategori </a>
                                 </li> 
                                 <li'; if($this->uri->segment(2) == 'Data_sector'){echo ' class="active"' ; }echo'>
                                     <a href="'.base_url().'Admin/Data_sector"><i class="menu-icon fa fa-circle"></i>Data Bidang Usaha </a>
@@ -218,7 +219,14 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><strong>Loker</strong></a>
+                    <?php if ($this->session->userdata('level') == '2') { ?>
+                       <a class="navbar-brand" href="<?php echo site_url('Owner/Dashboard_owner') ?>"><strong>Portal Kerja</strong></a> 
+                    <?php } elseif ($this->session->userdata('level') == '1') { ?>
+                        <a class="navbar-brand" href="<?php echo site_url('Worker/Dashboard_worker') ?>"><strong>Portal Kerja</strong></a>
+                    <?php } else { ?>
+                        <a class="navbar-brand" href="<?php echo site_url('Admin/Data_user') ?>"><strong>Portal Kerja</strong></a>
+                    <?php } ?>
+                    
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -242,7 +250,7 @@
                                     <div class="dropdown-menu" aria-labelledby="message">'  ; 
                                     foreach ($notif as $q ) {
                                         echo '
-                                        <a class="dropdown-item media" href="'.base_url().'Owner/Vacancy/read/'.$q->id_login.'">
+                                        <a class="dropdown-item media" href="'.base_url().'Owner/Vacancy/read/'.$q->id_apllied_vacancy.'">
                                             <span class="photo media-left"><img alt="avatar" src="'.base_url().'assets/admin/images/'.$q->picture.'"></span>
                                             <div class="message media-body">
                                                 <span class="name float-left">'.$q->name.'</span>
@@ -328,7 +336,10 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto">
+                            <?php if ($this->M_master->getLoginByID($this->session->userdata('id_login'))->picture != "") { ?>
+                                <img src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->M_master->getLoginByID($this->session->userdata('id_login'))->picture ?>" alt="user" class="user-avatar rounded-circle" />
+                                <!-- <img class="user-avatar rounded-circle" src="<?php echo base_url(); ?>assets/admin/images/<?php echo $this->session->userdata('picture') ; ?>" alt="foto"> -->
+                            <?php } ?>
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -359,13 +370,8 @@
         
         <!-- Header-->
       <?php
-          $this->load->view($main_view);
+          $this->load->view($main_view, TRUE);
       ?>
-
-
-
-
-
 
 <!-- CONTENT -->
 
@@ -377,7 +383,7 @@
         <div class="footer-inner bg-white">
             <div class="row">
                 <div class="col-sm-6">
-                    loker || 2020
+                    Copyright || 2020
                 </div>
             </div>
         </div>
@@ -404,17 +410,18 @@
 
         jQuery.getJSON('<?php echo base_url() ; ?>Owner/Vacancy/get_apllied_vacancy/'+id, function(data){
             jQuery.each(data, function(index,value){
-                jQuery('#data_app').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'/'+value.id_apllied_vacancy+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td><a  href="<?php echo base_url() ?>Owner/Vacancy/accept_app/'+value.id_apllied_vacancy+'/'+value.email+'" class="btn btn-success"  style="color : white ;" >Terima </a></td></tr>');
+                jQuery('#data_app').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'/'+value.id_apllied_vacancy+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td><a  href="<?php echo base_url() ?>Owner/Vacancy/accept_app/'+value.id_apllied_vacancy+'" class="btn btn-success"  style="color : white ;" >Terima </a></td></tr>');
             })
         });
     } 
+    
     function get_app_acc(id)
     {
         jQuery('#data_app_acc').empty();
 
         jQuery.getJSON('<?php echo base_url() ; ?>Owner/Vacancy/get_apllied_vacancy_acc/'+id, function(data){
             jQuery.each(data, function(index,value){
-                jQuery('#data_app_acc').append('<tr><th scope="row">1</th><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td><td></td></tr>');
+                jQuery('#data_app_acc').append('<tr><td>'+value.name+'</td><td><a  target="_blank" href="<?php echo base_url() ?>Owner/Vacancy/get_resume_app/'+value.id_login+'" class="btn btn-primary"  style="color : white ;">Lhat Resume</a></td></tr>');
             })
         });
     }             
@@ -568,13 +575,15 @@
           }
         });       
 
-    }     
+    }    
+
     function invite_worker(id)
     {
         jQuery('#id_login').empty();
         jQuery('#id_login').val(id);
           
-    }     
+    }    
+     
     function upload_payment(id)
     {
         jQuery('#id_paket').empty();
@@ -607,7 +616,7 @@
             jQuery('#skill').text(data.skill);
             jQuery('#req_qualification').text(data.req_qualification);
             jQuery('#insentif').text(data.insentif);
-            jQuery('#work_time').val(data.work_time);            
+            jQuery('#work_time').val(data.work_time);       
             jQuery('#lokasi').val(data.name_provinces + " , " + data.name_regencies + " , " + data.name_districts + " , " + data.name_villages);
             jQuery('#education option').filter(function () { return jQuery(this).val() == data.education }).attr('selected', true);
             jQuery('#category option').filter(function () { return jQuery(this).val() == data.category }).attr('selected', true);

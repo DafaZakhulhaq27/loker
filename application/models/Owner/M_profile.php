@@ -130,7 +130,16 @@ class M_profile extends CI_Model{
     {
         return $this->db->get('sector')
                         ->result();
-    }   
+    } 
+
+    function getSectorByID($id)
+    {
+        $this->db->select('*');
+        $this->db->where('id_sector',$id);
+        $query = $this->db->get('sector');
+        return $query->row();
+
+    }  
   // GET DROPDOWN
 
 
